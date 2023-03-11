@@ -1,5 +1,6 @@
 var square = document.getElementById("square")
 
+
 function mouseEnter() {
     square.style.backgroundColor = "blue"
 }
@@ -13,16 +14,18 @@ function dblClick(){
     square.style.backgroundColor = "green"
 }
 function wheel(){
-    document.body.style.backgroundColor = "orange"
+    square.style.backgroundColor = "orange"
 }
 function keyPress(){
-    square.style.backgroundColor = "red"
+    if (key == "r") {
+        square.style.backgroundColor = "red"
+    }
 }
 
 
-square.addEventListener("mouseEnter", mouseEnter)
-square.addEventListener("mouseDown", mouseDown)
-square.addEventListener("mouseUp", mouseUp)
-square.addEventListener("dblClick", dblClick)
-square.addEventListener("wheel", wheel)
-square.addEventListener("keyPress", keyPress)
+square.addEventListener("mouseenter", mouseEnter)
+square.addEventListener("mousedown", mouseDown)
+square.addEventListener("mouseup", mouseUp)
+square.addEventListener("dblclick", dblClick)
+document.body.addEventListener("wheel", wheel)
+square.addEventListener("keydown", keyPress)
