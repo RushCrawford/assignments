@@ -16,11 +16,8 @@ function dblClick(){
 function wheel(){
     square.style.backgroundColor = "orange"
 }
-function keyPress(){
-    if (key == "r") {
-        square.style.backgroundColor = "red"
-    }
-}
+
+
 
 
 square.addEventListener("mouseenter", mouseEnter)
@@ -28,4 +25,21 @@ square.addEventListener("mousedown", mouseDown)
 square.addEventListener("mouseup", mouseUp)
 square.addEventListener("dblclick", dblClick)
 document.body.addEventListener("wheel", wheel)
-square.addEventListener("keydown", keyPress)
+document.addEventListener('keydown', (event) => {
+  //  var name = event.key;
+   // var code = event.code;
+    if (event.code === "KeyR") {
+        square.style.backgroundColor = "red"
+    }   if (event.code === "KeyO") {
+        square.style.backgroundColor = "orange"
+    }   if (event.code === "KeyY") {
+        square.style.backgroundColor = "yellow"
+    }   if (event.code === "KeyG") {
+        square.style.backgroundColor = "green"
+    }   if (event.code === "KeyB") {
+        square.style.backgroundColor = "blue"
+    }   else {
+      //alert(`Key pressed ${name} \n Key code Value: ${code}`);
+    }
+  }, false);
+  
