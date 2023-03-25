@@ -40,3 +40,8 @@
     margin-bottom: 10px;
     text-align: center;
 }
+
+#liEle {
+    flex-direction: column;
+    display: flex;
+}
