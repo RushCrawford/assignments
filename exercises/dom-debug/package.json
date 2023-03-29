@@ -1,0 +1,12 @@
+{
+  "name": "dom-debug",
+  "version": "1.0.0",
+  "description": "This project is SUPPOSED TO be able to add items to the list.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}

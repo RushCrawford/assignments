@@ -15,7 +15,6 @@ div.textContent = name
 x.textContent = "X"
 edit.setAttribute("id", "edit"+index)
 div.setAttribute("id", "div"+index)
-//let newLi = document.createElement("li")
 div.append(edit, x)
 
 document.getElementById("list").append(div)
