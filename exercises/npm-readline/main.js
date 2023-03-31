@@ -8,13 +8,13 @@ let quotient = num1/num2;
 let difference = num1-num2;
 
 if (operation == "add") {
-  console.log(sum);
+  console.log("The result is " + sum);
 } else if (operation == "sub") {
-  console.log(difference);
+  console.log("The result is " + difference);
 } else if (operation == "mul") {
-  console.log(product);
+  console.log("The result is " + product);
 } else if (operation == "div") {
-  console.log(quotient);
+  console.log("The result is " + quotient);
 } else {
     console.log("Input not recognized. Try again.")
 }
