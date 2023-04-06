@@ -16,17 +16,52 @@ for (var i = 0; i < fruit.length; i++) {
 
 //BRONZE
 
-let numArray = []
+/*let numArray = []
 for (var i = 0; i < 10; i++) {
-    let numArray = i
-    numArray.i
+    numArray.push(i)
     console.log(numArray)
-}
+}*/
 
 /*for (var i = 0; i <= 100; i++) {
     if (i % 2 === 0)
     console.log(i)
 }*/
 
+/*const fruit = ["banana", "orange", "apple", "kiwi", "pear", "peach"]
+for (var i = 0; i < fruit.length; i += 2) {
+    console.log(fruit[i])
+}*/
 
+//SILVER
 
+const peopleArray = [
+    {
+      name: "Harrison Ford",
+      occupation: "Actor"
+    },
+    {
+      name: "Justin Bieber",
+      occupation: "Singer"
+    },
+    {
+      name: "Vladimir Putin",
+      occupation: "Politician"
+    },
+    {
+      name: "Oprah",
+      occupation: "Entertainer"
+    }
+  ]
+
+  //1
+  /*for (var i = 0; i < peopleArray.length; i++) {
+    console.log(peopleArray[i].name)
+  }*/
+
+  //2
+  let names = []
+  let occupations = []
+  for (var i = 0; i < peopleArray.length; i++) {
+    names.name.push(i)
+    console.log(names)
+  }
