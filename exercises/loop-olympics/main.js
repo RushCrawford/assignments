@@ -59,9 +59,21 @@ const peopleArray = [
   }*/
 
   //2
+  /*let names = []
+  let occupations = []
+  for (var i = 0; i < peopleArray.length; i++) {
+    names.push(peopleArray[i].name)
+    occupations.push(peopleArray[i].occupation)
+  }
+  console.log(names, occupations)*/
+
+//3
   let names = []
   let occupations = []
   for (var i = 0; i < peopleArray.length; i++) {
-    names.name.push(i)
-    console.log(names)
+    names.push(peopleArray[i].name)
+    occupations.push(peopleArray[i].occupation)
   }
+  console.log(names, occupations)
+
+  
