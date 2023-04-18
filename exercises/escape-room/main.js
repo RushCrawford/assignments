@@ -25,8 +25,7 @@ function startOver (){
         :
         action === "chest" ? (console.log(`You walk to the chest and inspect it. The top is stuck shut but with some effort it pops open. On the bottom of the chest there is "I" drawn in blood.`), startOver())
         :
-        action === "keypad" ? console.log("It looks like it requires a three digit pin, you'll need to put them in in the correct order.")
-        && keyFunc()
+        action === "keypad" ? (console.log("It looks like it requires a three digit pin, you'll need to put them in in the correct order."), keyFunc())
         :
         console.log("Please enter valid answer.")
         
