@@ -3,58 +3,114 @@
     font-size: 0px;
 }   
 
-
-.pink{
-    border: 5px solid white;
+#pink{
+    border: 1px solid white;
     background-color: #F5C6D6;
-    height: 50px;
-    width: 50px;
+    height: 70px;
+    width: 100%;
 }
 #magenta1{
-    border: 5px solid white;
+    border: 1px solid white;
     background-color: #EE2E84;
-    height: 50px;
-    width: 50px;
+    height: 70px;
+    width: 100%;
 }
 #magenta2{
-    border: 5px solid white;
+    border: 1px solid white;
     background-color: #EE2E84;
-    height: 50px;
-    width: 50px;
+    height: 70px;
+    width: 100%;
 }
 #magenta3{
-    border: 5px solid white;
+    border: 1px solid white;
     background-color: #EE2E84;
-    height: 50px;
-    width: 50px;
+    height: 70px;
+    width: 100%;
 }
 #magenta4{
-    border: 5px solid white;
+    border: 1px solid white;
     background-color: #EE2E84;
-    height: 50px;
-    width: 50px;
+    height: 70px;
+    width: 100%;
 }
 #blue1{
-    border: 5px solid white;
+    border: 1px solid white;
     background-color: #85CFD8;
-    height: 50px;
-    width: 50px;
+    height: 70px;
+    width: 100%;
 }
 #blue2{
-    border: 5px solid white;
+    border: 1px solid white;
     background-color: #85CFD8;
-    height: 50px;
-    width: 50px;
+    height: 70px;
+    width: 100%;
 }
 #green{
-    border: 5px solid white;
+    border: 1px solid white;
     background-color: #8DC63F;
-    height: 50px;
-    width: 50px;
+    height: 70px;
+    width: 100%;
 }
 #orange{
-    border: 5px solid white;
+    border: 1px solid white;
     background-color: #E76E34;
-    height: 50px;
-    width: 50px;
+    height: 70px;
+    width: 100%;
+}
+
+@media (max-width: 768px){
+    #pink{
+    border: 1px solid white;
+    background-color: #F5C6D6;
+    height: 70px;
+    width: 100%;
+    }
+    #magenta1{
+    border: 1px solid white;
+    background-color: #EE2E84;
+    height: 70px;
+    width: 100%;
+    }
+    #magenta2{
+    border: 1px solid white;
+    background-color: #EE2E84;
+    height: 70px;
+    width: 100%;
+    }
+    #magenta3{
+    border: 1px solid white;
+    background-color: #EE2E84;
+    height: 70px;
+    width: 100%;
+    }
+    #magenta4{
+    border: 1px solid white;
+    background-color: #EE2E84;
+    height: 70px;
+    width: 100%;
+    }
+    #blue1{
+    border: 1px solid white;
+    background-color: #85CFD8;
+    height: 70px;
+    width: 100%;
+    }
+    #blue2{
+    border: 1px solid white;
+    background-color: #85CFD8;
+    height: 70px;
+    width: 100%;
+    }
+    #green{
+    border: 1px solid white;
+    background-color: #8DC63F;
+    height: 70px;
+    width: 100%;
+    }
+    #orange{
+    border: 1px solid white;
+    background-color: #E76E34;
+    height: 70px;
+    width: 100%;
+    }
 }
