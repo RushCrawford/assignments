@@ -84,3 +84,45 @@ html, body {
 
 }
 
+@media (min-width: 769px){
+    #container{
+        display: grid;
+        grid-template-columns:repeat(4, 1fr) ;
+        gap: 5px;
+    }
+    #header{
+        font-size: 22px;
+        background-color: rgb(30, 255, 131);
+        text-align: center;
+        height: 50px;
+        grid-column: 1/5;
+    }
+    #side{
+        font-size: 16px;
+        background-color: dodgerblue;
+        text-align: center;
+        height: auto;
+    }
+    #par{
+        font-size: 25px;
+        background-color: rgb(162, 167, 122);
+        text-align: center;
+        height: 80px;
+        grid-column: 2/4;
+    }
+    #side2{
+        font-size: 16px;
+        background-color: dodgerblue;
+        text-align: center;
+        height: auto;
+        grid-column: 4/5;
+    }
+    #footer{
+        font-size: 22px;
+        background-color: rgb(41, 53, 64);
+        text-align: center;
+        height: 50px;
+        grid-column: 1/5;
+    }
+
+}
