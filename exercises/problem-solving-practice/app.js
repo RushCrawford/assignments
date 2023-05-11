@@ -1,7 +1,12 @@
-let array = [-13, 40, 3, 0, 19, 22]
+let arr = [4, 5, 6, 7, 8, 9, 10, 87];
+temp = 0;
 
-function largestNum(){
-    for (var i = 0; i < array.length; i++) {
+arr.forEach((element) => {
+  if (temp < element) {
+    temp = element;
+  }
+});
 
-    }
-}
+console.log(`The largest number in the array: ${temp}`);
+
+
