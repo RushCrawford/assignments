@@ -3,24 +3,27 @@ let hp = 50
 let inventory = []
 
 const name = readline.question('What is your name? ')
-console.log(`Welcome to the game ${name}. You are a mouse. Your goal is to get to the cheese at the center of the maze. There are enemies to avoid so beware!`)
+console.log(`Welcome to the game ${name}. You are a mouse. Your goal is to get to the cheese at the center of the maze. There are enemies to avoid so beware!`)*/
 
-const walk = function w(min, max) {
-    return Math.floor(Math.random() * (max - min + 1) ) + min;
-  }*/
-
-function Enemy (name, attack, health) {
+function Enemy(name, attack, health, tracker){
   this.name = name
   this.attack = attack
   this.heatlh = health
+  this.tracker = tracker
 }
-const cat = new Enemy("Tom Cat", "Claws of Death", 50)
-const snake = new Enemy("Jake the Snake", "Jaws of Death", 50)
-const mousetrap = new Enemy("Cheese Wedge", "Sudden Snap", 50)
+const cat = new Enemy("Tom Cat", "Claws of Death", 50, 1)
+const snake = new Enemy("Jake the Snake", "Jaws of Death", 50, 2)
+const mousetrap = new Enemy("Cheese Wedge", "Sudden Snap", 50, 3)
 
 let enemies = [cat, snake, mousetrap]
+let d3 = Math.floor(Math.random() * 4) +1;
+let d20 = Math.floor(Math.random() * 21) +1;
 
-console.log(enemies)
+for(var i = 0; i < enemies.length; i++){
+  cat.tracker === d3.valueOf ?? console.log("battle time")
+}
+
+console.log(d3)
 /*function startOver (){
   const sentence = "(Enter w to walk.)"
   const action = readline.question(sentence)
