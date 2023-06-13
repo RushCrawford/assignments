@@ -1,51 +1,56 @@
 const readline = require('readline-sync');
-let hp = 50
+let stamina = 100
 let inventory = ["gun"]
-
-//const name = readline.question('What is your name? ')
-//console.log(`Welcome to the game ${name}. You are a mouse. Your goal is to get to the cheese at the center of the maze. There are enemies to avoid so beware!`)
-
+const name = readline.question('What is your name? ')
+console.log(`Welcome to the game ${name}. You are a mouse. Your goal is to get to the cheese kept in the kitchen. There are several items that you will need to collect in order to achieve this goal. This house is full of dangers so beware!`)
 function stats(){
-  console.log( hp, inventory)
+  console.log( stamina, inventory)
 }
-function fight(){
-  //having trouble getting the math.random funciton to the pull enemies.
-  let enemyGenerator = Math.floor(Math.random() * 11) +1;
-  enemyGenerator === 1 ? cat
-  :
-  enemyGenerator === 2 ? snake
-  :
-  enemyGenerator === 3 ? mousetrap
-  :
-  
+while(stamina > 0){
+  walk()
+}
+function Enemy(name, attack, number){
+  this.name = name
+  this.attack = attack
+  this.number = number
+}
+function Trap(name, attack, number){
+  this.name = name
+  this.attack = attack
+  this.number = number
+}
 
+const cat = new Enemy("Tom Cat", "Claws of Death", 1)
+const snake = new Enemy("Jake the Snake", "Jaws of Death", 2)
+const snapTrap = new Trap("Mousetrap", "Sudden Snap", 3)
+const stickyTrap = new Trap("Tar Pit", "Icky Sticky Stuff", 4)
+
+
+function encounter(){
+  //having trouble getting the math.random funciton to the pull enemies.
+  let encounterGenerator = Math.floor(Math.random() * 11) +1;
+  encounterGenerator === 1 ? cat
+  :
+  encounterGenerator === 2 ? snake
+  :
+  encounterGenerator === 3 ? snapTrap
+  :
+  encounterGenerator === 4 ? stickyTrap
+  :
+  console.log('Looks like the coast is clear for now, but proceed carefully.')
 }
+
 function walk(){
   const walkPrompt = readline.question("(w) to walk, (p) to check status")
-  walkPrompt === "w" ? fight()
+  walkPrompt === "w" ? encounter()
   :
   walkPrompt === "p" ?? stats()
 }
 
-function Enemy(name, attack, health, number){
-  this.name = name
-  this.attack = attack
-  this.heatlh = health
-  this.number = number
-}
-const cat = new Enemy("Tom Cat", "Claws of Death", 50, 1)
-const snake = new Enemy("Jake the Snake", "Jaws of Death", 50, 2)
-const mousetrap = new Enemy("Mousetrap", "Sudden Snap", 50, 3)
 
-let enemies = [cat, snake, mousetrap]
-let d3 = Math.floor(Math.random() * 4) +1;
-let d20 = Math.floor(Math.random() * 21) +1;
 
-for(var i = 0; i < enemies.length; i++){
-  cat.tracker === d3.valueOf ?? console.log("battle time")
-}
 
-console.log(stats())
+
 /*function startOver (){
   const sentence = "(Enter w to walk.)"
   const action = readline.question(sentence)
