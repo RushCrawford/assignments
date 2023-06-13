@@ -1,19 +1,41 @@
-/*const readline = require('readline-sync');
+const readline = require('readline-sync');
 let hp = 50
-let inventory = []
+let inventory = ["gun"]
 
-const name = readline.question('What is your name? ')
-console.log(`Welcome to the game ${name}. You are a mouse. Your goal is to get to the cheese at the center of the maze. There are enemies to avoid so beware!`)*/
+//const name = readline.question('What is your name? ')
+//console.log(`Welcome to the game ${name}. You are a mouse. Your goal is to get to the cheese at the center of the maze. There are enemies to avoid so beware!`)
 
-function Enemy(name, attack, health, tracker){
+function stats(){
+  console.log( hp, inventory)
+}
+function fight(){
+  //having trouble getting the math.random funciton to the pull enemies.
+  let enemyGenerator = Math.floor(Math.random() * 11) +1;
+  enemyGenerator === 1 ? cat
+  :
+  enemyGenerator === 2 ? snake
+  :
+  enemyGenerator === 3 ? mousetrap
+  :
+  
+
+}
+function walk(){
+  const walkPrompt = readline.question("(w) to walk, (p) to check status")
+  walkPrompt === "w" ? fight()
+  :
+  walkPrompt === "p" ?? stats()
+}
+
+function Enemy(name, attack, health, number){
   this.name = name
   this.attack = attack
   this.heatlh = health
-  this.tracker = tracker
+  this.number = number
 }
 const cat = new Enemy("Tom Cat", "Claws of Death", 50, 1)
 const snake = new Enemy("Jake the Snake", "Jaws of Death", 50, 2)
-const mousetrap = new Enemy("Cheese Wedge", "Sudden Snap", 50, 3)
+const mousetrap = new Enemy("Mousetrap", "Sudden Snap", 50, 3)
 
 let enemies = [cat, snake, mousetrap]
 let d3 = Math.floor(Math.random() * 4) +1;
@@ -23,7 +45,7 @@ for(var i = 0; i < enemies.length; i++){
   cat.tracker === d3.valueOf ?? console.log("battle time")
 }
 
-console.log(d3)
+console.log(stats())
 /*function startOver (){
   const sentence = "(Enter w to walk.)"
   const action = readline.question(sentence)
