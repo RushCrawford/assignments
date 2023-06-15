@@ -29,7 +29,7 @@ const stickyTrap = new Trap("Tar Pit", "Icky Sticky Stuff", 4)
 function encounter(){
   //having trouble getting the math.random funciton to the pull enemies.
   let encounterGenerator = Math.floor(Math.random() * 11) +1;
-  encounterGenerator === 1 ? cat
+  encounterGenerator === 1 ? fight(cat)
   :
   encounterGenerator === 2 ? snake
   :
@@ -45,6 +45,10 @@ function walk(){
   walkPrompt === "w" ? encounter()
   :
   walkPrompt === "p" ?? stats()
+}
+
+function fight(){
+
 }
 
 
