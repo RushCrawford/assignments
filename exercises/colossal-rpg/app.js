@@ -48,9 +48,21 @@ function walk(){
 }
 
 function fight(){
-
+  const fightPrompt = readline.question("(r) to run away, (s) to sneak by, (h) to hide")
+  fightPrompt === "r" ? 
+  :
+  fightPrompt === "s" ?
 }
 
+function chase(){
+  let dash = Math.floor(Math.random() * 11) +1;
+  //write in increased escape chance if smoke bomb is in inventory
+  dash <= 5 ? 
+}
+
+function escape(){
+  console.log("That was a close one! Keep an eye on your stamina, too many encounters and you might fall asleep on the job!")
+}
 
 
 
