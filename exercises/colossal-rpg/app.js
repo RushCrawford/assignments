@@ -1,6 +1,6 @@
 const readline = require('readline-sync');
 let stamina = 100
-let inventory = ["gun"]
+let inventory = ["Smoke Bomb", "Oil Packet"]
 const name = readline.question('What is your name? ')
 console.log(`Welcome to the game ${name}. You are a mouse. Your goal is to get to the cheese kept in the kitchen. There are several items that you will need to collect in order to achieve this goal. This house is full of dangers so beware!`)
 function stats(){
@@ -29,7 +29,7 @@ const stickyTrap = new Trap("Tar Pit", "Icky Sticky Stuff", 4)
 function encounter(){
   //having trouble getting the math.random funciton to the pull enemies.
   let encounterGenerator = Math.floor(Math.random() * 11) +1;
-  encounterGenerator === 1 ? fight(cat)
+  encounterGenerator === 1 ? fight()
   :
   encounterGenerator === 2 ? snake
   :
@@ -48,16 +48,16 @@ function walk(){
 }
 
 function fight(){
+  //need to put in message about what has appeared and then give options of what to do
   const fightPrompt = readline.question("(r) to run away, (s) to sneak by, (h) to hide")
-  fightPrompt === "r" ? 
-  :
-  fightPrompt === "s" ?
+  fightPrompt === "r" ?? chase()
+  
 }
 
 function chase(){
   let dash = Math.floor(Math.random() * 11) +1;
   //write in increased escape chance if smoke bomb is in inventory
-  dash <= 5 ? 
+  dash <= 5 ?? escape()
 }
 
 function escape(){
