@@ -1,51 +1,57 @@
 const readline = require('readline-sync');
-let stamina = 100
-let inventory = ["Smoke Bomb", "Oil Packet"]
-const name = readline.question('What is your name? ')
-console.log(`Welcome to the game ${name}. You are a mouse. Your goal is to get to the cheese kept in the kitchen. There are several items that you will need to collect in order to achieve this goal. This house is full of dangers so beware!`)
-function stats(){
-  console.log( stamina, inventory)
-}
-while(stamina > 0){
-  walk()
-}
-function Enemy(name, attack, number){
-  this.name = name
-  this.attack = attack
-  this.number = number
-}
-function Trap(name, attack, number){
-  this.name = name
-  this.attack = attack
-  this.number = number
+let health = 100
+let inventory = ["Health Potion", "Steel Short Sword"]
+
+function printStatus(){
+  console.log(health, inventory)
 }
 
-const cat = new Enemy("Tom Cat", "Claws of Death", 1)
-const snake = new Enemy("Jake the Snake", "Jaws of Death", 2)
-const snapTrap = new Trap("Mousetrap", "Sudden Snap", 3)
-const stickyTrap = new Trap("Tar Pit", "Icky Sticky Stuff", 4)
+const name = readline.question('What is your name? ') 
+console.log(`Welcome to the game ${name}. You are an explorer who has been given knowledge of a hidden treasure in the deepest part of a dangerous dungeon. The dungeon is located inside a cave at the base of a skull shaped hill. After making your way through a dark and creepy forest, you find yourself standing before the open maw of the skull shaped hill. You take a deep breath and enter the dark, dangerous cave.`)
+
+while(health > 0){
+walk()
+}
+
+function walk(){
+  const walkPrompt = readline.question("(w) to walk, (p) to check status.  ")
+  walkPrompt === "w" ? encounter()
+  :
+  walkPrompt === "p" ?? printStatus()
+}
+
+
+
+function Enemy(name, attack, number, health){
+  this.name = name
+  this.attack = attack
+  this.number = number
+  this.health = health
+}
+
+const troll = new Enemy("Cave Troll", "Club", 1)
+const giantSpider = new Enemy("Giant Spider", "Jaws of Death", 2)
+const umberhulk = new Enemy("Umberhulk", "Sudden Snap", 3)
+const skeleton = new Enemy("Animated Skeleton", "Icky Sticky Stuff", 4)
+
+
 
 
 function encounter(){
   //having trouble getting the math.random funciton to the pull enemies.
   let encounterGenerator = Math.floor(Math.random() * 11) +1;
-  encounterGenerator === 1 ? fight()
+  encounterGenerator === 1 ? console.log(troll.name)
   :
-  encounterGenerator === 2 ? snake
+  encounterGenerator === 2 ? console.log(giantSpider.name)
   :
-  encounterGenerator === 3 ? snapTrap
+  encounterGenerator === 3 ? console.log(umberhulk.name)
   :
-  encounterGenerator === 4 ? stickyTrap
+  encounterGenerator === 4 ? console.log(skeleton.name)
   :
   console.log('Looks like the coast is clear for now, but proceed carefully.')
 }
 
-function walk(){
-  const walkPrompt = readline.question("(w) to walk, (p) to check status")
-  walkPrompt === "w" ? encounter()
-  :
-  walkPrompt === "p" ?? stats()
-}
+
 
 function fight(){
   //need to put in message about what has appeared and then give options of what to do
@@ -61,7 +67,7 @@ function chase(){
 }
 
 function escape(){
-  console.log("That was a close one! Keep an eye on your stamina, too many encounters and you might fall asleep on the job!")
+  console.log("That was a close one! Keep an eye on your health, too many encounters and you might fall asleep on the job!")
 }
 
 
