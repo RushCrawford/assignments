@@ -1,6 +1,6 @@
 const readline = require('readline-sync');
 let health = 100
-let inventory = ["Health Potion", "Steel Short Sword"]
+let inventory = ["Health Potion +10hp", "Steel Short Sword"]
 
 function printStatus(){
   console.log(health, inventory)
@@ -23,15 +23,15 @@ const umberhulk = new Enemy("Umberhulk", "Bite", 3, 25)
 const skeleton = new Enemy("Animated Skeleton", "Rusty Sword", 4, 15)
 
 function encounter(){
-  console.log('');
+
   let encounterGenerator = Math.floor(Math.random() * 11) +1;
-  encounterGenerator === 1 ? console.log("Oh no! A Cave Troll has appeared!") ? fight()
+  encounterGenerator === 1 ? fight(troll)
   :
-  encounterGenerator === 2 ? console.log("Oh no! A Giant Spider has appeared!") ? fight()
+  encounterGenerator === 2 ? fight(giantSpider)
   :
-  encounterGenerator === 3 ? console.log("Oh no! An Umberhulk has appeared!") ? fight()
+  encounterGenerator === 3 ? fight(umberhulk)
   :
-  encounterGenerator === 4 ? console.log("Oh no! An Animated Skeleton has appeared!") ? fight() 
+  encounterGenerator === 4 ? fight(skeleton) 
   :
   console.log('Looks like the coast is clear for now, but proceed carefully.')
 }
@@ -40,19 +40,36 @@ function walk(){
   const walkPrompt = readline.question("(w) to walk, (p) to check status.  ")
   walkPrompt === "w" ? encounter()
   :
-  walkPrompt === "p" ?? printStatus()
+  walkPrompt === "p" && printStatus()
 }
 
 while(health > 0){
   walk()
   }
   
+  function fPrompt() {
+    const fightPrompt = readline.question("(r) to run away, (f) to fight")
+  }
 
-function fight(){
-  const fightPrompt = readline.question("(r) to run away, (s) to sneak by, (h) to hide")
-  fightPrompt === "r" ?? chase()
-  
+function fight(fightEnemy){
+  fightEnemy.name === "Cave Troll" ? fightIntro = () => {console.log("Oh no! A Cave Troll has appeared!");fPrompt()}
+  :
+  fightEnemy.name === "Giant Spider" ? fightIntro = () => {console.log("Oh no! A Giant Spider has appeared!");fPrompt()}
+  :
+  fightEnemy.name === "Umberhulk" ? fightIntro = () => {console.log("Oh no! An Umberhulk has appeared!");fPrompt()}
+  :  
+  fightEnemy.name === "Animated Skeleton" ? fightIntro = () => {console.log("Oh no! An Animated Skeleton has appeared!");fPrompt()}
+  :
+  console.log()
 }
+
+ /*if (fightEnemy){
+    if (fightEnemy?.name === 'Cave Troll'){
+      console.log("Oh no! A Cave Troll has appeared!")
+    }
+  }
+  hello = () => {return "Hello World!";}
+  */
 
 /*function chase(){
   let dash = Math.floor(Math.random() * 11) +1;
