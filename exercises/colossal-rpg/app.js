@@ -17,6 +17,10 @@ function Enemy(name, attack, number, health){
   this.health = health
 }
 
+Enemy.prototype.attack = function() {
+  console.log(this.attack)
+}
+
 const troll = new Enemy("Cave Troll", "Club", 1, 30)
 const giantSpider = new Enemy("Giant Spider", "Bite", 2, 20)
 const umberhulk = new Enemy("Umberhulk", "Bite", 3, 25)
@@ -24,14 +28,14 @@ const skeleton = new Enemy("Animated Skeleton", "Rusty Sword", 4, 15)
 
 function encounter(){
 
-  let encounterGenerator = Math.floor(Math.random() * 11) +1;
-  encounterGenerator === 1 ? fight(troll)
+  let enemyNumber = Math.floor(Math.random() * 11) +1;
+  enemyNumber === 1 ? fight(troll)
   :
-  encounterGenerator === 2 ? fight(giantSpider)
+  enemyNumber === 2 ? fight(giantSpider)
   :
-  encounterGenerator === 3 ? fight(umberhulk)
+  enemyNumber === 3 ? fight(umberhulk)
   :
-  encounterGenerator === 4 ? fight(skeleton) 
+  enemyNumber === 4 ? fight(skeleton) 
   :
   console.log('Looks like the coast is clear for now, but proceed carefully.')
 }
@@ -60,7 +64,7 @@ function fight(fightEnemy){
   :  
   fightEnemy.name === "Animated Skeleton" ? fightIntro = () => {console.log("Oh no! An Animated Skeleton has appeared!");fPrompt()}
   :
-  console.log()
+  console.log('didnt work')
 }
 
  /*if (fightEnemy){
