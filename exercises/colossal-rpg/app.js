@@ -26,16 +26,48 @@ const giantSpider = new Enemy("Giant Spider", "Bite", 2, 20)
 const umberhulk = new Enemy("Umberhulk", "Bite", 3, 25)
 const skeleton = new Enemy("Animated Skeleton", "Rusty Sword", 4, 15)
 
+function fPrompt() {
+  const fightPrompt = readline.question("(r) to run away, (f) to fight   ")
+}
+
+
+function fight(fightEnemy){
+  console.log(fightEnemy)
+  if(fightEnemy === "Cave Troll"){
+    console.log("Oh no! A Cave Troll has appeared!");
+    fPrompt()
+  } else if(fightEnemy === "Giant Spider"){
+    console.log("Oh no! A Giant Spider has appeared!");
+    fPrompt()
+  } else if(fightEnemy === "Umberhulk"){
+    console.log("Oh no! An Umberhulk has appeared!");
+    fPrompt()
+  } else{
+    console.log("Oh no! An Animated Skeleton has appeared!");
+    fPrompt()
+  }
+  // fightEnemy === "Cave Troll" ? () => {console.log("Oh no! A Cave Troll has appeared!");fPrompt()}
+  // :
+  // fightEnemy === "Giant Spider" ? () => {console.log("Oh no! A Giant Spider has appeared!");fPrompt()}
+  // :
+  // fightEnemy === "Umberhulk" ? () => {console.log("Oh no! An Umberhulk has appeared!");fPrompt()}
+  // :  
+  // fightEnemy === "Animated Skeleton" ? () => {console.log("Oh no! An Animated Skeleton has appeared!");fPrompt()}
+  // :
+  // console.log('didnt work')
+}
+
+
 function encounter(){
 
-  let enemyNumber = Math.floor(Math.random() * 11) +1;
-  enemyNumber === 1 ? fight(troll)
+  let enemyNumber = Math.floor(Math.random() * 4) +1;
+  enemyNumber === 1 ? fight(troll.name)
   :
-  enemyNumber === 2 ? fight(giantSpider)
+  enemyNumber === 2 ? fight(giantSpider.name)
   :
-  enemyNumber === 3 ? fight(umberhulk)
+  enemyNumber === 3 ? fight(umberhulk.name)
   :
-  enemyNumber === 4 ? fight(skeleton) 
+  enemyNumber === 4 ? fight(skeleton.name) 
   :
   console.log('Looks like the coast is clear for now, but proceed carefully.')
 }
@@ -51,21 +83,7 @@ while(health > 0){
   walk()
   }
   
-  function fPrompt() {
-    const fightPrompt = readline.question("(r) to run away, (f) to fight")
-  }
 
-function fight(fightEnemy){
-  fightEnemy.name === "Cave Troll" ? fightIntro = () => {console.log("Oh no! A Cave Troll has appeared!");fPrompt()}
-  :
-  fightEnemy.name === "Giant Spider" ? fightIntro = () => {console.log("Oh no! A Giant Spider has appeared!");fPrompt()}
-  :
-  fightEnemy.name === "Umberhulk" ? fightIntro = () => {console.log("Oh no! An Umberhulk has appeared!");fPrompt()}
-  :  
-  fightEnemy.name === "Animated Skeleton" ? fightIntro = () => {console.log("Oh no! An Animated Skeleton has appeared!");fPrompt()}
-  :
-  console.log('didnt work')
-}
 
  /*if (fightEnemy){
     if (fightEnemy?.name === 'Cave Troll'){
@@ -73,16 +91,11 @@ function fight(fightEnemy){
     }
   }
   hello = () => {return "Hello World!";}
-  */
+  
 
-/*function chase(){
-  let dash = Math.floor(Math.random() * 11) +1;
-  //write in increased escape chance if smoke bomb is in inventory
-  dash <= 5 ?? escape()
-}
 
 function escape(){
-  console.log("That was a close one! Keep an eye on your health, too many encounters and you might fall asleep on the job!")
+  console.log("That was a close one!")
 }*/
 
 
