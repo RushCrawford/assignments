@@ -1,9 +1,9 @@
 const readline = require('readline-sync');
 let health = 100
-let inventory = ["Health Potion +10hp", "Steel Short Sword"]
+let inventory = ["Health Potion +20hp", "Health Potion +20hp"]
 
 function printStatus(){
-  console.log(health, inventory)
+  console.log(`${name}'s hp: ${health}`, inventory)
 }
 
 const name = readline.question('What is your name? ') 
@@ -78,7 +78,7 @@ function walk(){
   walkPrompt === "p" && printStatus()
 }
 
-while(health > 0 && enemiesArr.length > 0){
+while(health >= 0 && enemiesArr.length >= 0){
   walk()
   }
   
@@ -96,9 +96,6 @@ function escape(fightEnemy){
 
 
 function fightToTheDeath(fightEnemy){
-  //health name Enemy
-  //let winner = whoWon()
-  //console.log(fightEnemy.attack)
 
   while(hero.health > 0 && fightEnemy.health > 0){
     //where fight sequence happens
@@ -107,7 +104,7 @@ function fightToTheDeath(fightEnemy){
     console.log(`${fightEnemy.name} attacks you back.`)
     hero.health = hero.health - fightEnemy.attack
     console.log(`${name} hp: ${hero.health}, ${fightEnemy.name} hp: ${fightEnemy.health}`)
-    readline.question('Hit enter to strike again.')
+    readline.question('Hit enter to continue.')
   }
 
   if(hero.health <= 0){
@@ -117,7 +114,11 @@ function fightToTheDeath(fightEnemy){
   if(fightEnemy.health <= 0){
     //add stuff to inventory
     //whatever happens when you win
-    //remove enemy from array
+  //remove enemy from array
+  let enemyIndex = enemiesArr.indexOf(fightEnemy)
+  delete enemiesArr[enemyIndex]
+  console.log(enemiesArr)
+      readline.question(`Congradulations ${name}, you defeated the ${fightEnemy.name}! No easy task that! Hit enter to continue.`)
   }
 
 }
