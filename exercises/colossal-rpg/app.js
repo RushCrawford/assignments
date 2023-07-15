@@ -1,5 +1,5 @@
 const readline = require('readline-sync');
-let health = 100
+let health = 200
 let inventory = ["Health Potion +20hp", "Health Potion +20hp"]
 
 function printStatus(){
@@ -18,9 +18,6 @@ function Enemy(name, weapon, number, health, attack){
   this.attack = attack
 }
 
-Enemy.prototype.attack = function() {
-  console.log(this.attack)
-}
 
 const troll = new Enemy("Cave Troll", "Club", 1, 80, 10)
 const giantSpider = new Enemy("Giant Spider", "Bite", 2, 40, 10)
@@ -59,14 +56,15 @@ function fight(fightEnemy){
 
 function encounter(){
 
-  let enemyNumber = Math.floor(Math.random() * 4) +1;
-  enemyNumber === 1 ? fight(troll)
+  let enemyNumber = Math.floor(Math.random() * enemiesArr.length);
+  console.log("enemy number: " + enemyNumber)
+  enemyNumber === 0 ? fight(enemiesArr[enemyNumber])
   :
-  enemyNumber === 2 ? fight(giantSpider)
+  enemyNumber === 1 ? fight(enemiesArr[enemyNumber])
   :
-  enemyNumber === 3 ? fight(umberhulk)
+  enemyNumber === 2 ? fight(enemiesArr[enemyNumber])
   :
-  enemyNumber === 4 ? fight(skeleton) 
+  enemyNumber === 3 ? fight(enemiesArr[enemyNumber]) 
   :
   console.log('Looks like the coast is clear for now, but proceed carefully.')
 }
@@ -78,18 +76,22 @@ function walk(){
   walkPrompt === "p" && printStatus()
 }
 
-while(health >= 0 && enemiesArr.length >= 0){
+while(health > 0 && enemiesArr.length > 0){
   walk()
+
+  if(enemiesArr.length === 0){
+    readline.question(`Congradulations ${name}, you have cleared the dungeon of all dangers! You are rewarded a ridiculous amount of gold for your efforts.`)
+  }
   }
   
 function escape(fightEnemy){
   let chanceOfEscape = Math.floor(Math.random() * 2) +1;
 
   if(chanceOfEscape === 1){
-    console.log("That was a close one!")
+    readline.question("That was a close one!")
     walk()
   } else{
-    console.log("No escaping this time!")
+    readline.question("No escaping this time!")
     fightToTheDeath(fightEnemy)
   }
 }
@@ -98,7 +100,6 @@ function escape(fightEnemy){
 function fightToTheDeath(fightEnemy){
 
   while(hero.health > 0 && fightEnemy.health > 0){
-    //where fight sequence happens
     console.log(`You attack ${fightEnemy.name}`)
     fightEnemy.health = fightEnemy.health - hero.attack
     console.log(`${fightEnemy.name} attacks you back.`)
@@ -106,7 +107,6 @@ function fightToTheDeath(fightEnemy){
     console.log(`${name} hp: ${hero.health}, ${fightEnemy.name} hp: ${fightEnemy.health}`)
     readline.question('Hit enter to continue.')
   }
-
   if(hero.health <= 0){
     console.log("game over")
   } 
@@ -114,15 +114,12 @@ function fightToTheDeath(fightEnemy){
   if(fightEnemy.health <= 0){
     //add stuff to inventory
     //whatever happens when you win
-  //remove enemy from array
   let enemyIndex = enemiesArr.indexOf(fightEnemy)
-  delete enemiesArr[enemyIndex]
-  console.log(enemiesArr)
-      readline.question(`Congradulations ${name}, you defeated the ${fightEnemy.name}! No easy task that! Hit enter to continue.`)
+  readline.question(`Congradulations ${name}, you defeated the ${fightEnemy.name}! No easy task that! Hit enter to continue.`)
+  enemiesArr.splice(enemyIndex, 1)
   }
 
 }
-//key in pause
 
 
 

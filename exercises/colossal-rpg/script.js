@@ -1,27 +1,27 @@
-function Enemy(name, weapon, number, health, attack){
-    this.name = name
-    this.weapon = weapon
-    this.number = number
-    this.health = health
-    this.attack = attack
-  }
+// function Enemy(name, weapon, number, health, attack){
+//     this.name = name
+//     this.weapon = weapon
+//     this.number = number
+//     this.health = health
+//     this.attack = attack
+//   }
   
-  Enemy.prototype.attack = function() {
-    console.log(this.attack)
-  }
+//   Enemy.prototype.attack = function() {
+//     console.log(this.attack)
+//   }
   
-  const troll = new Enemy("Cave Troll", "Club", 1, 80, 10)
-  const giantSpider = new Enemy("Giant Spider", "Bite", 2, 40, 10)
-  const umberhulk = new Enemy("Umberhulk", "Bite", 3, 60, 10)
-  const skeleton = new Enemy("Animated Skeleton", "Rusty Sword", 4, 30, 5)
-  const hero = new Enemy("name", "sword", 0, "health", 15)
+//   const troll = new Enemy("Cave Troll", "Club", 1, 80, 10)
+//   const giantSpider = new Enemy("Giant Spider", "Bite", 2, 40, 10)
+//   const umberhulk = new Enemy("Umberhulk", "Bite", 3, 60, 10)
+//   const skeleton = new Enemy("Animated Skeleton", "Rusty Sword", 4, 30, 5)
+//   const hero = new Enemy("name", "sword", 0, "health", 15)
   
 
-let enemiesArr = [troll, giantSpider, umberhulk, skeleton]
+// let enemiesArr = [troll, giantSpider, umberhulk, skeleton]
 
-let enemyIndex = enemiesArr.indexOf(troll)
-delete enemiesArr[enemyIndex]
-console.log(enemiesArr)
+// let enemyIndex = enemiesArr.indexOf(troll)
+// delete enemiesArr[enemyIndex]
+// console.log(enemiesArr)
 
 
 
@@ -45,3 +45,9 @@ console.log(enemiesArr)
 
 //   console.log(troll.attack())
   
+function nums(){
+let enemyNumber = Math.floor(Math.random() * 4) ;
+console.log(enemyNumber)
+}
+
+nums()
