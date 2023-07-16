@@ -6,7 +6,12 @@ function Items(name, property){
   this.property = property
 }
 
-let inventory = ["Health Potion +20hp ", "Health Potion +20hp "]
+const superiorHealthPotion = new Items("Superior Health Potion +30 hp", 30)
+const greaterHealthPotion = new Items("Greater Health Potion +20 hp", 20)
+const healthPotion = new Items("Health Potion +10", 10)
+
+let availableItems = [superiorHealthPotion, greaterHealthPotion, healthPotion]
+let inventory = []
 
 
 const name = readline.question('What is your name? ') 
@@ -118,6 +123,16 @@ function theyStrikeFirst(enemyInFight){
   let enemyIndex = enemiesArray.indexOf(enemyInFight)
   readline.question(`Congradulations ${name}, you defeated the ${enemyInFight.name}! No easy task that! Hit enter to continue.`)
   enemiesArray.splice(enemyIndex, 1)
+
+    let randomlyGeneratedNumberForItem = Math.floor(Math.random() * availableItems.length);
+    randomlyGeneratedNumberForItem === 0 ? fight(inventory[randomlyGeneratedNumberForItem])
+    :
+    randomlyGeneratedNumberForItem === 1 ? fight(inventory[randomlyGeneratedNumberForItem])
+    :
+    randomlyGeneratedNumberForItem === 2 && fight(inventory[randomlyGeneratedNumberForItem]) 
+
+  
+  readline.question(`Wow! It looks like ${enemyInFight} dropped ${itemFromEnemy}! It has been added to your inventory and is available for use.`)
   }
 
 }
