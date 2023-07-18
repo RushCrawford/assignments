@@ -9,7 +9,7 @@ const superiorHealthPotion = new Items("Superior Health Potion +50 hp")
 const greaterHealthPotion = new Items("Greater Health Potion +25 hp")
 const healthPotion = new Items("Health Potion +15")
 
-let inventory = []
+let inventory = [greaterHealthPotion]
 
 const name = readline.question('What is your name? ') 
 console.log('')
@@ -85,8 +85,10 @@ while(hero.health > 0){
   walk()
 
   if(enemiesArray.length === 0){
+    console.log('')
     readline.question(`Congradulations ${name}, you have cleared the dungeon of all dangers! You are rewarded a ridiculous amount of gold for your efforts.`)
     console.log('')
+    break
   }
   }
   
@@ -106,7 +108,6 @@ function runAway(enemyInFight){
 
 function theyStrikeFirst(enemyInFight){
   while(hero.health > 0 && enemyInFight.health > 0){
-    console.log('')
     readline.question(`The ${enemyInFight.name} lashes out with their ${enemyInFight.weapon} hitting you for some damage.`)
     hero.health = hero.health - enemyInFight.damageDealt
     console.log('')
@@ -129,20 +130,25 @@ function theyStrikeFirst(enemyInFight){
     //whatever happens when you win
   let enemyIndex = enemiesArray.indexOf(enemyInFight)
   readline.question(`Congradulations ${name}, you defeated the ${enemyInFight.name}! No easy task that! Hit enter to continue.`)
+  console.log('')
   enemiesArray.splice(enemyIndex, 1)
 
    let randomlyGeneratedNumberForItem = Math.floor(Math.random() * 10);
     if(randomlyGeneratedNumberForItem < 4){
       inventory.push(healthPotion)
       readline.question(`Wow! It looks like they dropped a ${healthPotion.name}! It has been added to your inventory and is available for use.`)
+      console.log('')
     } else if(randomlyGeneratedNumberForItem === 4){
       inventory.push(greaterHealthPotion)
       readline.question(`Wow! It looks like they dropped a ${greaterHealthPotion.name}! It has been added to your inventory and is available for use.`)
+      console.log('')
     } else if(randomlyGeneratedNumberForItem === 5){
       inventory.push(superiorHealthPotion)
       readline.question(`Wow! It looks like they dropped a ${superiorHealthPotion.name}! It has been added to your inventory and is available for use.`)
+      console.log('')
     } else{
       readline.question(`Looks like this guy travelled light.`)
+      console.log('')
     }
   }
 
@@ -151,7 +157,6 @@ function theyStrikeFirst(enemyInFight){
 function youStrikeFirst(enemyInFight){
 
   while(hero.health > 0 && enemyInFight.health > 0){
-    console.log('')
     console.log(`You slash the ${enemyInFight.name} with your sword!`)
     console.log('')
     enemyInFight.health = enemyInFight.health - hero.damageDealt
@@ -191,6 +196,7 @@ function youStrikeFirst(enemyInFight){
     } else{
       console.log('')
       readline.question(`Looks like this guy travelled light.`)
+      console.log('')
     }
   }
 }
@@ -231,8 +237,10 @@ function useInventory(){
 
 function printStatus(){
   console.log(`${name}'s hp: ${hero.health}`)
-  readline.question(inventory)
+  console.dir(inventory)
+  console.log('')
   let accessInventory = readline.question(`Would you like to use an item in your inventory? (y) or (n) `)
+  console.log('')
 
   accessInventory === "y" && useInventory()
 
