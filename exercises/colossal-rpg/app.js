@@ -134,13 +134,13 @@ function theyStrikeFirst(enemyInFight){
    let randomlyGeneratedNumberForItem = Math.floor(Math.random() * 10);
     if(randomlyGeneratedNumberForItem < 4){
       inventory.push(healthPotion)
-      readline.question(`Wow! It looks like ${enemyInFight} dropped a ${healthPotion.name}! It has been added to your inventory and is available for use.`)
+      readline.question(`Wow! It looks like they dropped a ${healthPotion.name}! It has been added to your inventory and is available for use.`)
     } else if(randomlyGeneratedNumberForItem === 4){
       inventory.push(greaterHealthPotion)
-      readline.question(`Wow! It looks like ${enemyInFight} dropped a ${greaterHealthPotion.name}! It has been added to your inventory and is available for use.`)
+      readline.question(`Wow! It looks like they dropped a ${greaterHealthPotion.name}! It has been added to your inventory and is available for use.`)
     } else if(randomlyGeneratedNumberForItem === 5){
       inventory.push(superiorHealthPotion)
-      readline.question(`Wow! It looks like ${enemyInFight} dropped a ${superiorHealthPotion.name}! It has been added to your inventory and is available for use.`)
+      readline.question(`Wow! It looks like they dropped a ${superiorHealthPotion.name}! It has been added to your inventory and is available for use.`)
     } else{
       readline.question(`Looks like this guy travelled light.`)
     }
@@ -244,6 +244,7 @@ function gameOver(){
 
 
 
-
+//when you pull up inventory have it display the name of the items in it
+//make win condition that ends code
 
 
