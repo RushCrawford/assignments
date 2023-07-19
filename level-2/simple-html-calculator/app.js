@@ -1,41 +1,40 @@
-let paper = document.calculatorForm //get calculator form
-// const form = document.querySelector("#form")
-//console.log(paper)// show value of paper variable
+let calculatorForm = document['calculator-form'] //get calculator form
+ let h1ToDisplayAnswers = document.getElementById("h1-to-display-answers") // create a place to display answers
+ let addButton = calculatorForm["add-button"] // create a button to add values
+ let subtractButton = calculatorForm["subtract-button"] // create a button to add values
+ let multiplyButton = calculatorForm["multiply-button"] // create a button to add values
 
-//  let answer = paper["answer"]
-// // console.log(answer)
- let addButton = paper["addButton"] // create a button to add values
- //console.log(addButton)// Show button value
-
- //let addOne = paper["addOne"].value
-//let addTwo = paper["addTwo"].value
-
-const inputBox1 = document.getElementById("inputBox1")//Get input boxes from html
-const inputBox2 = document.getElementById("inputBox2")//Get input boxes from html
-//console.log(inputBox1, inputBox2)
-
-paper.addEventListener('click', function(event){
-event.preventDefault()
-
-const num1 = inputBox1.value
-const num2 = inputBox2.value
-console.log(num1, num2)
-
+ const inputBox1 = document.getElementById("input-box-1")//Get input boxes from html
+ const inputBox2 = document.getElementById("input-box-2")//Get input boxes from html
+ const inputBox3 = document.getElementById("input-box-3")//Get input boxes from html
+ const inputBox4 = document.getElementById("input-box-4")//Get input boxes from html
+ const inputBox5 = document.getElementById("input-box-5")//Get input boxes from html
+ const inputBox6 = document.getElementById("input-box-6")//Get input boxes from html
+ 
+ addButton.addEventListener('click', function(event){
+    event.preventDefault()
+    const num1 = inputBox1.value
+    const num2 = inputBox2.value
     const sum = Number(num1) + Number(num2)
-    console.log(sum)
-    // answer.value = sum.value
-    //console.log(sum)
-
-    // form.addOne.value = ""
-    // form.addTwo.value = ""
-
+    h1ToDisplayAnswers.textContent = sum
+    inputBox1.value = ""
+    inputBox2.value = ""
 })
-
-// define vars
-
-// addition function
-// const add = () => {
-//     //return inputOne + inputTwo
-// }
-
-//getElementById("form") 
+subtractButton.addEventListener('click', function(event){
+    event.preventDefault()
+    const num3 = inputBox3.value
+    const num4 = inputBox4.value
+    const difference = Number(num3) - Number(num4)
+    h1ToDisplayAnswers.textContent = difference
+    inputBox3.value = ""
+    inputBox4.value = ""
+})
+multiplyButton.addEventListener('click', function(event){
+    event.preventDefault()
+    const num5 = inputBox5.value
+    const num6 = inputBox6.value
+    const difference = Number(num5) * Number(num6)
+    h1ToDisplayAnswers.textContent = difference
+    inputBox5.value = ""
+    inputBox6.value = ""
+})

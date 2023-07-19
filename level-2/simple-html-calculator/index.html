@@ -4,29 +4,30 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
     <title>Calculator Form</title>
 </head>
 <body>
 
-<h1>Simple HTML Calculator</h1>
+    <form name="calculator-form" id="form-container"> 
+        <h1 id="header">Simple HTML Calculator</h1>
 
-    <form name="calculatorForm"> 
-        <div>
-            <input type="number" name="inputBox1" id="inputBox1"/>
-            <input type="number" name="inputBox2" id="inputBox2"/>
-            <button name="addButton">Add</button>
+        <div id="addition-box">
+            <input type="number" name="input-box-1" id="input-box-1"/>
+            <input type="number" name="input-box-2" id="input-box-2"/>
+            <button name="add-button">Add</button>
         </div>
-        <!-- <div>
-            <input type="text" name="subtractOne"/>
-            <input type="text" name="subtractTwo"/>
-            <button name="subtractButton">Subtract</button>
+        <div id="subtraction-box">
+            <input type="number" name="input-box-3" id="input-box-3"/>
+            <input type="number" name="input-box-4" id="input-box-4"/>
+            <button name="subtract-button">Subtract</button>
         </div>
-        <div>
-            <input type="text" name="multiplyOne"/>
-            <input type="text" name="multiplyTwo"/>
-            <button name="multiplyButton">Multiply</button>
-        </div> -->
-        <h1 name="answer"></h1>
+        <div id="multiplication-box">
+            <input type="number" name="input-box-5" id="input-box-5"/>
+            <input type="number" name="input-box-6" id="input-box-6"/>
+            <button name="multiply-button">Multiply</button>
+        </div>
+        <h1 id="h1-to-display-answers"></h1>
     </form>
 
     <script src="app.js"></script>

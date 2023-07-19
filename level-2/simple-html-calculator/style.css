@@ -1,0 +1,42 @@
+body {
+    background-color: darkseagreen;
+    margin: 0;
+    padding: 0;
+}
+#form-container{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+}
+#header{
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    grid-column: 1 / 4;
+}
+#addition-box{
+    margin: 20px;
+    height: 20px;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+}
+#subtraction-box{
+    margin: 20px;
+    height: 20px;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+}
+#multiplication-box{
+    margin: 20px;
+    height: 20px;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+}
+#h1-to-display-answers{
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    grid-column: 1 / 4;
+}
