@@ -4,29 +4,31 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script src="app.js"></script>
     <title>Calculator Form</title>
 </head>
 <body>
-    <form name="calculatorForm" id="form"> 
+
+<h1>Simple HTML Calculator</h1>
+
+    <form name="calculatorForm"> 
         <div>
-            <input type="number" name="addOne"/>
-            <input type="number" name="addTwo"/>
-            <button onClick="add()">Submit</button>
-            <input type="number" name="sum"/>
+            <input type="number" name="inputBox1" id="inputBox1"/>
+            <input type="number" name="inputBox2" id="inputBox2"/>
+            <button name="addButton">Add</button>
         </div>
-        <div>
+        <!-- <div>
             <input type="text" name="subtractOne"/>
             <input type="text" name="subtractTwo"/>
-            <button>Submit</button>
-            <input type="text" name="difference"/>
+            <button name="subtractButton">Subtract</button>
         </div>
         <div>
             <input type="text" name="multiplyOne"/>
-            <input type="text" name="MultiplyTwo"/>
-            <button>Submit</button>
-            <input type="text" name="product"/>
-        </div>
+            <input type="text" name="multiplyTwo"/>
+            <button name="multiplyButton">Multiply</button>
+        </div> -->
+        <h1 name="answer"></h1>
     </form>
+
+    <script src="app.js"></script>
 </body>
 </html>
