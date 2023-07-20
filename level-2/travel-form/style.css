@@ -1,3 +1,7 @@
 #travel{
     display: grid;
+    padding: auto;
+    margin: 100px;
+    grid-template-rows: (6, 1fr);
+
 }
