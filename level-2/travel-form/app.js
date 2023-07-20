@@ -1,5 +1,8 @@
 let travelForm = document.travel
-// let firstName = travelForm.firstname
+// let firstName = travelForm["first-name"] 
+// let lastName = travelForm["last-name"] 
+// let age = travelForm.age
+// let gender = travelForm.gender
 // document.addEventListner ("submit", (event) => {
 //     event.preventDefault()
 //     console.log(travelForm['first-name'].value)
@@ -14,8 +17,17 @@ let travelForm = document.travel
 
 document.addEventListener("submit", function(event){
     event.preventDefault()
-        console.log(firstName)
+        // console.log(travelForm.gender.value)
     // console.log(travelForm['last-name'])
+    const checkedInputs = []
+    
+    for(let i = 0; i < travelForm["dietary-restrictions"].length; i++){
+        if(travelForm["dietary-restrictions"][i].checked){
+            checkedInputs.push(travelForm["dietary-restrictions"][i].value)
+        }
+    }
+console.log(checkedInputs)
+console.log(travelForm.destination.value)
 
   });
 

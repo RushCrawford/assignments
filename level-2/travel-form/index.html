@@ -4,16 +4,16 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script src="app.js" ></script>
-    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+    <title>Travel Form</title>
 </head>
 <body>
-    <form name="travel">
-           Name: <input name="firstname" type="text" placeholder="First Name" required/>
+    <form name="travel" id="travel">
+           Name: <input name="first-name" type="text" placeholder="First Name" required/>
             <input name="last-name" type="text" placeholder="Last Name" required/>
            Age: <input name="age" type="number"/>
-           Male: <input type="radio" name="gender" value="Female"/>
-           Female: <input type="radio" name="gender" value="Male"/>
+           Male: <input type="radio" name="gender" value="Male"/>
+           Female: <input type="radio" name="gender" value="Female"/>
            Non-Binary: <input type="radio" name="gender" value="Non-Binary"/>
 
             Destination:<select name="destination">
@@ -23,12 +23,14 @@
             </select>
             
             Dietary restrictions, check all that apply:
+
             Vegetarian: <input type="checkbox" value="Vegetarian" name="dietary-restrictions"/>
             Vegan: <input type="checkbox" value="Vegan" name="dietary-restrictions"/>
             Gluten-Free: <input type="checkbox" value="Gluten-Free" name="dietary-restrictions"/>
             
             <button>Submit</button>
+            
     </form>
-    
+    <script src="app.js" ></script>
 </body>
 </html>
