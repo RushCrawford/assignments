@@ -5,36 +5,49 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mario Pest Control</title>
-    <script src="app.js" ></script>
+    <script src="app.js" defer ></script>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <h1 id="header">Mario Pest Control</h1>
-    <h2 id="sub-header">Types of Baddies We Smash</h2>
+    <div id="grid-container">
+            <h1 id="header">Mario Pest Control</h1>
+            <h2 id="sub-header">Types of Baddies We Smash</h2>
 
-    <div id="div1">
-        <h3>Goombas</h3>
-        <img src="" alt="">
-        <h5>Price: 5 Gold</h5>
-        <input id="goombas" type="number">
+        <form name="form">
+
+            <div id="div1">
+                <h3>Goombas</h3>
+                <img id="img1" src="https://i.insider.com/61576424b414c10018636eda?width=1136&format=jpeg" alt="goombas">
+                <h5>Price: 5 Gold</h5>
+                <input id="goombas" type="number">
+            </div>
+
+            <div id="div2">
+                <h3>Bob-ombs</h3>
+                <img id="img2" src="https://m.media-amazon.com/images/I/41sWpE560iL._AC_UF894,1000_QL80_.jpg" alt="bob-ombs">
+                <h5>Price: 7 Gold</h5>
+                <input id="bob-ombs" type="number">
+            </div>
+
+            <div id="div3">
+                <h3>Cheep-cheeps</h3>
+                <img id="img3" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRWrl0CinzslexvS9bqa5gaMf4r8yStORdONw&usqp=CAU" alt="cheep-cheeps">
+                <h5>Price: 11 Gold</h5>
+                <input id="cheep-cheeps" type="number">
+            </div>
+
+            <div id="div4">
+            <h2 id="total-owed">test</h2>
+            <button id="button">Submit</button>
+            </div>
+
+        </form>
+
+            <footer>
+                <div>Email</div>
+                <div>Website</div>
+                <div>Location</div>
+            </footer>
     </div>
-    <div id="div2">
-        <h3>Bob-ombs</h3>
-        <img src="" alt="">
-        <h5>Price: 7 Gold</h5>
-        <input id="bob-ombs" type="number">
-    </div>
-    <div id="div3">
-        <h3>Cheep-cheeps</h3>
-        <img src="" alt="">
-        <h5>Price: 11 Gold</h5>
-        <input id="cheep-cheeps" type="number">
-    </div>
-    <button id="button">Submit</button>
-    <h2 id="total-owed"></h2>
-    <footer id="footer">
-        <div>Email</div>
-        <div>Website</div>
-        <div>Location</div>
-    </footer>
 </body>
 </html>
