@@ -3,7 +3,7 @@
 }
 #grid-container {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(5, 1fr);
 }
 
 #header {
@@ -20,19 +20,24 @@
 }
 #div1 {
     background: darkblue;
-    grid-column: 1/-1;
+    /* grid-column: ; */
+    margin: 50px;
+    justify-content: center;
 }
 #div2 {
     background: gold;
     grid-column: 2/3;
+    margin: 50px;
 }
 #div3 {
     background: forestgreen;
-    grid-column: 3/4;
+    /* grid-column: 3/4; */
+    margin: 50px;
 }
 #div4 {
     background: rgb(139, 34, 125);
-    grid-column: 1/-1;
+    grid-column: 3/4;
+    margin: 50px;
 }
 #img1{
     height: 150px;
@@ -53,4 +58,5 @@
 footer {
     background-color: aquamarine;
     grid-column: 1/-1;
+    text-align: center;
 }
