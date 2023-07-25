@@ -49,13 +49,17 @@ let people = [
 
 // 5) Make an array of strings of the names saying whether or not they can go to The Matrix
 
-let namesOnly = people.map(person => {
-    if (person.age >= 18){
-        `${person.name} is old enough to go to the Matrix`
-    } else {`${person.name} is too young`}
-}) 
+// let namesOnly = people.map(person => {
+//     if (person.age >= 18){
+//         `${person.name} is old enough to go to the Matrix`
+//     } else {`${person.name} is too young`}
+// }) 
 
-console.log(namesOnly)
+// console.log(namesOnly)
 // person.age >= 18 ? `${person.name} is old enough to go to the Matrix`
 // :
 // person.age < 18 && `${person.name} is too young`
+
+// 6) Make an array of the names in h1s, and the ages in h2s
+let namesOnly = people.map(person => person.name)
+let agesOnly = people.map(person => person.age)
