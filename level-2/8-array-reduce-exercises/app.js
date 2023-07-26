@@ -1,16 +1,10 @@
 // 1) Turn an array of numbers into a total of all the numbers
 const numbers = [1,2,3]
-    // const result = numbers.reduce(function(final, num){
-    //     final += num
-    //     return final
-    // })
+    // const result = numbers.reduce((final, num) => final + num)
     // console.log(result)
 
 // 2) Turn an array of numbers into a long string of all those numbers.                 !!! does not work !!!
-    // const result = numbers.reduce(function(final, num){
-    // num.stringify 
-    //     return final
-    // },)
+    // const result = numbers.reduce((final, num) => final + num,'')
     // console.log(result)
 
 // 3) Turn an array of voter objects into a count of how many people voted
@@ -28,10 +22,7 @@ const numbers = [1,2,3]
         {name: 'Jeff', age: 30, voted: true},
         {name: 'Zack', age: 19, voted: false}
     ];
-    // const result = voters.reduce(function(final, voter){
-    //     voter.voted === true && final++
-    //     return final
-    // },0)
+    // const result = voters.reduce((final, voter) => {voter.voted === true && final++; return final},0)
     // console.log(result)
 
 // 4) Given an array of all your wishlist items, figure out how much it would cost to just buy everything at once
@@ -42,11 +33,8 @@ const numbers = [1,2,3]
             { title: "Gold fidgit spinner", price: 2000 },
             { title: "A second Tesla Model S", price: 90000 }
         ];
-        // const result = wishlist.reduce(function(final, wish){                        !!! does not work !!!
-        //     final += wish.price
-        //     return final
-        // })
-        // console.log(result)
+    // const result = wishlist.reduce((final,wish) => final + wish.price,0)
+    // console.log(result)
 
 // 5) Given an array of arrays, flatten them into a single array
     var arrays = [
