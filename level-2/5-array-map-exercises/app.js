@@ -8,17 +8,13 @@
     // console.log(stringNumbers)
 
 //3) Capitalize the first letter of each name and make the rest of the characters lowercase
-// let names = ["john", "JACOB", "jinGleHeimer", "schmidt"]
-// // let capitalizeNames = names.map(name => {name.toLowerCase(); /* name.charAt(0).toUpperCase(); */
-// //    })
-// let capitalizeNames = names.map(function (name){
-//     name.toLowerCase()
-// })
-// // const capitalized =
-// //   name.charAt(0).toUpperCase()
-// //   + name.slice(1) name.slice(1)
-
-// console.log(capitalizeNames); 
+    // let names = ["john", "JACOB", "jinGleHeimer", "schmidt"]
+    // let capitalizeNames = names.map(name => {
+    //     const a = name.charAt(0).toUpperCase(); 
+    //     const b = name.slice(1).toLocaleLowerCase(); 
+    //     return a + b
+    // })
+    // console.log(capitalizeNames); 
 
 // 4) Make an array of strings of the names
 
@@ -44,22 +40,16 @@ let people = [
         age: 100
     }
 ]
-// let namesOnly = people.map(person => person.name) 
-//   console.log(namesOnly);
+    // let namesOnly = people.map(person => person.name) 
+    //   console.log(namesOnly);
 
 // 5) Make an array of strings of the names saying whether or not they can go to The Matrix
-
-// let namesOnly = people.map(person => {
-//     if (person.age >= 18){
-//         `${person.name} is old enough to go to the Matrix`
-//     } else {`${person.name} is too young`}
-// }) 
-
-// console.log(namesOnly)
-// person.age >= 18 ? `${person.name} is old enough to go to the Matrix`
-// :
-// person.age < 18 && `${person.name} is too young`
+    // let matrixEligibility = people.map(person => {
+    //     const canGoToMatrix = person.age > 17 ? ' can go to the Matrix.' : ' is too young.' 
+    //     return `${person.name}${canGoToMatrix}`
+    // }) 
+    // console.log(matrixEligibility)
 
 // 6) Make an array of the names in h1s, and the ages in h2s
-let namesOnly = people.map(person => person.name)
-let agesOnly = people.map(person => person.age)
+    // const readyToPutInDOM = people.map(person => {return `<h1>${person.name}<h1><h2>${person.age}<h2>`})
+    // console.log(readyToPutInDOM)
