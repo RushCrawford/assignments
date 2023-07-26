@@ -3,7 +3,7 @@ const numbers = [1,2,3]
     // const result = numbers.reduce((final, num) => final + num)
     // console.log(result)
 
-// 2) Turn an array of numbers into a long string of all those numbers.                 !!! does not work !!!
+// 2) Turn an array of numbers into a long string of all those numbers.
     // const result = numbers.reduce((final, num) => final + num,'')
     // console.log(result)
 
@@ -42,9 +42,7 @@ const numbers = [1,2,3]
         [true],
         [4, 5, 6]
     ]
-    // const result = arrays.reduce(function (final, array){
-    //     return final.concat(array)
-    // },[])
+    // const result = arrays.reduce((final, array)=>{return final.concat(array)},[])
     // console.log(result)
 
 // 6) Given an array of potential voters, return an object representing the results of the vote
