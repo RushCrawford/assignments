@@ -12,6 +12,7 @@
     grid-column: 1/2;
     grid-row: 1/2;
     margin: 50px;
+    transition: all  linear .2s;
 }
 #box-2{
     background-color: cadetblue;
@@ -19,6 +20,7 @@
     grid-column: 2/3;
     grid-row: 1/2;
     margin: 50px;
+    transition: all  linear .2s;
 }
 #box-3{
     background-color: cornflowerblue;
@@ -26,6 +28,7 @@
     grid-column: 3/4;
     grid-row: 1/2;
     margin: 50px;
+    transition: all  linear .2s;
 }
 #box-4{
     background-color: aqua;
@@ -33,6 +36,7 @@
     grid-column: 3/4;
     grid-row: 2/3;
     margin: 50px;
+    transition: all  linear .2s;
 }
 #box-5{
     background-color: cadetblue;
@@ -40,6 +44,7 @@
     grid-column: 2/3;
     grid-row: 2/3;
     margin: 50px;
+    transition: all  linear .2s;
 }
 #box-6{
     background-color: cornflowerblue;
@@ -47,23 +52,36 @@
     grid-column: 1/2;
     grid-row: 2/3;
     margin: 50px;
+    transition: all  linear .2s;
 }
 
 #box-1:hover{
-    
+    background-color: rgb(43, 226, 162);
+    box-shadow: 5px 10px #888888;
+    border-radius: 50%;
 }
 #box-2:hover{
-    
+    background-color: rgb(43, 226, 162);
+    box-shadow: 5px 10px #888888;
+    border-radius: 50%;
 }
 #box-3:hover{
-    
+    background-color: rgb(43, 226, 162);
+    box-shadow: 5px 10px #888888;
+    border-radius: 50%;
 }
 #box-4:hover{
-    
+    background-color: rgb(43, 226, 162);
+    box-shadow: 5px 10px #888888;
+    border-radius: 50%;
 }
 #box-5:hover{
-    
+    background-color: rgb(43, 226, 162);
+    box-shadow: 5px 10px #888888;
+    border-radius: 50%;
 }
 #box-6:hover{
-    
+    background-color: rgb(43, 226, 162);
+    box-shadow: 5px 10px #888888;
+    border-radius: 50%;
 }
