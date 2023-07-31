@@ -3,7 +3,8 @@
 }
 #grid-container {
     display: grid;
-    grid-template-columns: repeat(5, 1fr);
+    grid-template-columns: repeat(5 auto);
+    grid-template-rows: repeat(3 auto);
 }
 
 #header {
@@ -20,7 +21,7 @@
 }
 #div1 {
     background: darkblue;
-    /* grid-column: ; */
+    grid-column: 1/2;
     margin: 50px;
     justify-content: center;
 }
@@ -31,7 +32,7 @@
 }
 #div3 {
     background: forestgreen;
-    /* grid-column: 3/4; */
+    grid-column: 3/4;
     margin: 50px;
 }
 #div4 {
