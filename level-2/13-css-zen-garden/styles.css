@@ -205,8 +205,13 @@
         width: 100%;
         grid-column: 1 / -1;
         grid-row: 5 / 6;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
     }
         #koi {
+            position: absolute;
             height: 320px;
             width: 100%;
             z-index: -1;
@@ -407,11 +412,18 @@
         height: 320px;
         width: 100%;
         grid-row: 6 / 7;
+        display: flex;
+        justify-content: center;
+        align-items: center;
     }
         #koi {
             height: 320px;
             width: 100%;
             z-index: -1;
+            position: absolute;
+        }
+        #div-9 > p {
+            color: rgba(255,255,255,0.6);
         }
     #div-10 {
         background-color:  #134347;
