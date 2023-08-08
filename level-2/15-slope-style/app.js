@@ -71,3 +71,30 @@
 
     // const result = product(2,2,2,2,2)
     // console.log(result)
+
+
+//Make the following function more ES6y. Use at least both the rest and spread operators:
+    // const unshift = (...array) => {return [].concat(...array);}
+    // console.log(unshift([1,2,3],'a','b','c','d','e'))
+
+
+//Write some destructuring code to help this function out. Use the ES6 shorthand that helps make the syntax look less redundant to simplify it:
+function populatePeople(names){
+    return names.map(function(name){
+        name = name.split(" ");
+        const [firstName,lastName] = names
+        // console.log(name)
+        // your code
+        return {
+            firstName: firstName,
+            lastName: lastName
+        }
+    })
+}
+
+console.log(populatePeople(["Frank Peterson", "Suzy Degual", "Liza Jones"]))
+//[
+//  {firstName: "Frank", lastName: "Peterson"},
+//  {firstName: "Suzy", lastName: "Degual"},
+//  {firstName: "Liza", lastName: "Jones"},
+//]
