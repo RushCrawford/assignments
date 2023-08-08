@@ -1,5 +1,7 @@
 const readline = require('readline-sync');
 
+const randomNumber = (min, max) => {return Math.random() * (max - min) + min;}
+
 class Player {
     constructor (name,totalCoins,status,hasStar) {
         this.name = name

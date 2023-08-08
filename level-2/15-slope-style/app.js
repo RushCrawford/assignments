@@ -82,7 +82,7 @@
 function populatePeople(names){
     return names.map(function(name){
         name = name.split(" ");
-        const [firstName,lastName] = names
+        const [firstName,lastName] = name
         // console.log(name)
         // your code
         return {
