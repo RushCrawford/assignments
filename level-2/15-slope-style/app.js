@@ -79,18 +79,8 @@
 
 
 //Write some destructuring code to help this function out. Use the ES6 shorthand that helps make the syntax look less redundant to simplify it:
-function populatePeople(names){
-    return names.map(function(name){
-        name = name.split(" ");
-        const [firstName,lastName] = name
-        // console.log(name)
-        // your code
-        return {
-            firstName: firstName,
-            lastName: lastName
-        }
-    })
-}
+populatePeople = (names) => {return names.map(function(name){name = name.split(" ");const [firstName,lastName] = name
+return {firstName: firstName,lastName: lastName}})}
 
 console.log(populatePeople(["Frank Peterson", "Suzy Degual", "Liza Jones"]))
 //[
