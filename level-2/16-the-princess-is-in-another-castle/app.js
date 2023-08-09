@@ -9,7 +9,7 @@ class Player {
         this.status = status
         this. hasStar = hasStar
     }
-    setName = (namePicked) => {namePicked = this.name}
+    setName = (namePicked) => {namePicked = this.name;console.log(namePicked)}
 
     // gotHit = () => {this.status === 'Powered Up' ? this.status = 'Big': this.status === 'Big' ? this.status = 'Small': this.status 'Dead'}
 
@@ -23,7 +23,7 @@ class Player {
 
 }
 const player = new Player('Mario', 10, 'Powered Up', true)
-console.log(player.gotHit())
+console.log(player.setName())
         // statuses.map(status => {
         //     return [status]
         // })
