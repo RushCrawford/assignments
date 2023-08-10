@@ -1,6 +1,6 @@
 const readline = require('readline-sync');
+const nameInput = readline.question('Would you like to play as Mario or Luigi?  ')
 
-const randomNumber = (min, max) => {return Math.random() * (max - min) + min;}
 
 class Player {
     constructor (name,totalCoins,status,hasStar) {
@@ -35,8 +35,21 @@ Total Coins: ${this.totalCoins}
 Status: ${this.status} 
 Has Star: ${this.hasStar}`)}
 }
-const player = new Player('Mario', 0, 'Small', false)
 
-// While (player.stater != 'Dead'){
+const player = new Player(nameInput, 0, 'Small', false)
 
-// }
+function play() { const number = Math.floor(Math.random() * 3)
+
+    if (number === 0) {
+        this.gotHit()
+    } else if (number === 1) {
+        this.gotPowerup()
+    } else {this.addCoin()}
+
+    this.print()
+    }
+
+while (this.status != 'Dead'){
+        const intervalID = setInterval(play, 2000);
+}
+
