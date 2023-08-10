@@ -1,15 +1,48 @@
 {
-    "Appetizers": [{},{}]
-},
-{
-    "Hot Sandwiches": [{},{}]
+    "Appetizers": [{
+        "Name": "Fried Pickles",
+        "Ingredients": ["Batter", "Pickles", "Salt", "Avacado Oil", "Blue Cheese Dip"],
+        "Discriptrion": "Wavy cut sliced pickles, dipped in batter and fried to perfection, With a side of Blue Cheese dip."
+    },{
+        "Name": "Garden Salad",
+        "Ingredients": ["Romaine Lettuce", "Butter Lettuce", "Arrugala", "Cucumbers", "Heirloom Tomatoes", "Dressing of Choice"],
+        "Discriptrion": "A delightfully light and delicious salad picked fresh from the garden."
+    }],
+    "Hot Sandwiches": [{
+        "Name": "Cubano",
+        "Ingredients": ["Fresh Hogie Roll", "Pickles", "Salt", "Mayo", "Ham", "Bacon"],
+        "Discriptrion": "A salty and satisfying sandwich made with the pig."
+    },{
+        "Name": "Philly Cheese Steak",
+        "Ingredients": ["Fresh Hogie Roll", "Chopped Steak", "White Cheese", "Sauteed Peppers and Onions", "Mayo"],
+        "Discriptrion": "A delicious hot and steamy sandwich composed of chopped peppers, onions, steak and cheese."
+    }],
+    "Cold Sandwiches": [{
+        "Name": "BLT",
+        "Ingredients": ["Ciabatta", "Bacon", "Iceburg Lettuce", "Heirloom Tomatoes", "Mayo"],
+        "Discriptrion": "Classics are sometimes best, simply bacon, lettuce, tomato and mayo."
+    },{
+        "Name": "Grinder",
+        "Ingredients": ["Fresh Hogie Roll", "Pepperoni", "Capricola","Salami", "Ham", "Peppers", "Onions", "Oil", "Vinnegrette"],
+        "Discriptrion": "Wonderfully Italian all on one roll."
+    }],
+    "Desserts": [{
+        "Name": "Lava Cake",
+        "Ingredients": ["Chocolate Cake", "Hot Fudge"],
+        "Discriptrion": "Chocolate bundt cake overflowing with hot fudge."
+    },{
+        "Name": "Pazookie",
+        "Ingredients": ["Chocolate Chip Cookie", "Vanilla Ice Cream", "Chocolate Fudge Sauce", "Caramel Sauce"],
+        "Discriptrion": "A dinner plate sized Chocolate chip cookie, covered in scoops of ice cream and drizzled with caramel and chocolate sauce."
+    }],
+    "Drinks": [{
+        "Name": "Mint Tea",
+        "Ingredients": ["Dried Mint", "Water"],
+        "Discriptrion": "Light and refreshing tea, searved hot or cold."
+    },{
+        "Name": "Lemonade",
+        "Ingredients": ["Lemon", "Sugar", "Water"],
+        "Discriptrion": "Fresh squeezed lemons with just enough sugar to take the bite off the sour."
+    }]
 }
-{
-    "Cold Sandwiches": [{},{}]
-}
-{
-    "Desserts": [{},{}]
-}
-{
-    "Drinks": [{},{}]
-}
+
