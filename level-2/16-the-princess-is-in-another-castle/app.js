@@ -23,7 +23,7 @@ class Player {
             this.status = 'Big'
         } else if(this.status === 'Big'){
             this.status = 'Powered Up'
-        } else if(this.status === 'Powered Up'){this.hasStar = true}
+        } else if(this.status === 'Powered Up'){console.log('Congradulations! You got a star!!');this.hasStar = true}
     }
 
     addCoin = () => { return this.totalCoins++ }
@@ -49,12 +49,13 @@ function play() {
     } else {player.addCoin()}
 
     player.print()
-    // console.log("test")
-    }
+}
+
 function endGame(){ 
     if(player.status === 'Dead'){
     clearInterval(intervalID)
 }else {
     play()
 }}
+
 const intervalID = setInterval(endGame, 2000);
