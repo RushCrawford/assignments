@@ -1,5 +1,7 @@
 const readline = require('readline-sync');
-const nameInput = readline.question('Would you like to play as Mario or Luigi?  ')
+const nameInput = readline.question('Which Mario Cart player would you like to play as?  ')
+console.log('')
+readline.question(`${nameInput} you are hurtling down the Rainbow Road in your cart, lets see how long you survive.`)
 
 class Player {
     constructor (name,totalCoins,status,hasStar) {
@@ -53,6 +55,9 @@ function play() {
 
 function endGame(){ 
     if(player.status === 'Dead'){
+    clearInterval(intervalID)
+} else if (player.totalCoins === 5) {
+    console.log(`Congradulations ${nameInput} you have completed the Rainbow Road!!!`)
     clearInterval(intervalID)
 }else {
     play()
