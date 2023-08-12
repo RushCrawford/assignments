@@ -17,7 +17,10 @@ class Player {
             this.status = 'Big'
         } else if(this.status === 'Big'){
             this.status = 'Small'
-        } else {this.status = 'Dead'}
+        } else if(this.status = 'Small' && this.hasStar === true){
+            console.log('Your Star protected you!');
+            this.hasStar === false
+        } else {this.status = 'Dead';}
     }
 
     gotPowerup(){
