@@ -21,6 +21,6 @@ let people = [
             age: 100
         }
     ]
-        let namesOnly = people.map(person => person.name) 
+        let namesOnly = people.map(person => {return person.name}) 
           console.log(namesOnly);
     
