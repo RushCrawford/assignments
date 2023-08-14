@@ -1,4 +1,4 @@
-const xhr = new XMLHttpRequest;
+const xhr = new XMLHttpRequest();
 
 xhr.open("GET", "https://api.vschool.io/pokemon",true)
 xhr.send()

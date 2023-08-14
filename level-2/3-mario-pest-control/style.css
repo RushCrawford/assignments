@@ -20,23 +20,19 @@
     grid-column: 1/-1;
 }
 #div1 {
-    background: darkblue;
     grid-column: 1/2;
     margin: 50px;
     justify-content: center;
 }
 #div2 {
-    background: gold;
     grid-column: 2/3;
     margin: 50px;
 }
 #div3 {
-    background: forestgreen;
     grid-column: 3/4;
     margin: 50px;
 }
 #div4 {
-    background: rgb(139, 34, 125);
     grid-column: 3/4;
     margin: 50px;
 }
@@ -53,8 +49,8 @@
     width: 200px;
 }
 #button{
-    height: 20px;
-    width: 500px;
+    height: 40px;
+    width: 100px;
 }
 footer {
     background-color: aquamarine;
