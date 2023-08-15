@@ -11,6 +11,7 @@ xhr.onreadystatechange = () => {
     }
 };
 
+
 handleData = (data) => {
         const pokemonNames = data.map( pokemon => {
             const h1 = document.createElement('h1')
