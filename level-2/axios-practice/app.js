@@ -1,14 +1,15 @@
 const todoForm = document.todoform
 const todoList = document.getElementById('todo-list')
 
+//DISPLAYS TODO ITEMS ON PAGE
 getData = () => {
     axios.get('https://api.vschool.io/rush/todo')
     .then(res => listData(res.data))
     .catch(err => console.log(err))
 }
 
-
 listData = (todoArray) => {
+    refreshList()
     todoArray.map(todo => {
         const {title, imgUrl} = todo;
 
@@ -25,39 +26,13 @@ listData = (todoArray) => {
     })
 }
 
+refreshList = () => {
+    while(todoList.firstChild){
+        todoList.removeChild(todoList.firstChild)
+    }
+}
+
 getData()
-
-
-// axios.get('https://api.vschool.io/rush/todo')   //get request to display all items
-//     .then(response => {
-//         response.data.map(todo => { 
-
-//             const {title, description, price, imgUrl} = todo
-
-            // const liTitle = document.createElement('li')
-            // liTitle.textContent = title  
-
-//             const h3 = document.createElement('h3')
-//             h3.textContent = description
-
-//             const priceH3 = document.createElement('h3')
-//             priceH3.textContent = price
-
-            // const img = document.createElement('img')
-            // img.src = imgUrl;
-            // img.style.height = '150px';
-            // img.style.width = '200px';
-
-//             todoList.appendChild(liTitle);
-//             // todoList.appendChild(h3);
-//             // todoList.appendChild(priceH3);
-//             img.value !== '' && todoList.appendChild(img);     //attempt at if no img dont display anything
-
-//         })
-//     })
-//     .catch(error => {
-//         console.log(error)
-//     });
 
 todoForm.addEventListener('submit', function(event){    //submit event to add new todo items
     event.preventDefault()
@@ -70,14 +45,13 @@ todoForm.addEventListener('submit', function(event){    //submit event to add ne
     }
 
     axios.post('https://api.vschool.io/rush/todo', newTodo)
-        .then(response => console.log(response.data))
+        .then(res => getData())
         .catch(error => console.log(error))
 
         todoForm.title.value = ''
         todoForm.description.value = ''
         todoForm.imgUrl.value = ''
         todoForm.price.value = ''
-
 })
 
 todoForm.delete.addEventListener('submit', function(event){     //delete button
