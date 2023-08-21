@@ -1,17 +1,21 @@
 const todoForm = document['todo-form']
 const todoList = document.getElementById('todo-list')
 
-//DISPLAYS TODO ITEMS ON PAGE
+
+// DISPLAYS TODO ITEMS ON PAGE
 getData = () => {
     axios.get('https://api.vschool.io/rush/todo')
-    .then(res => listData(res.data))
+    .then(res => {listData(res.data);console.log(res.data)})
     .catch(err => console.log(err))
 }
 
 listData = (todoArray) => {
-    refreshList()
+    refreshList();
     todoArray.map(todo => {
-        const {title, imgUrl} = todo;
+        const { title, imgUrl, _id, completed } = todo;
+
+        let todoId = _id;
+        const complete = completed
 
         const listItem = document.createElement('li');
 
@@ -19,21 +23,34 @@ listData = (todoArray) => {
         checkbox.type = 'checkbox';
         checkbox.className = 'todo-checkbox';
 
+        checkbox.addEventListener('change', async () => {
+            checkbox = !complete;
+            await updateTodoCompletion(todoId, complete);
+            refreshList();
+        })
+
+        checkbox.checked = complete;
+
         const liTitle = document.createElement('span');
-            liTitle.textContent = title;
+        liTitle.textContent = title;
 
         const img = document.createElement('img');
-            img.src = imgUrl;
-            img.style.height = '150px';
-            img.style.width = '200px';
-  
-        listItem.appendChild(checkbox)
-        listItem.appendChild(liTitle)
-        listItem.appendChild(img)
+        img.src = imgUrl;
+        img.style.height = '150px';
+        img.style.width = '200px';
 
-        todoList.appendChild(listItem)
-    })
-}
+        const deleteButton = document.createElement('button');
+        deleteButton.textContent = 'Delete';
+        deleteButton.onclick = () => deleteTodo(todoId); // Set the onclick function correctly
+
+        listItem.appendChild(checkbox);
+        listItem.appendChild(deleteButton);
+        listItem.appendChild(liTitle);
+        imgUrl !== '' && listItem.appendChild(img);
+        
+        todoList.appendChild(listItem);
+    });
+};
 
 refreshList = () => {
     while(todoList.firstChild){
@@ -43,7 +60,7 @@ refreshList = () => {
 
 getData()
 
-//ADD NEW TODO's
+// ADD NEW TODO's
 todoForm.addEventListener('submit', function(event){    
     event.preventDefault()
 
@@ -64,26 +81,38 @@ todoForm.addEventListener('submit', function(event){
         todoForm.price.value = ''
 })
 
-todoForm.delete.addEventListener('submit', async function (event) {
-    event.preventDefault();
+// DELETE TODO's
+deleteTodo = (todoId) => {
+    const removeTodo = axios.delete(`https://api.vschool.io/rush/todo/${todoId}`)
+                    .then(res => getData())
+                    .catch(error => console.log(error))
+}
 
-    const listItemElements = todoList.getElementsByTagName('li'); // Get list items
-    const checkboxes = document.querySelectorAll('.todo-checkbox'); // Get checkboxes
+// COMPLETE TOGGLE
+updateTodoCompletion = () => {
+    axios.put(`https://api.vschool.io/rush/todo/${todoId}`,)
+}
 
-    for (let i = 0; i < checkboxes.length; i++) {
-        if (checkboxes[i].checked) {
-            const todoId = checkboxes[i].getAttribute('data-todo-id'); // Assuming you have a data attribute for todo ID
+// todoForm.delete.addEventListener('submit', async function (event) {
+//     event.preventDefault();
+//     console.log('delete button')
+//     const listItemElements = todoList.getElementsByTagName('li'); // Gets list items
+//     const checkboxes = document.querySelectorAll('todo-checkbox'); // Gets checkboxes
+
+//     for (let i = 0; i < checkboxes.length; i++) {
+//         if (checkboxes[i].checked) {
+//             const todoId = checkboxes[i].getAttribute('data-todo-id'); // HOW TO GRAB THE ID
             
-            try {
-                const response = await axios.delete(`https://api.vschool.io/rush/todo/${todoId}`);
-                console.log(response.data);
-                listItemElements[i].remove(); // Remove the list item from the DOM
-            } catch (error) {
-                console.log(error);
-            }
-        }
-    }
-});
+//             try {
+//                 const response = await axios.delete(`https://api.vschool.io/rush/todo/${todoId}`);
+//                 console.log(response.data);
+//                 listItemElements[i].remove(); // Removes from the DOM
+//             } catch (error) {
+//                 console.log(error);
+//             }
+//         }
+//     }
+// });
 
 
 // //DELETE TODO's
