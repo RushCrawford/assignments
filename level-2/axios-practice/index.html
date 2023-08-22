@@ -8,21 +8,22 @@
 </head>
 <body>
 
-    <h1 id="header">Shopping List</h1>
+    <div class="page-container">
+        <h1 id="header">Shopping List</h1>
 
-    <form id="inputs" name="todo-form">
-        <input id="input-1" name="title" placeholder="Title"/>
-        <input id="input-2" name="description" placeholder="Description"/>
-        <input id="input-3" name="price" placeholder="Price"/>
-        <input id="input-4" name="imgUrl" placeholder="Image Url"/>
-        <button id="input-5">Submit</button>
-    </form>
+        <form class="input-container" name="todo-form">
+            <input class="input-item" name="title" placeholder="Title"/>
+            <input class="input-item" name="description" placeholder="Description"/>
+            <input class="input-item" name="price" placeholder="Price"/>
+            <input class="input-item" name="imgUrl" placeholder="Image Url"/>
+            <button class="input-item">Submit</button>
+        </form>
 
 
-    <ol id="todo-list">
+        <ol id="todo-list">
 
-    </ol>
-
+        </ol>
+    </div>
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
     <script src="app.js"></script>
 
