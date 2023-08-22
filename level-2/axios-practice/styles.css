@@ -1,16 +1,17 @@
 * {
     margin: 0;
 }
-
 body {
-    /* display: flex; */
+    background-color: darkseagreen;
 }
-
+#header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 50px;
+}
 #inputs {
     display: flex;
-    flex-direction: column;
-    background-color: gray;
-    width: 300px;
     justify-content: center;
     align-items: center;
 }
@@ -28,5 +29,31 @@ body {
 }
 #inputs > #input-5 {
     margin: 1px;
-    width: 80px;
 }
+li {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin: 50px;
+    border-bottom: solid 1px #ccc;
+}
+
+li > span {
+    font-size: x-large;
+    margin: 5px;
+}
+li > p {
+    margin: 5px;
+}
+li > img {
+    position: relative;
+    margin: 5px;
+}
+li > button {
+    margin: 2px;
+}
+li > input {
+    margin: 2px;
+}
+

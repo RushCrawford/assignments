@@ -12,7 +12,7 @@ getData = () => {
 listData = (todoArray) => {
     refreshList();
     todoArray.map(todo => {
-        const { title, imgUrl, _id, completed } = todo;
+        const { title, imgUrl, _id, completed, price, description } = todo;
 
         let todoId = _id;
         let complete = completed;
@@ -34,6 +34,12 @@ listData = (todoArray) => {
         const liTitle = document.createElement('span');
         liTitle.textContent = title;
 
+        const liPrice = document.createElement('span');
+        liPrice.textContent = `$${price}`;
+
+        const liDescription = document.createElement('p')
+        liDescription.textContent = description
+
         const img = document.createElement('img');
         img.src = imgUrl;
         img.style.height = '150px';
@@ -41,12 +47,15 @@ listData = (todoArray) => {
 
         const deleteButton = document.createElement('button');
         deleteButton.textContent = 'Delete';
-        deleteButton.onclick = () => deleteTodo(todoId); // Set the onclick function correctly
+        deleteButton.onclick = () => deleteTodo(todoId); 
 
+        listItem.appendChild(liTitle);
+        listItem.appendChild(liPrice);
+        listItem.appendChild(liDescription)
+        imgUrl !== '' && listItem.appendChild(img);
         listItem.appendChild(checkbox);
         listItem.appendChild(deleteButton);
-        listItem.appendChild(liTitle);
-        imgUrl !== '' && listItem.appendChild(img);
+        
         
         todoList.appendChild(listItem);
     });
@@ -97,43 +106,3 @@ updateTodoCompletion = (todoId) => {
         .then(res => getData())
         .catch(err => console.log(err))
 }
-
-
-
-
-// todoForm.delete.addEventListener('submit', async function (event) {
-//     event.preventDefault();
-//     console.log('delete button')
-//     const listItemElements = todoList.getElementsByTagName('li'); // Gets list items
-//     const checkboxes = document.querySelectorAll('todo-checkbox'); // Gets checkboxes
-
-//     for (let i = 0; i < checkboxes.length; i++) {
-//         if (checkboxes[i].checked) {
-//             const todoId = checkboxes[i].getAttribute('data-todo-id'); // HOW TO GRAB THE ID
-            
-//             try {
-//                 const response = await axios.delete(`https://api.vschool.io/rush/todo/${todoId}`);
-//                 console.log(response.data);
-//                 listItemElements[i].remove(); // Removes from the DOM
-//             } catch (error) {
-//                 console.log(error);
-//             }
-//         }
-//     }
-// });
-
-
-// //DELETE TODO's
-// todoForm.delete.addEventListener('submit', function(event){
-//     event.preventDefault()
-
-//     const removeTodo = axios.delete('https://api.vschool.io/rush/todo')
-//                         .then(response => console.log(response.data))
-//                         .catch(error => console.log(error))
-
-//     //loop over list to check for checked condition true
-//     todoList.map(todo => {
-//     todo.checkbox === true && removeTodo    
-//         } 
-//     )
-// })
