@@ -15,11 +15,11 @@ listData = (todoArray) => {
         const { title, imgUrl, _id, completed } = todo;
 
         let todoId = _id;
-        const complete = completed
+        let complete = completed;
 
         const listItem = document.createElement('li');
 
-        const checkbox = document.createElement('input');
+        let checkbox = document.createElement('input');
         checkbox.type = 'checkbox';
         checkbox.className = 'todo-checkbox';
 
@@ -89,9 +89,17 @@ deleteTodo = (todoId) => {
 }
 
 // COMPLETE TOGGLE
-updateTodoCompletion = () => {
-    axios.put(`https://api.vschool.io/rush/todo/${todoId}`,)
+
+updateTodoCompletion = (todoId) => {
+    console.log("complete")
+    let update = {completed: true}
+        axios.put(`https://api.vschool.io/rush/todo/${todoId}`, update)
+        .then(res => getData())
+        .catch(err => console.log(err))
 }
+
+
+
 
 // todoForm.delete.addEventListener('submit', async function (event) {
 //     event.preventDefault();
