@@ -20,4 +20,3 @@ form.addEventListener("submit", (event) => {
     inputBox3.value = ''
 })
 
-npm install axios

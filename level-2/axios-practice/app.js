@@ -19,6 +19,10 @@ listData = (todoArray) => {
 
         const listItem = document.createElement('li');
 
+        const label = document.createElement('label');
+        label.textContent = 'Check when complete';
+        label.setAttribute('for', `checkbox-${todoId}`);
+
         let checkbox = document.createElement('input');
         checkbox.type = 'checkbox';
         checkbox.className = 'todo-checkbox';
@@ -53,9 +57,9 @@ listData = (todoArray) => {
         listItem.appendChild(liPrice);
         listItem.appendChild(liDescription)
         imgUrl !== '' && listItem.appendChild(img);
+        listItem.appendChild(label)
         listItem.appendChild(checkbox);
         listItem.appendChild(deleteButton);
-        
         
         todoList.appendChild(listItem);
     });
