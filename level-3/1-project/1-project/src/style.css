@@ -4,15 +4,26 @@
 
 body {
     margin: 0;
+    font-family: Inter;
 }
 .container {
     display: flex;
     flex-direction: column;
-    background-color: aqua;
 }
 .navbar {
     display: flex;
+    background-color: #21222A;
+    justify-content: center;
+    align-items: center;
 }
+.navbar > h3 {
+    color: #61DAFB;
+    margin-right: auto;
+}
+.navbar > span {
+    color: #DEEBF8;
+}
+
 .main-content {
     display: flex;
     flex-direction: column;
