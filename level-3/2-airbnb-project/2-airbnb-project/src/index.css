@@ -91,6 +91,7 @@ button:focus-visible {
 .main {
   display: flex;
   flex-direction: column;
+  margin: 20px;
 }
 .main--photo {
   height: 232px;
@@ -104,4 +105,31 @@ button:focus-visible {
 .main--p {
   font-size: 16;
   margin-top: 0px;
+  margin-bottom: 30px;
+}
+
+/* CARD */
+
+.card {
+  display: flex;
+  flex-direction: column;
+  margin: 20px;
+  font-size: 12px;
+}
+.card--img {
+  height: 235px;
+  width: 176px;
+}
+.rating {
+  display: flex;
+  margin-top: 5px;
+}
+.card--star {
+  height: 12px;
+  width: 12px;
+  align-self: center;
+  margin-right: 2px;
+}
+.grey {
+  color: #918E9B;
 }
