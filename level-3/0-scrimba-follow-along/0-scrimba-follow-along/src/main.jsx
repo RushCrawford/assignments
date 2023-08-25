@@ -1,6 +1,22 @@
 import ReactDOM from "react-dom"
 
-const page = (
+// Page = () => {
+//   return (
+//   <div>
+//     <img src='./react-logo png' width='40px'/>
+//     <h1>Fun Facts About React</h1>
+//     <ul>
+//       <li>Was first released in 2013</li>
+//       <li>Originally created by Jodran Walke</li>
+//       <li>Has well over 100K stars on GitHub</li>
+//       <li>Is maintained by Facebook</li>
+//       <li>Powers thousands of enterprise apps, including mobile apps</li>
+//     </ul>
+//   </div>
+// )}
+
+const Page = ( 
+  
   <div>
     <img src='./react-logo png' width='40px'/>
     <h1>Fun Facts About React</h1>
@@ -15,7 +31,8 @@ const page = (
 )
 
 
-ReactDOM.render(page,document.getElementById('root'))
+
+ReactDOM.render(Page,document.getElementById('root'))
 
 
 /*
