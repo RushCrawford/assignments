@@ -10,21 +10,56 @@ body {
     display: flex;
     flex-direction: column;
 }
+
+/* NAVBAR */
 .navbar {
     display: flex;
     background-color: #21222A;
     justify-content: center;
     align-items: center;
 }
-.navbar > h3 {
+.nav--img {
+    height: 28.93px;
+    width: 28.93px;
+    margin-left: 50px;
+}
+.nav--title {
     color: #61DAFB;
     margin-right: auto;
+    font-size: 22.5px;
+    font-weight: 700;
+    padding-left: 7px;
 }
-.navbar > span {
+.nav--description {
     color: #DEEBF8;
+    font-size: 16px;
+    font-weight: 600;
+    padding-right: 50px;
 }
 
+/* MAIN CONTENT */
 .main-content {
     display: flex;
     flex-direction: column;
+    background-color: #282D35;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+.main--title {
+    color: #FFFFFF;
+    font-size: 39.06px;
+    font-weight: 700;
+    letter-spacing: -0.05em;
+}
+.main--list {
+    color: #FFFFFF;
+    font-size: 16px;
+    font-weight: 400;
+    padding-block: 10px;
+}
+.main--list li::marker {
+    color: #61DAFB;
+    font-size: 25px;
+    font-weight: 400;
 }
