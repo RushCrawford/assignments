@@ -39,22 +39,22 @@ import Card from './components/Card'
 import data from './data'
 
 export default function App() {
-  const cardElements = data.map(item => <Card 
-    title={item.title} 
+  const cardElements = data.map(item => <Card
+    title={item.title}
     description={item.description}
     price={item.price}
     coverImg={item.coverImg}
-    rating={item.rating}
-    reviewCount={item.reviewCount}
+    rating={item.stats.rating}
+    reviewCount={item.stats.reviewCount}
     location={item.location}
     openSpots={item.openSpots}
-      />)
+  />)
 
-  return(
-      <div>
-          <Nav />
-          <Hero />
-          {cardElements}
-      </div>
+  return (
+    <div>
+      <Nav />
+      <Hero />
+      <section className='cards-list'>{cardElements}</section> 
+    </div>
   )
 }
