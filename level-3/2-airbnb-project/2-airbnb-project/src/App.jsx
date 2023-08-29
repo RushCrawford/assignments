@@ -34,15 +34,27 @@
 
 // export default App
 import Nav from './components/Nav'
-import MainBody from './components/MainBody'
-import Experiences from './components/Experiences'
+import Hero from './components/Hero'
+import Card from './components/Card'
+import data from './data'
 
 export default function App() {
+  const cardElements = data.map(item => <Card 
+    title={item.title} 
+    description={item.description}
+    price={item.price}
+    coverImg={item.coverImg}
+    rating={item.rating}
+    reviewCount={item.reviewCount}
+    location={item.location}
+    openSpots={item.openSpots}
+      />)
+
   return(
       <div>
           <Nav />
-          <MainBody />
-          <Experiences />
+          <Hero />
+          {cardElements}
       </div>
   )
 }

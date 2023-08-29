@@ -88,21 +88,21 @@ button:focus-visible {
 }
 
 /* MAIN */
-.main {
+.hero {
   display: flex;
   flex-direction: column;
   margin: 20px;
 }
-.main--photo {
+.hero--photo {
   height: 232px;
   width: 395px;
   align-self: center;
 }
-.main--h1 {
+.hero--h1 {
   font-size: 36px;
   margin-bottom: 16px;
 }
-.main--p {
+.hero--p {
   font-size: 16;
   margin-top: 0px;
   margin-bottom: 30px;
