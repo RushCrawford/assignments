@@ -39,7 +39,7 @@ export default function App() {
     <div>
       <Joke
         setup='Why did the chicken cross the road?'
-        punchline='To get to them titties!'
+        punchline='To get to the other side!'
       />
       <Joke
         setup='Why did the little girl fall off the swing?'
@@ -54,12 +54,7 @@ export default function App() {
         punchline='Youd think its the ARRRR but its really the C!'
       />
       <Joke
-        setup='Why did the chicken cross the road?'
-        punchline='To get to them titties!'
-      />
-      <Joke
-        setup='Why did the chicken cross the road?'
-        punchline='To get to them titties!'
+        punchline='Punchline with no setup!'
       />
     </div>
   )
