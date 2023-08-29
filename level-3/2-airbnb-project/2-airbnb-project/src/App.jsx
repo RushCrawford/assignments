@@ -40,14 +40,7 @@ import data from './data'
 
 export default function App() {
   const cardElements = data.map(item => <Card
-    title={item.title}
-    description={item.description}
-    price={item.price}
-    coverImg={item.coverImg}
-    rating={item.stats.rating}
-    reviewCount={item.stats.reviewCount}
-    location={item.location}
-    openSpots={item.openSpots}
+    item={item}
   />)
 
   return (
