@@ -1,4 +1,4 @@
-import data from './assets/data'
+import data from './data'
 import BlogPost from './BlogPost'
 
 export default function BlogList() {

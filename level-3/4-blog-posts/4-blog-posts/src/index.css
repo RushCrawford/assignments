@@ -67,3 +67,35 @@ button:focus-visible {
     background-color: #f9f9f9;
   }
 } */
+* {
+  margin: 0%;
+}
+
+ /* HEADER */
+ .header {
+  display: flex;
+  flex-direction: column;
+  height: 550px;
+  width: 100%;
+ }
+ .header--img {
+  position: absolute;
+  width: 100%;
+  z-index: -1;
+  margin-top: -450px;
+ }
+ .header--title {
+  align-self: center;
+  justify-self: center;
+ }
+ .header--subtitle {
+  align-self: center;
+  justify-self: center;
+ }
+
+ .nav {
+  display: flex;
+ }
+ .nav--elements {
+  align-self: flex-end;
+ }
