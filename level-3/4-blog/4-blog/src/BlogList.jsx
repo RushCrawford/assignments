@@ -1,5 +1,5 @@
-import data from './data'
-import BlogPost from './assets/BlogPost'
+import data from './assets/data'
+import BlogPost from './BlogPost'
 
 export default function BlogList() {
     const posts = data.map(post => {return(<BlogPost post={post}/>)})
