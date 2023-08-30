@@ -75,8 +75,17 @@ button:focus-visible {
  .header {
   display: flex;
   flex-direction: column;
-  height: 550px;
+  height: 350px;
   width: 100%;
+  justify-content: space-between;
+  align-items: center;
+ }
+ .title-box {
+  display: flex;
+  flex-direction: column;
+ }
+ .nav-component {
+  position: relative;
  }
  .header--img {
   position: absolute;
@@ -87,6 +96,7 @@ button:focus-visible {
  .header--title {
   align-self: center;
   justify-self: center;
+  font-size: 90px;
  }
  .header--subtitle {
   align-self: center;
@@ -94,8 +104,19 @@ button:focus-visible {
  }
 
  .nav {
-  display: flex;
+   display: flex;
+   width: 100%;
+   justify-content: space-between;
  }
- .nav--elements {
-  align-self: flex-end;
+ .nav--title {
+  margin-left: 100px;
+  margin-top: 50px;
+ }
+ .nav--elements-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  width: 350px;
+  margin-right: 100px;
+  margin-top: 50px;
  }
