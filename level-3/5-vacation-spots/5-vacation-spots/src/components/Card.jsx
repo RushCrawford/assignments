@@ -2,9 +2,9 @@ function Card(props) {
 
     // logic for price indicator
     let priceIndicatorText
-    if(props.spot.price < 500) {
+    if (props.spot.price < 500) {
         priceIndicatorText = '$'
-    } else if(props.spot.price > 500 && props.spot.price < 1000) {
+    } else if (props.spot.price > 500 && props.spot.price < 1000) {
         priceIndicatorText = '$$'
     } else {
         priceIndicatorText = '$$$'
@@ -12,12 +12,13 @@ function Card(props) {
 
     //logic for background change with season
 
-    return(
+    return (
         <div className="card">
-            <div>{priceIndicatorText}</div>
-            <img className="card--background" src="" />
-            <h1>{props.spot.place}</h1>
-            <h3>${props.spot.price}/night</h3>
+            <h1 className="card--title">{props.spot.place}</h1>
+            <div className="card--price-container">
+                <img className="card--background" src="" />
+                <h3><span>{priceIndicatorText}</span> - ${props.spot.price}/night</h3>
+            </div>
         </div>
     )
 }

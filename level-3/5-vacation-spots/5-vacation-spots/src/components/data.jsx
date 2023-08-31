@@ -2,23 +2,23 @@ export default [
     {
       place: "Meridian, Idaho",
       price: 40,
-      timeToGo: "Spring"
+      timeToGo: "Spring",
     },{
       place: "Cancun",
       price: 900,
-      timeToGo: "Winter"
+      timeToGo: "Winter",
     },{
       place: "China",    
       price: 1200,
-      timeToGo: "Fall"
+      timeToGo: "Fall",
     },{
       place: "Russia",
       price: 1100,
-      timeToGo: "Summer"
+      timeToGo: "Summer",
     },{
       place: "Lebanon",
       price: 400,
-      timeToGo: "Spring"
+      timeToGo: "Spring",
     }
   ]
 

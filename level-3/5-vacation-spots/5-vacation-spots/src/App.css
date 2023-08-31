@@ -24,13 +24,31 @@
 .list-container {
   display: flex;
   flex-direction: column;
-  align-items: center;
+  align-items: flex-start;
   justify-content: center;
   height: 70vh;
+  overflow-x: auto;
 }
 .card-container {
   display: flex;
 }
+
+/* CARD */
 .card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   margin: 20px;
+  border: 1px solid black;
+  height: 400px;
+  width: 280px;
+}
+.card--title {
+  margin: 20px;
+}
+.card--price-container {
+  display: flex;
+  width: 150px;
+  justify-self: flex-end;
+  margin-top: 280px;
 }
