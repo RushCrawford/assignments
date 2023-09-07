@@ -1,13 +1,12 @@
 import FriendList  from './components/FriendList'
-import viteLogo from '/vite.svg'
-import './App.css'
+import './index.css'
 
 function App() {
 
   return (
-    <>
+    <div className='container'>
     <FriendList />
-    </>
+    </div>
   )
 }
 

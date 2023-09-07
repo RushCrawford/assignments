@@ -1,15 +1,17 @@
 import Pet from './Pet'
 
 export default function Friend(props) {
-    //map over pets array
-    return(
+    return (
         <div className="friend-container">
-            <h3>Name: {props.friend.name}</h3>
-            <h3>Age: {props.friend.age}</h3>
+            <div className='name-and-age'>
+                <h3 className='friend-name'>Name: {props.friend.name}</h3>
+                <h3 className='friend-age'>Age: {props.friend.age}</h3>
+            </div>
             <h3>Pets: {props.friend.pets.map(pets => {
-                return (<Pet pets={pets}/>)})}
-                </h3>
-                
+                return (<Pet pets={pets} />)
+            })}
+            </h3>
+
         </div>
     )
 }

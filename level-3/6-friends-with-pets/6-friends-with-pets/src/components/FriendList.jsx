@@ -7,9 +7,9 @@ export default function FriendList() {
         return (<Friend friend={friend}/>)
     })
     return(
-        <>
+        <div>
         {friends}
-        </>
+        </div>
 
     
         )

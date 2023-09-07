@@ -1,9 +1,8 @@
 export default function Pet(props) {
-    console.log(props)
     return(
         <div className="pet-container">
-            <h3>Name: {props.pets.name}</h3>
-            <h3>Breed: {props.pets.breed}</h3>
+            <h5>Pet's Name: {props.pets.name}</h5>
+            <h5>Pet's Breed: {props.pets.breed}</h5>
         </div>
     )
 }
