@@ -10,7 +10,7 @@ const [thingsArray, setThingsArray] = useState(['Thing 1', 'Thing 2'])
       setThingsArray(prev => [...prev, `Thing ${prev.length + 1}`])
   }
   
-  const thingsElements = thingsArray.map(thing => <p key={thing}>{thing}</p>)
+const thingsElements = thingsArray.map(thing => <p>{thing}</p>)
   
   return (
       <div>
