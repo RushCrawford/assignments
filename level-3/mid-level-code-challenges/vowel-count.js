@@ -1,8 +1,8 @@
-const input = 'Hello, World!';
+const input = 'HEllo, World!';
 
 //spread input string into an array
 const vowelCount = (word) => {
-    let stringArray = [...word];    
+    let stringArray = [...word.toLowerCase()];    
     let vowel = 0                   //declare counter
 
     //count vowels
