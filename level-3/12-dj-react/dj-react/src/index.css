@@ -1,0 +1,20 @@
+* {
+  margin: 0px;
+  box-sizing: border-box;
+}
+.square-container {
+  display: grid;
+  grid-template-rows: 1fr 1fr; 
+  grid-template-columns: 1fr 1fr; 
+  gap: 10px;
+  width: 1000px; 
+  height: 600px;
+  margin: 0 auto;
+}
+.square {
+  height: 300px;
+  width: 500px;
+  border: 1px solid black;
+  margin: 5px;
+  border-radius: 5%;
+}
