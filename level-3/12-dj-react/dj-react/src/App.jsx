@@ -1,5 +1,4 @@
 import { useState } from 'react'
-import squaresArray from "./squaresArray"
 import Square from './Square'
 import Buttons from './Buttons'
 
@@ -14,39 +13,30 @@ function App() {
         return ['black', 'black', 'black', 'black']
       } else if (prevColor[0] === 'black') {
         return ['white', 'white', 'white', 'white']
+      } else {
+        return ['black', 'yellow', 'green', 'black']
       }
     })
   }
 
   const Party = () => {
-    //   setColors( prevColor.map(color => {
-    //     if(prevColor.id > 2){
-    //       return 'purple'
-    //     } else if(indexOf(color) > 2) {
-    //       return color
-    //     }
-    // }))
-    //  const purpleSquares = colors.filter((color) => color )
-
-    // setColors((prevColors) => ({
-    //   colors: [...prevColors.slice(0, 2), 'purple', 'purple']
-    // }));
       const tempColors = colors.slice(2, 4)
       const newColors = ["purple", "purple", ...tempColors]
       setColors(newColors)
-    console.log(colors)
-    // };
-
-    // setColors((prevColors) => prevColors.map((value, index) => (index < 2 ? 'purple' : value)));
   }
 
-  // const squareElements = squaresArray.map(square => (
-    // <Square
-    //   key={square.id}
-    //   colors={colors}
-    //   index={indexOf(colors)}
-    // />
-  // ))
+  const BottomRight = () => {
+    const tempColors = colors.slice(0, 3)
+    const newColors = [...tempColors, 'blue']
+    setColors(newColors)
+  }
+
+  const BottomLeft = () => {
+    const tempColors1 = colors.slice(0, 2)
+    const tempColors2 = colors.slice(3, 4)
+    const newColors = [...tempColors1, 'blue', ...tempColors2]
+    setColors(newColors)
+  }
 
   const squareElements = colors.map(color => (
     <Square
@@ -63,6 +53,8 @@ function App() {
         <Buttons
           smallTime={SmallTime}
           party={Party}
+          bottomRight={BottomRight}
+          bottomLeft={BottomLeft}
         />
       </div>
     </>
