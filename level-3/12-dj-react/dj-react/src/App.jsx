@@ -25,16 +25,39 @@ function App() {
       setColors(newColors)
   }
 
-  const BottomRight = () => {
+  const ProRight = () => {
     const tempColors = colors.slice(0, 3)
     const newColors = [...tempColors, 'blue']
     setColors(newColors)
   }
 
-  const BottomLeft = () => {
+  const ProLeft = () => {
     const tempColors1 = colors.slice(0, 2)
     const tempColors2 = colors.slice(3, 4)
     const newColors = [...tempColors1, 'blue', ...tempColors2]
+    setColors(newColors)
+  }
+
+  const TopLeft = () => {
+    const indexZero = colors.slice(0, 1)
+    const newColors = [...indexZero, 'pink', 'pink', 'pink']
+    setColors(newColors)
+  }
+  
+  const BottomLeft = () => {
+    const indexTwo = colors.slice(2, 3)
+    const newColors = ['gray', 'gray',...indexTwo, 'gray',]
+    setColors(newColors)
+  }
+
+  const TopRight = () => {
+    const indexOne = colors.slice(1, 2)
+    const newColors = ['aqua', ...indexOne, 'aqua', 'aqua']
+    setColors(newColors)
+  }
+  const BottomRight = () => {
+    const indexThree = colors.slice(3, 4)
+    const newColors = ['orange', 'orange', 'orange', ...indexThree]
     setColors(newColors)
   }
 
@@ -53,6 +76,10 @@ function App() {
         <Buttons
           smallTime={SmallTime}
           party={Party}
+          proLeft={ProLeft}
+          proRight={ProRight}
+          topLeft={TopLeft}
+          topRight={TopRight}
           bottomRight={BottomRight}
           bottomLeft={BottomLeft}
         />
