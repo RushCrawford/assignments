@@ -2,7 +2,8 @@ import { useState } from 'react'
 
 function App() {
   const [formData, setFormData] = useState({
-    name: ''
+    fullName: '',
+    id: Math.random()
   })
 
   
@@ -14,14 +15,14 @@ function App() {
     // map over array and display it in the ol
   }
 
-  const namesArray = formData.map(data => (<li>{data}</li>))
+  // const namesArray = formData.map(data => (<li>{data}</li>))
 
   const handleChange = (event) => {
     const {name, value} = event.target
     setFormData(prevFormData => ({
       ...prevFormData,
       [name]: value
-    }))
+  }))
   }
 
   return (
@@ -29,13 +30,13 @@ function App() {
       <input
         placeholder="Enter any name"
         className="form--input"
-        name="name"
+        name="fullName"
         onChange={handleChange}
-        value={formData.name}
+        value={formData.fullName}
       />
       <button>Submit</button>
-      <h1>{formData.name}</h1>
-      <ol>{namesArray}</ol>
+      <h1>{formData.fullName}</h1>
+      {/* <ol>{namesArray}</ol> */}
     </form>
   )
 }
