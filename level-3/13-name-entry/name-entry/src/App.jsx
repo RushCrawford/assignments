@@ -28,6 +28,7 @@ function App() {
       />
       <button>Submit</button>
       <h1>{formData.name}</h1>
+      <ol></ol>
     </form>
   )
 }
