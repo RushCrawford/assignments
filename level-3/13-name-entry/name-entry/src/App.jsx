@@ -5,9 +5,16 @@ function App() {
     name: ''
   })
 
+  
   const handleSubmit = (event) => {
     event.preventDefault()
+    // const namesList = [...formData.name] 
+    // push names to an array
+    // setFormData(namesList)
+    // map over array and display it in the ol
   }
+
+  const namesArray = formData.map(data => (<li>{data}</li>))
 
   const handleChange = (event) => {
     const {name, value} = event.target
@@ -28,7 +35,7 @@ function App() {
       />
       <button>Submit</button>
       <h1>{formData.name}</h1>
-      <ol></ol>
+      <ol>{namesArray}</ol>
     </form>
   )
 }
