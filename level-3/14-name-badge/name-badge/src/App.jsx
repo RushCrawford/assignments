@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import Inputs from './Inputs.jsx'
 
 // need 6 regular input fields
 // need one text area field
@@ -18,74 +19,26 @@ function App() {
   const [badge, setBadge] = useState([])
 
   const handleChange = (event) => {
-    const {name, value} = event.target
+    const { name, value } = event.target
     setFormData(prevFormData => ({
-    ...prevFormData,
+      ...prevFormData,
+      [name]: value
 
-  }))}
+    }))
+  }
+
+  const handleSubmit = (event) => {
+    event.preventDefault()
+    console.log(formData)
+  }
 
   return (
-    <>
-      <form>
-        <input 
-          type="firstName" 
-          placeholder="First Name"
-          className="form--input"
-          name="firstName"
-          onChange={handleChange}
-          value={formData.email}
-        />
-        <input 
-          type="lastName" 
-          placeholder="Last Name"
-          className="form--input"
-          name="lastName"
-          onChange={handleChange}
-          value={formData.email}
-        />
-        <input 
-          type="email" 
-          placeholder="Email"
-          className="form--input"
-          name="email"
-          onChange={handleChange}
-          value={formData.email}
-        />
-        <input 
-          type="birthPlace" 
-          placeholder="Place of Birth"
-          className="form--input"
-          name="birthPlace"
-          onChange={handleChange}
-          value={formData.email}
-        />
-        <input 
-          type="phoneNumber" 
-          placeholder="Phone"
-          className="form--input"
-          name="phoneNumber"
-          onChange={handleChange}
-          value={formData.email}
-        />
-        <input 
-          type="favoriteFood" 
-          placeholder="Favorite Food"
-          className="form--input"
-          name="favoriteFood"
-          onChange={handleChange}
-          value={formData.email}
-        />
-        <input 
-          type="about" 
-          placeholder="Tell us about yourslef"
-          className="form--input"
-          name="about"
-          onChange={handleChange}
-          value={formData.email}
-        />
+    <div className='form-container'>
+      <form className='form' onSubmit={handleSubmit}>
+        <Inputs />
         <button>Submit</button>
       </form>
-    </>
+    </div>
   )
 }
 
