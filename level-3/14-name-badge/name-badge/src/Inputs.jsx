@@ -1,4 +1,5 @@
-export default function Inputs(props) {
+function Inputs(props) {
+    const {handleChange, formData} = props
     return (
         <div>
             <input
@@ -59,3 +60,5 @@ export default function Inputs(props) {
         </div>
     )
 }
+
+export default Inputs

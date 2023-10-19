@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import Inputs from './Inputs.jsx'
+import Badge from './Badge.jsx'
 
 // need 6 regular input fields
 // need one text area field
@@ -16,6 +17,7 @@ function App() {
     favoriteFood: "",
     about: "",
   })
+
   const [badge, setBadge] = useState([])
 
   const handleChange = (event) => {
@@ -29,15 +31,22 @@ function App() {
 
   const handleSubmit = (event) => {
     event.preventDefault()
-    console.log(formData)
+    setBadge(prevBadge => [...prevBadge, formData])
   }
+
+  const badges = badge.map(badge => {
+    return (
+      <Badge badge={badge} key={badge.firstName}/>
+    )
+  })
 
   return (
     <div className='form-container'>
       <form className='form' onSubmit={handleSubmit}>
-        <Inputs />
+        <Inputs handleChange={handleChange} formData={formData} />
         <button>Submit</button>
       </form>
+      {badges}
     </div>
   )
 }
