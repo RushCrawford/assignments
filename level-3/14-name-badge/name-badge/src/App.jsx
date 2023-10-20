@@ -25,18 +25,23 @@ function App() {
     setFormData(prevFormData => ({
       ...prevFormData,
       [name]: value
-
     }))
   }
 
+  const validateForm = () => {
+    setIsValid(name !== "" && email !== "");
+  };
+
   const handleSubmit = (event) => {
     event.preventDefault()
+    if (isValid) {
     setBadge(prevBadge => [formData, ...prevBadge])
+    }
   }
 
   const badges = badge.map(badge => {
     return (
-      <Badge badge={badge} key={badge.firstName}/>
+      <Badge badge={badge} key={key}/>
     )
   })
 

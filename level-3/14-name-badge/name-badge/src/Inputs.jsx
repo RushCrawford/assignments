@@ -9,6 +9,7 @@ function Inputs(props) {
                 name="firstName"
                 onChange={handleChange}
                 value={formData.firstName}
+                minLength={3}
             />
             <input
                 type="lastName"
@@ -17,6 +18,7 @@ function Inputs(props) {
                 name="lastName"
                 onChange={handleChange}
                 value={formData.lastName}
+                minLength={3}
             />
             <input
                 type="email"
@@ -25,6 +27,7 @@ function Inputs(props) {
                 name="email"
                 onChange={handleChange}
                 value={formData.email}
+                minLength={3}
             />
             <input
                 type="birthPlace"
@@ -33,6 +36,7 @@ function Inputs(props) {
                 name="birthPlace"
                 onChange={handleChange}
                 value={formData.birthPlace}
+                minLength={3}
             />
             <input
                 type="phoneNumber"
@@ -41,6 +45,7 @@ function Inputs(props) {
                 name="phoneNumber"
                 onChange={handleChange}
                 value={formData.phoneNumber}
+                minLength={3}
             />
             <input
                 type="favoriteFood"
@@ -49,6 +54,7 @@ function Inputs(props) {
                 name="favoriteFood"
                 onChange={handleChange}
                 value={formData.favoriteFood}
+                minLength={3}
             />
             <textarea
                 placeholder="Tell us about yourslef"
@@ -56,6 +62,7 @@ function Inputs(props) {
                 name="about"
                 onChange={handleChange}
                 value={formData.about}
+                minLength={3}
             />
         </div>
     )
