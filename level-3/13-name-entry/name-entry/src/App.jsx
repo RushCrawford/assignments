@@ -1,43 +1,50 @@
 import { useState } from 'react'
+import List from './List'
 
 function App() {
-  const [formData, setFormData] = useState({
-    fullName: '',
-    id: Math.random()
-  })
+  const [formData, setFormData] = useState('')
+  const initArray = []
+  const [namesArray, setNamesArray] = useState(initArray)
 
-  
+
   const handleSubmit = (event) => {
     event.preventDefault()
-    // const namesList = [...formData.name] 
-    // push names to an array
-    // setFormData(namesList)
-    // map over array and display it in the ol
+    setNamesArray(prevNamesArray => 
+      [...prevNamesArray,
+      formData.fullName]
+    )
+    console.log(namesArray)
   }
 
-  // const namesArray = formData.map(data => (<li>{data}</li>))
+  const namesList = namesArray.map((namesArray, index) => (<List key={index} namesArray={namesArray}/>))
 
   const handleChange = (event) => {
-    const {name, value} = event.target
-    setFormData(prevFormData => ({
-      ...prevFormData,
-      [name]: value
-  }))
+    const { name, value } = event.target
+    setFormData(prevFormData => {
+      return {
+        ...prevFormData,
+        [name]: value
+      }
+    })
   }
 
   return (
-    <form onSubmit={handleSubmit}>
-      <input
-        placeholder="Enter any name"
-        className="form--input"
-        name="fullName"
-        onChange={handleChange}
-        value={formData.fullName}
-      />
-      <button>Submit</button>
-      <h1>{formData.fullName}</h1>
-      {/* <ol>{namesArray}</ol> */}
-    </form>
+    <>
+      <form onSubmit={handleSubmit}>
+        <input
+          placeholder="Enter any name"
+          className="form--input"
+          name="fullName"
+          onChange={handleChange}
+          value={formData.fullName || ''}
+        />
+        <button>Submit</button>
+        <h1>{formData.fullName}</h1>
+      </form>
+      <ol>
+        names {namesList}
+      </ol>
+    </>
   )
 }
 
