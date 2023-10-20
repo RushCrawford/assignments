@@ -31,7 +31,7 @@ function App() {
 
   const handleSubmit = (event) => {
     event.preventDefault()
-    setBadge(prevBadge => [...prevBadge, formData])
+    setBadge(prevBadge => [formData, ...prevBadge])
   }
 
   const badges = badge.map(badge => {
@@ -43,8 +43,8 @@ function App() {
   return (
     <div className='form-container'>
       <form className='form' onSubmit={handleSubmit}>
-        <Inputs handleChange={handleChange} formData={formData} />
-        <button>Submit</button>
+        <Inputs className='input-container' handleChange={handleChange} formData={formData} />
+        <button className='button'>Submit</button>
       </form>
       {badges}
     </div>
