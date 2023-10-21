@@ -1,7 +1,7 @@
 function Inputs(props) {
     const {handleChange, formData} = props
     return (
-        <div>
+        <div className="input-component">
             <input
                 type="firstName"
                 placeholder="First Name"
