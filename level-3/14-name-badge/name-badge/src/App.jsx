@@ -25,8 +25,8 @@ function App() {
 
   const handleSubmit = (event) => {
     event.preventDefault()
-   
-    setBadge(prevBadge => [formData, ...prevBadge])
+
+    setBadge(prevBadge => [formData, ...prevBadge]);
     
   }
 
