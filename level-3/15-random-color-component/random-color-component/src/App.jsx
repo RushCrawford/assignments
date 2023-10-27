@@ -1,21 +1,21 @@
 import { useState, useEffect } from 'react'
+import axios from 'axios'
 
 function App() {
   const [color, setColor] = useState(0)
 
-  useEffect(function() {
-    console.log("Effect ran")
-    fetch(`https://www.colr.org/json/color/random?timestamp=${new Date().getTime()}`)
-        .then(res => res.json())
-        .then(data => setColor(data))
-        console.log(data)
-}, [color])
+  useEffect(() => {
+    axios.get(`https://www.colr.org/json/color/random?timestamp=${new Date().getTime()}`)
+      .then(res => {
+        setColor(res.data.colors[0].hex)
+      })
+  }, [])
 
 
   return (
-    <>
-     <h1>Colors</h1>
-    </>
+    <div className='div' style={{ backgroundColor: `#${color}` }}>
+      <h1>Random Color Component</h1>
+    </div>
   )
 }
 
