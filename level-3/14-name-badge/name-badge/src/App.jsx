@@ -22,12 +22,23 @@ function App() {
     }))
   }
 
+  const resetForm = () => {
+    setFormData({
+      firstName: "",
+      lastName: "",
+      email: "",
+      birthPlace: "",
+      phoneNumber: "",
+      favoriteFood: "",
+      about: "",  
+    })
+  }
 
   const handleSubmit = (event) => {
     event.preventDefault()
-
     setBadge(prevBadge => [formData, ...prevBadge]);
     
+    resetForm();
   }
 
   const badges = badge.map(badge => {
