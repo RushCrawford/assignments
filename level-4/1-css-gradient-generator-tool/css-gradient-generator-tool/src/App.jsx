@@ -11,13 +11,17 @@ import Inputs from './Inputs'
 // initiate state array to track colors
 
 function App() {
-  const [color, setColor] = useState([])
+  const [color, setColor] = useState(["#ffffff", "#ffffff"])
+
+  
 
   return (
     <div className='app-container'>
-      <h1>CSS Gradient Code Generator</h1>
+      <h1 className='title'>CSS Gradient Code Generator</h1>
+      <div className='component-container'>
       <Gradient />
-      <Inputs />
+      <Inputs color={color}/>
+      </div>
     </div>
   )
 }

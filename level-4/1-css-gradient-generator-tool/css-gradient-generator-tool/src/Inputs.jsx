@@ -1,7 +1,16 @@
 export default function Inputs(props) {
+    const { color } = props
     return(
-        <div>
-            <h1>tinputs</h1>
+        <div className="inputs-container">
+            <h1>Options</h1>
+            <form>
+                <input 
+                    name="color-1"
+                    
+                />
+                
+                {color}
+            </form>
         </div>
     )
 }

@@ -10,6 +10,17 @@
   justify-content: center;
   height: 100vh;
 }
+  .title {
+    margin: 20px;
+  }
+
+/* CONTAINER FOR COMPONENTS*/
+.component-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 50px;
+}
 
 /* CONTAINER FOR GRADIENT DISPLAY SIDE */
 .gradient-container {
@@ -27,4 +38,15 @@
     width: 400px;
     border: 1px solid black;
     border-radius: 5px;
+  }
+
+  /* CONTAINER FOR INPUTS */
+  .inputs-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 300px;
+    width: 500px;
+    border: 1px solid black;
+    border-radius: 5px;  
   }
