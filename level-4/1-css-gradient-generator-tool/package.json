@@ -1,0 +1,6 @@
+{
+  "dependencies": {
+    "react-color": "^2.19.3",
+    "react-gradient-color-picker": "^0.1.3"
+  }
+}

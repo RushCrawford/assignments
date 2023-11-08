@@ -1,7 +1,13 @@
 export default function Gradient(props) {
-    return(
+    const { color, setColor } = props
+    return (
         <div className="gradient-container">
-            <div className="gradient--display"></div>
+            <div className="gradient--display">
+                <ColorPicker
+                    value={color}
+                    onChange={(color) => setColor(color)}
+                />
+            </div>
             <textarea />
         </div>
     )
