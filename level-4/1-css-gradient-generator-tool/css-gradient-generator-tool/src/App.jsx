@@ -12,7 +12,8 @@ import Inputs from './Inputs'
 // initiate state array to track colors
 
 function App() {
-  const [color, setColor] = useState('#ff0000')
+  const [color1, setColor1] = useState('#ff0000')
+  const [color2, setColor2] = useState('#ff0000')
 
 
 
@@ -20,8 +21,17 @@ function App() {
     <div className='app-container'>
       <h1 className='title'>CSS Gradient Code Generator</h1>
       <div className='component-container'>
-        <Gradient color={color} setColor={setColor} HuePicker={HuePicker}/>
-        <Inputs color={color} setColor={setColor}/>
+        <Gradient 
+        color1={color1} 
+        color2={color2} 
+        setColor1={setColor1} 
+        setColor2={setColor2} 
+        HuePicker={HuePicker}/>
+        <Inputs 
+        color1={color1} 
+        color2={color2} 
+        setColor1={setColor1}
+        setColor2={setColor2}/>
       </div>
     </div>
   )
