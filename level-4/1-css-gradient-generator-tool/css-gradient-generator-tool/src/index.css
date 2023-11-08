@@ -50,3 +50,15 @@
     border: 1px solid black;
     border-radius: 5px;  
   }
+    .inputs {
+      margin: 15px;
+      padding: 5px;
+    }
+    .inputs-container--title {
+      margin-bottom: 20px;
+    }
+    .button {
+      height: 20px;
+      width: 30px;
+      margin: 2px;
+    }
