@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { ColorPicker } from "react-gradient-color-picker";
+import { HuePicker } from "react-color";
 import Gradient from './Gradient'
 import Inputs from './Inputs'
 
@@ -12,7 +12,7 @@ import Inputs from './Inputs'
 // initiate state array to track colors
 
 function App() {
-  const [color, setColor] = useState("#ff0000")
+  const [color, setColor] = useState('#ff0000')
 
 
 
@@ -20,9 +20,8 @@ function App() {
     <div className='app-container'>
       <h1 className='title'>CSS Gradient Code Generator</h1>
       <div className='component-container'>
-        <Gradient color={color} setColor={setColor}/>
+        <Gradient color={color} setColor={setColor} HuePicker={HuePicker}/>
         <Inputs color={color} setColor={setColor}/>
-        
       </div>
     </div>
   )
