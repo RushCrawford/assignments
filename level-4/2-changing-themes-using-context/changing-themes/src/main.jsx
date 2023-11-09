@@ -2,10 +2,11 @@ import React from 'react'
 import ReactDOM from 'react-dom/client'
 import App from './App.jsx'
 import './index.css'
-import { useContext } from 'react'
+import {themeContext} from './themeContext.jsx'
+import { themeContextProvider } from './themeContext.jsx'
 
 ReactDOM.createRoot(document.getElementById('root')).render(
-  <ThemeContextProvider>
+  <themeContextProvider>
     <App />
-  </ThemeContextProvider>,
+  </themeContextProvider>,
 )
