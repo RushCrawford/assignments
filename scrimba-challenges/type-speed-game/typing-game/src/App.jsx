@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react'
 
 function App() {
-  const STARTING_TIME = 3
+  const STARTING_TIME = 30
 
   const [text, setText] = useState('')
   const [timeRemaining, setTimeRemaining] = useState(STARTING_TIME)
