@@ -7,9 +7,9 @@ function App() {
   return (
     <>
       <ContextProvider>
-        <h1>test</h1>
-        <UglyList />
+        <h1>A place to share all things UGLY</h1>
         <Form />
+        <UglyList />
       </ContextProvider>
     </>
   )

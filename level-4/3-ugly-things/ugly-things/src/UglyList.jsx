@@ -1,12 +1,12 @@
 import { Context } from "./Context"
+import { useContext } from "react"
 
 function UglyList() {
-    const { uglythingsList } = Context
-
+    const {uglyThingsList} = useContext(Context)
     return (
         <>
             <div>
-                <h1>uglylist</h1>
+                <h1>Ugly List</h1>
             </div>
         </>
     )
