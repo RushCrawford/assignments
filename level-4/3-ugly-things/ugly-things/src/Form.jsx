@@ -24,9 +24,9 @@ function Form() {
             />
             <input 
                 type="text"
-                name="img"
+                name="imgUrl"
                 placeholder="Img URL"
-                value={formData.img}
+                value={formData.imgUrl}
                 minLength={3}
                 onChange={handleChange}
             />
