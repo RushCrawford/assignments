@@ -8,10 +8,10 @@ function ContextProvider(props) {
         img: '',
         description: ''
     })
-    const [uglyThingsList, setUglythingsList] = useState('test context')
+    const [uglyThingsList, setUglythingsList] = useState([])
 
     const handleChange = (e) => {
-        const {name, value} = e.target
+        const { name, value } = e.target
 
         setFormData(prevData => ({
             ...prevData,
@@ -20,12 +20,34 @@ function ContextProvider(props) {
         ))
     }
 
+    const handleSubmit = (e) => {
+        e.preventDefault()
+
+        setUglythingsList(prevList => [formData, ...prevList])
+    }
+
+    const uglyThingsBadges = uglyThingsList.map((badge, index) => {
+        return (
+            <div key={index}>
+                <div>
+                    <h3>{badge.title}</h3>
+                    <h4>{badge.description}</h4>
+                </div>
+                <img src={badge.url} />
+                <button>edit</button>
+                <button>delete</button>
+            </div>
+        )
+    })
+
+
     return (
         <Context.Provider value={{
             uglyThingsList,
-            setUglythingsList,
+            uglyThingsBadges,
             formData,
-            handleChange
+            handleChange,
+            handleSubmit
         }}>
             {props.children}
         </Context.Provider>

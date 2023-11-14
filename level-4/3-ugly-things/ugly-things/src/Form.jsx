@@ -2,11 +2,10 @@ import { Context } from "./Context";
 import { useContext } from "react";
 
 function Form() {
-    const {formData, handleChange} = useContext(Context)
+    const {formData, handleChange, handleSubmit} = useContext(Context)
 
     return (
-        <form>
-            <h1>Form</h1>
+        <form onSubmit={handleSubmit}>
             <input 
                 type="text"
                 name="title"
@@ -31,6 +30,7 @@ function Form() {
                 minLength={3}
                 onChange={handleChange}
             />
+            <button>Submit</button>
         </form>
     )
 }
