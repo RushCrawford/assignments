@@ -7,9 +7,12 @@ function App() {
   return (
     <>
       <ContextProvider>
-        <h1>A place to share all things UGLY</h1>
-        <Form />
-        <UglyList />
+        <div className="app-container">
+          <h1>A place to share all things UGLY</h1>
+          <Form />
+          <UglyList />
+          {/* <UglyThing title={badge.title} /> */}
+        </div>
       </ContextProvider>
     </>
   )

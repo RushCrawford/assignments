@@ -10,10 +10,12 @@ function ContextProvider(props) {
         imgUrl: ''
     })
     const [uglyThingsList, setUglythingsList] = useState([])
+    
 
+    //RENDERS POSTS ON PAGE LOAD
     useEffect(() => {
         axios.get('https://api.vschool.io/russellcrawford/thing')
-            .then((res) => { console.log(res.data),setUglythingsList(res.data) })
+            .then((res) => { setUglythingsList(res.data) })
             .catch((err) => { console.log('ERROR', err) })
     }, [])
 
@@ -27,40 +29,37 @@ function ContextProvider(props) {
         ))
     }
 
+    const reset = ()=> {setFormData({
+        title: '',
+        description: '',
+        imgUrl: ''
+    })}
+
     const handleSubmit = (e) => {
         e.preventDefault();
 
-        setUglythingsList(prevList => [formData, ...prevList]);
+        setUglythingsList(prevList => [...prevList, formData]);
 
         axios.post(`https://api.vschool.io/russellcrawford/thing`, formData)
             .then((response) => { console.log('resonse', response) })
             .catch((error) => { console.log('ERROR', error) })
+
+        reset();
     }
 
-    const handleDelete = (e) => {
-        console.log(e)
-    }
 
 
-    const uglyThingsBadges = uglyThingsList.map((badge, index) => {
-        return (
-            <div key={index}>
-                <div>
-                    <h3>{badge.title}</h3>
-                    <h4>{badge.description}</h4>
-                </div>
-                <img src={badge.imgUrl} className="image" />
-                <button>edit</button>
-                <button onClick={handleDelete}>delete</button>
-            </div>
-        )
-    })
+    // 1. set up some form of conditional rendering for form inputs
+        // - create state to with boolean, toggle to true with edit click,
+    // 2. making those inputs and handlechange work
+    // 3. making the edit function in axios
+
+    
 
 
     return (
         <Context.Provider value={{
             uglyThingsList,
-            uglyThingsBadges,
             formData,
             handleChange,
             handleSubmit

@@ -3,6 +3,23 @@ body {
   color: #fff;
   font-family: 'Comic Neue', cursive;}
 
+  .app-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .ugly-list-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex-wrap: wrap;
+    width: 100vw;
+  }
+    .ugly-list-container--badges {
+      display: flex;
+    }
+
   .image {
     height: 500px;
     width: 500px;
