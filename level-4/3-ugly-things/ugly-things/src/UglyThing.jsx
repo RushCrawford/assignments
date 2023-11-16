@@ -40,6 +40,10 @@ function UglyThing(props) {
             .catch(err => console.log(err))
     }
 
+    const handleCancel = () => {
+        setEditUglythingsList(prev => !prev)
+    }
+
 
     return (
         // <div>{props.title}</div>
@@ -83,7 +87,7 @@ function UglyThing(props) {
                         />
                     </div>
                     <img src={props.imgUrl} className="image" />
-                    <button onClick={() => handleEdit(props.id)}>cancel</button>
+                    <button onClick={() => handleCancel(props.id)}>cancel</button>
                     <button onClick={() => handleDelete(props.id)}>save</button>
                 </>
             }
