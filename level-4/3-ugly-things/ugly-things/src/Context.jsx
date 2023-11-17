@@ -60,6 +60,7 @@ function ContextProvider(props) {
     return (
         <Context.Provider value={{
             uglyThingsList,
+            setUglythingsList,
             formData,
             handleChange,
             handleSubmit

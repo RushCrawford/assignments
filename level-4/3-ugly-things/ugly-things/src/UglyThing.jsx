@@ -3,7 +3,7 @@ import { Context } from "./Context"
 import axios from 'axios'
 
 function UglyThing(props) {
-    const { uglyThingsList, formData, handleChange } = useContext(Context)
+    const { setUglyThingsList, formData } = useContext(Context)
     const [editUglyThingsList, setEditUglythingsList] = useState(true)
     const [editData, setEditData] = useState({
         title: '',
@@ -31,6 +31,18 @@ function UglyThing(props) {
         //     })
         //     .catch(err => console.log(err))
     }
+
+    const handleSave = () => {
+
+        setUglyThingsList(prevList => [...prevList, editData]);
+
+        // axios.post(`https://api.vschool.io/russellcrawford/thing`, formData)
+        //     .then((response) => { console.log('resonse', response) })
+        //     .catch((error) => { console.log('ERROR', error) })
+
+        setEditUglythingsList(prev => !prev)
+    }
+
 
     const handleDelete = (id) => {
         axios.delete(`https://api.vschool.io/russellcrawford/thing/${id}`)
@@ -88,7 +100,7 @@ function UglyThing(props) {
                     </div>
                     <img src={props.imgUrl} className="image" />
                     <button onClick={() => handleCancel(props.id)}>cancel</button>
-                    <button onClick={() => handleDelete(props.id)}>save</button>
+                    <button onClick={() => handleSave(props.id)}>save</button>
                 </>
             }
         </div>
