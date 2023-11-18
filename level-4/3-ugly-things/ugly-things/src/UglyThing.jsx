@@ -3,13 +3,22 @@ import { Context } from "./Context"
 import axios from 'axios'
 
 function UglyThing(props) {
-    const { setUglyThingsList, formData } = useContext(Context)
-    const [editUglyThingsList, setEditUglythingsList] = useState(true)
+    const { handleSave } = useContext(Context)
+    const { editThing, id, title, description, imgUrl } = props
+
+    const [editUglyThingsList, setEditUglyThingsList] = useState(true)
     const [editData, setEditData] = useState({
-        title: '',
-        description: '',
-        imgUrl: '',
+        title: title || '',
+        description: description || '',
+        imgUrl: imgUrl || '',
     })
+    
+    const handleEdit = (id) => {
+        setEditUglyThingsList(prev => !prev)
+
+
+        editUglyThingsList && console.log('worked')
+    }
 
     const handleEditChange = (e) => {
         const { name, value } = e.target
@@ -19,30 +28,8 @@ function UglyThing(props) {
             [name]: value
         }
         ))
+        console.log(editData)
     }
-
-    const handleEdit = (id) => {
-        setEditUglythingsList(prev => !prev)
-
-        // editUglyThingsList && console.log('worked')
-        // axios.put(`https://api.vschool.io/russellcrawford/thing/${id}`)
-        //     .then(()=> {
-        //         alert('DELETED')
-        //     })
-        //     .catch(err => console.log(err))
-    }
-
-    const handleSave = () => {
-
-        setUglyThingsList(prevList => [...prevList, editData]);
-
-        // axios.post(`https://api.vschool.io/russellcrawford/thing`, formData)
-        //     .then((response) => { console.log('resonse', response) })
-        //     .catch((error) => { console.log('ERROR', error) })
-
-        setEditUglythingsList(prev => !prev)
-    }
-
 
     const handleDelete = (id) => {
         axios.delete(`https://api.vschool.io/russellcrawford/thing/${id}`)
@@ -56,6 +43,10 @@ function UglyThing(props) {
         setEditUglythingsList(prev => !prev)
     }
 
+    const submitEdit = () => {
+        setEditUglyThingsList(prev => !prev)
+        editThing(editData, id)
+    }
 
     return (
         // <div>{props.title}</div>
@@ -67,8 +58,8 @@ function UglyThing(props) {
                         <h4>{props.description}</h4>
                     </div>
                     <img src={props.imgUrl} className="image" />
-                    <button onClick={() => handleEdit(props.id)}>edit</button>
-                    <button onClick={() => handleDelete(props.id)}>delete</button>
+                    <button onClick={() => handleEdit(id)}>edit</button>
+                    <button onClick={() => handleDelete(id)}>delete</button>
                 </>
                 :
                 <>
@@ -99,8 +90,8 @@ function UglyThing(props) {
                         />
                     </div>
                     <img src={props.imgUrl} className="image" />
-                    <button onClick={() => handleCancel(props.id)}>cancel</button>
-                    <button onClick={() => handleSave(props.id)}>save</button>
+                    <button onClick={() => handleCancel(id)}>cancel</button>
+                    <button onClick={() => submitEdit()}>save</button>
                 </>
             }
         </div>

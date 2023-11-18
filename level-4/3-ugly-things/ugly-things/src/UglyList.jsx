@@ -1,9 +1,18 @@
 import { Context } from "./Context"
 import { useContext } from "react"
 import UglyThing from "./UglyThing"
+import axios from 'axios'
+
 
 function UglyList() {
-    const { uglyThingsList } = useContext(Context)
+    const { uglyThingsList, setUglyThingsList } = useContext(Context)
+
+    function editThing(update, thingId){
+        axios.put(`https://api.vschool.io/russellcrawford/thing/${thingId}`, update)
+            .then(res => {
+                setUglyThingsList(prev => prev.map(thing => thing._id !== thingId ? thing : res.data))
+            })
+    }
 
     const uglyThingsBadges = uglyThingsList.map((badge, index) => {
         return (
@@ -13,6 +22,7 @@ function UglyList() {
                 id={badge._id}
                 description={badge.description}
                 imgUrl={badge.imgUrl}
+                editThing={editThing}
             />
         )
     })
