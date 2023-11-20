@@ -10,13 +10,13 @@ body {
   }
 
   .ugly-list-container {
-    display: inline-block;
-    position: relative;
+    display: flex;
     flex-direction: column;
     align-items: center;
   }
     .ugly-list-container--badges {
       display: flex;
+      align-items: center;
       flex-wrap: wrap;
       /* position: relative; */
     }
