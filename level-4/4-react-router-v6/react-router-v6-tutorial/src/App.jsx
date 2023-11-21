@@ -1,13 +1,30 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom'
+import axios from 'axios'
 import Home from './Components/Home'
 import About from './Components/About'
 import Checkout from './Components/Checkout'
 import Products from './Components/Products'
+import ProductDetails from './Components/ProductDetails'
 
 
 function App() {
+  const [productList, setProductList] = useState([])
+  const [shoppingCart, setShoppingCart] = useState([])
 
+  useEffect(() => {
+    axios.get(`https://api.vschool.io/rush/todo`)
+      .then((res)=>{setProductList(res.data)})
+      .catch((err)=>{console.log('error', err)})
+  } ,[])
+
+  const addToCart = ()=> {
+    setShoppingCart(prev => ({
+      ...prev,
+      ...shoppingCart
+    }))
+  }
+  
   return (
     <Router>
 
@@ -18,19 +35,24 @@ function App() {
         <Link to='/About' style={{ padding: 5 }}>
           About
         </Link>
-        <Link to='/Checkout' style={{ padding: 5 }}>
-          Checkout
-        </Link>
         <Link to='/Products' style={{ padding: 5 }}>
           Products
+        </Link>
+        <Link to='/Checkout' style={{ padding: 5 }}>
+          Cart
         </Link>
       </nav>
 
       <Routes>
         <Route path='/' element={<Home />} />
         <Route path='/About' element={<About />} />
+        <Route path='/Products' element={<Products productList={productList} />} />
         <Route path='/Checkout' element={<Checkout />} />
-        <Route path='/Products' element={<Products />} />
+        <Route 
+        path='/Products/:productId' 
+        element={
+          <ProductDetails productList={productList} />} 
+        />
       </Routes>
     </Router>
   )
