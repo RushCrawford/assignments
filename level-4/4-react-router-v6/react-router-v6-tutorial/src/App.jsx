@@ -18,7 +18,8 @@ function App() {
       .catch((err)=>{console.log('error', err)})
   } ,[])
 
-  const addToCart = ()=> {
+  const addToCart = ()=> {   
+    //i think i need to make a get request for the product id and spread that item into setShoppingCart
     setShoppingCart(prev => ({
       ...prev,
       ...shoppingCart
