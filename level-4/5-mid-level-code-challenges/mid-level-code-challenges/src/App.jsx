@@ -1,6 +1,3 @@
-import { useState } from 'react'
-
-
 function App() {
   //Write a function called filterAnagrams that filters an array of words to find and return an array containing only the words that are anagrams of a given target word.
 
@@ -51,9 +48,7 @@ function App() {
     // ]
 
   return (
-    <>
-
-    </>
+    <></>
   )
 }
 
