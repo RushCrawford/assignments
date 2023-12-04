@@ -1,9 +1,7 @@
-import { useContext, useState } from "react"
-import { Context } from "./Context"
+import { useState } from "react"
 import axios from 'axios'
 
 function UglyThing(props) {
-    const { handleSave } = useContext(Context)
     const { editThing, id, title, description, imgUrl } = props
 
     const [editUglyThingsList, setEditUglyThingsList] = useState(true)
@@ -13,11 +11,10 @@ function UglyThing(props) {
         imgUrl: imgUrl || '',
     })
     
-    const handleEdit = (id) => {
+    const handleEdit = () => {
         setEditUglyThingsList(prev => !prev)
 
-
-        editUglyThingsList && console.log('worked')
+        editUglyThingsList
     }
 
     const handleEditChange = (e) => {
@@ -36,11 +33,7 @@ function UglyThing(props) {
             .then(() => {
                 alert('DELETED')
             })
-            .catch(err => console.log(err))
-    }
-
-    const handleCancel = () => {
-        setEditUglythingsList(prev => !prev)
+            .catch(err => console.log(err))  
     }
 
     const submitEdit = () => {
@@ -49,9 +42,9 @@ function UglyThing(props) {
     }
 
     return (
-        // <div>{props.title}</div>
         <div key={props.index}>
             {editUglyThingsList ?
+            // displays ugly thing and edit and delete button
                 <>
                     <div>
                         <h3>{props.title}</h3>
@@ -62,6 +55,7 @@ function UglyThing(props) {
                     <button onClick={() => handleDelete(id)}>delete</button>
                 </>
                 :
+            // displays edit ugly thing and cancel and save button
                 <>
                     <div>
                         <input
@@ -90,7 +84,7 @@ function UglyThing(props) {
                         />
                     </div>
                     <img src={props.imgUrl} className="image" />
-                    <button onClick={() => handleCancel(id)}>cancel</button>
+                    <button onClick={() => handleEdit()}>cancel</button>
                     <button onClick={() => submitEdit()}>save</button>
                 </>
             }

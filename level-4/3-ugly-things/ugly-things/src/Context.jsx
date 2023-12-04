@@ -13,7 +13,7 @@ function ContextProvider(props) {
     
     
 
-    //RENDERS POSTS ON PAGE LOAD
+    // renders posts on page load
     useEffect(() => {
         axios.get('https://api.vschool.io/russellcrawford/thing')
             .then((res) => { setUglyThingsList(res.data) })
@@ -48,44 +48,13 @@ function ContextProvider(props) {
         reset();
     }
 
-   
-
-    // const handleSave = (id) => {
-
-
-    //     // let update = {
-    //     //     title: editData.title,
-    //     //     description: editData.description,
-    //     //     imgUrl: editData.imgUrl
-    //     // }
-
-    //     axios.put(`https://api.vschool.io/russellcrawford/thing/${id}`)
-    //     .then((res)=> {
-    //         console.log(res.data)
-    //         setUglyThingsList(prevList => ({
-    //             ...prevList,
-    //             update
-    //         }))
-    //     })
-    //     .catch(err => console.log(err))
-    // }
-    // 1. set up some form of conditional rendering for form inputs
-        // - create state to with boolean, toggle to true with edit click,
-    // 2. making those inputs and handlechange work
-    // 3. making the edit function in axios
-
-    
-
-
     return (
         <Context.Provider value={{
             uglyThingsList,
             setUglyThingsList,
             formData,
             handleChange,
-            handleSubmit,
-            // handleSave,
-           
+            handleSubmit,           
         }}>
             {props.children}
         </Context.Provider>

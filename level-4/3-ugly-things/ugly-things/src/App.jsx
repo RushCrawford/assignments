@@ -11,7 +11,6 @@ function App() {
           <h1>A place to share all things UGLY</h1>
           <Form />
           <UglyList />
-          {/* <UglyThing title={badge.title} /> */}
         </div>
       </ContextProvider>
     </>
