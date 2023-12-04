@@ -7,9 +7,11 @@ import { themeContext } from './themeContext'
 function App() {
 const {selectedTheme, handleChange} = useContext(themeContext)
   return (
-    <div className={`${selectedTheme}-theme`}>
+    //consuming context to set the color scheme
+    <div className={`${selectedTheme}-theme`}> 
       <Nav />
-      <Body selectedTheme={selectedTheme} handleChange={handleChange}/>
+      {/* passing context values as props */}
+      <Body selectedTheme={selectedTheme} handleChange={handleChange}/> 
       <Footer />
     </div>
   )

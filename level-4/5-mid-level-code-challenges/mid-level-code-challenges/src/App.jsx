@@ -25,13 +25,20 @@ function App() {
 
     function sortByMultipleCriteria(people) {
       return (
-      people.sort((a,b)=> 
-      a.age - b.age
+      people.sort((a,b)=> {
+      if (a.age !== b.age) {
+        return a.age - b.age
+      } else {
+        if (a.name < b.name) {
+          return -1
+        }
+      }}
       )
     )}
     
     const people = [
     { name: 'Alice', age: 30 },
+    { name: 'Zlice', age: 25 },
     { name: 'Bob', age: 25 },
     { name: 'Charlie', age: 35 },
     { name: 'David', age: 25 },

@@ -6,6 +6,7 @@ export default function themeContextProvider(props) {
 
     const [selectedTheme, setSelectedTheme] = useState('dark')
 
+    //function to set the color scheme
     const handleChange = (e) => {
         const { value } = e.target
         setSelectedTheme(
