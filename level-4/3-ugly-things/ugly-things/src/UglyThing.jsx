@@ -1,8 +1,12 @@
-import { useState } from "react"
+import { useContext, useState } from "react"
 import axios from 'axios'
+import { Context } from './Context'
+
 
 function UglyThing(props) {
     const { editThing, id, title, description, imgUrl } = props
+
+    const {uglyThingsList, setUglyThingsList} = useContext(Context)
 
     const [editUglyThingsList, setEditUglyThingsList] = useState(true)
     const [editData, setEditData] = useState({
@@ -30,8 +34,11 @@ function UglyThing(props) {
 
     const handleDelete = (id) => {
         axios.delete(`https://api.vschool.io/russellcrawford/thing/${id}`)
-            .then(() => {
-                alert('DELETED')
+            .then((res) => {
+                // alert('DELETED')
+                setUglyThingsList(prevUglyThingsList => {
+                    return prevUglyThingsList.filter(thing => thing._id !== id)
+                })
             })
             .catch(err => console.log(err))  
     }

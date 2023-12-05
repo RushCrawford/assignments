@@ -39,12 +39,13 @@ function ContextProvider(props) {
     const handleSubmit = (e) => {
         e.preventDefault();
 
-        setUglyThingsList(prevList => [...prevList, formData]);
-
+        
         axios.post(`https://api.vschool.io/russellcrawford/thing`, formData)
-            .then((response) => { console.log('resonse', response) })
-            .catch((error) => { console.log('ERROR', error) })
-
+        .then((response) => { 
+            setUglyThingsList(prevList => [...prevList, response.data]) })
+        .catch((error) => { console.log('ERROR', error) })
+        
+        
         reset();
     }
 
