@@ -1,15 +1,24 @@
-import { useState } from 'react'
-import { ContextProvider } from './Context'
-import CoinInfo from './components/coinInfo'
+import CoinList from './components/CoinList'
+import { BrowserRouter as Router, Routes, Route, Link} from 'react-router-dom'
+import Home from './components/Home'
+import { Context } from './Context'
+import { useContext } from 'react'
 
 function App() {
 
   return (
     <>
-    <ContextProvider>
-      <CoinInfo />
-      <div></div>
-    </ContextProvider>
+      <Router>
+        <footer>
+          <Link to='/coin-list' className='link'>
+            View Coins
+          </Link>
+        </footer>
+        <Routes>
+          <Route path='/' element={<Home />} />
+          <Route path='/coin-list' element={<CoinList />} />
+      </Routes>
+      </Router>
     </>
   )
 }

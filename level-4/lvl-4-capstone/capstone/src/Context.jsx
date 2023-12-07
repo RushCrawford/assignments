@@ -4,32 +4,40 @@ import axios from 'axios'
 const Context = createContext()
 
 function ContextProvider (props) {
-    const [coinList, setCoinList] = useState({
-        id: '',
-        rank: '',
-        symbol: '',
-        name: '',
-        supply: '',
-        maxSupply: '',
-        marketCapUsd: '',
-        volumeUsd24Hr: '',
-        priceUsd: '',
-        changePercent24Hr: '',
-        vwap24Hr: '',
-        explorer: '',
-    })
+    const [listOfCoins, setListOfCoins] = useState([])
+    const [specificCoin, setSpecificCoin] = useState([])
+    const [toggle, setToggle] = useState(false)
 
-    useEffect(()=> {
-        axios.get(`https://api.coincap.io/v2/assets`)
-            .then(res => setCoinList(res.data.data))
-            .catch(err => console.log('err', err))
-    },[])
-console.log(coinList)
+
+       async function getData () {
+        try {
+            const res = await axios.get(`https://api.coincap.io/v2/assets`)
+            console.log(res.data.data.map(coin => coin.id))
+            setListOfCoins(res.data.data)
+            console.log(listOfCoins)
+       } catch(err) {console.log('err', err)}
+       console.log('firing')
+       }
+
+       async function getCoin (e) {
+        try {
+            const res = await axios.get(`https://api.coincap.io/v2/assets/${e}`)
+            setSpecificCoin(res.data)
+       } catch(err) {console.log('err', err)}
+       console.log('firing')
+       }
+
+    
 
 
     return (
         <Context.Provider value={{
-            coinList
+            getData,
+            listOfCoins,
+            getCoin,
+            specificCoin,
+            toggle,
+            setToggle,
         }}>
             {props.children}
         </Context.Provider>

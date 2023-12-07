@@ -1,33 +1,39 @@
-import { useContext } from "react";
-import { Context } from './Context'
+import { useContext, useState, useEffect } from "react";
+import { Context } from "../Context";
+import CoinInfo from "./coinInfo";
 
-function CoinInfo () {
-    const { coinList } = useContext(Context)
+function CoinList() {
+    const { getData, listOfCoins, getCoin, specificCoin, toggle, setToggle } = useContext(Context)
 
-    const coinTile = coinList.map(coin => {
+    useEffect(() => {
+        getData()
+    }, [])
+
+    const coinClicked = (e)=> {
+        const id = e.target.innerText.toLowerCase()
+        getCoin(id)
+        console.log(id)
+        setToggle(!toggle)
+    }
+
+    const allCoins = listOfCoins?.length > 0 && listOfCoins.map(coin => {
         return (
-            <CoinInfo 
-            id={coin.id}
-            rank={coin.rank}
-            symbol={coin.symbol}
-            name={coin.name}
-            supply={coin.supply}
-            maxSupply={coin.maxSupply}
-            marketCapUsd={coin.marketCapUsd}
-            volumeUsd24Hr={coin.volumeUsd24Hr}
-            priceUsd={coin.priceUsd}
-            changePercent24Hr={coin.changePercent24Hr}
-            vwap24Hr={coin.vwap24Hr}
-            explorer={coin.explorer}
-            />
+            <div onClick={coinClicked} style={{ border: '1px solid white' }} >
+                <h3>{coin.id}</h3>
+                <h3>{coin.name}</h3>
+                <h3>{coin.symbol}</h3>
+            </div>
         )
     })
-    console.log(coinTile)
+
+    console.log('coin list component', listOfCoins)
+
     return (
         <>
-            {coinTile}
+        {toggle ? <CoinInfo /> : <>{allCoins}</>}
+            
         </>
     )
 }
 
-export default CoinInfo
+export default CoinList

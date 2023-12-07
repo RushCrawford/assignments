@@ -1,31 +1,30 @@
-import { useContext } from "react";
-import { Context } from './Context'
+import { Context } from '../Context'
+import { useContext } from "react"
 
-function CoinInfo () {
-    const { coinList } = useContext(Context)
+function CoinInfo(props) {
+    const { specificCoin } = useContext(Context)
+    const coin = specificCoin.data
+    // const { coinList } = useContext(Context)
+    // const { id, rank, symbol, name, supply, maxSupply, marketCapUsd, volumeUsd24Hr, priceUsd, changePercent24Hr, vwap24Hr, explorer } = props
+    // const [allCoinData, setAllCoinData] = useState({
+    //     id: '',
+    //     rank: '',
+    //     symbol: '',
+    //     name: '',
+    //     supply: '',
+    //     maxSupply: '',
+    //     marketCapUsd: '',
+    //     volumeUsd24Hr: '',
+    //     priceUsd: '',
+    //     changePercent24Hr: '',
+    //     vwap24Hr: '',
+    //     explorer: '',
+    // })
+console.log(coin.name)
 
-    const coinTile = coinList.map(coin => {
-        return (
-            <CoinTile 
-            id={coin.id}
-            rank={coin.rank}
-            symbol={coin.symbol}
-            name={coin.name}
-            supply={coin.supply}
-            maxSupply={coin.maxSupply}
-            marketCapUsd={coin.marketCapUsd}
-            volumeUsd24Hr={coin.volumeUsd24Hr}
-            priceUsd={coin.priceUsd}
-            changePercent24Hr={coin.changePercent24Hr}
-            vwap24Hr={coin.vwap24Hr}
-            explorer={coin.explorer}
-            />
-        )
-    })
-    console.log(coinTile)
     return (
         <>
-            {coinTile}
+        <h1>{coin.name}</h1>
         </>
     )
 }
