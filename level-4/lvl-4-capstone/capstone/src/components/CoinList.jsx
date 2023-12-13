@@ -1,4 +1,5 @@
-import { useContext, useState, useEffect } from "react";
+import { useContext, useEffect } from "react";
+import {Link} from 'react-router-dom'
 import { Context } from "../Context";
 import CoinInfo from "./coinInfo";
 
@@ -10,18 +11,22 @@ function CoinList() {
     }, [])
 
     const coinClicked = (e)=> {
-        const id = e.target.innerText.toLowerCase()
+        console.log(e.target)
+        const id = e.target.innerHTML
         getCoin(id)
         console.log(id)
         setToggle(!toggle)
     }
 
-    const allCoins = listOfCoins?.length > 0 && listOfCoins.map(coin => {
+    const allCoins = listOfCoins?.length > 0 && listOfCoins.map((coin, index) => {
         return (
-            <div onClick={coinClicked} style={{ border: '1px solid white' }} >
-                <h3>{coin.id}</h3>
+            <div className="coin-list-wrapper" key={index}>
+                <h3>{`Rank: ${coin.rank}`}</h3>
                 <h3>{coin.name}</h3>
                 <h3>{coin.symbol}</h3>
+                <h3>{`$${coin.priceUsd}`}</h3>
+                {/* <button onClick={()=>{coinClicked(coin.id)}} >see more</button> */}
+                <button onClick={coinClicked}>{coin.id}</button>
             </div>
         )
     })
@@ -30,8 +35,10 @@ function CoinList() {
 
     return (
         <>
-        {toggle ? <CoinInfo /> : <>{allCoins}</>}
-            
+        <Link to='/'>
+            home
+          </Link>
+        {toggle ? <CoinInfo /> : <>{allCoins}</>}            
         </>
     )
 }

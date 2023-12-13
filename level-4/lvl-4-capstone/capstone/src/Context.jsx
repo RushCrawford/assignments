@@ -12,11 +12,11 @@ function ContextProvider (props) {
        async function getData () {
         try {
             const res = await axios.get(`https://api.coincap.io/v2/assets`)
-            console.log(res.data.data.map(coin => coin.id))
+            // console.log(res.data.data.map(coin => coin.id))
             setListOfCoins(res.data.data)
-            console.log(listOfCoins)
+            // console.log(listOfCoins)
        } catch(err) {console.log('err', err)}
-       console.log('firing')
+       console.log('GET DATA firing')
        }
 
        async function getCoin (e) {
@@ -24,7 +24,7 @@ function ContextProvider (props) {
             const res = await axios.get(`https://api.coincap.io/v2/assets/${e}`)
             setSpecificCoin(res.data)
        } catch(err) {console.log('err', err)}
-       console.log('firing')
+       console.log('GET COIN firing')
        }
 
     
