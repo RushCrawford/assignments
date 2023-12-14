@@ -22,12 +22,17 @@ function ContextProvider (props) {
        async function getCoin (e) {
         try {
             const res = await axios.get(`https://api.coincap.io/v2/assets/${e}`)
-            setSpecificCoin(res.data)
+            setSpecificCoin(res.data.data)
        } catch(err) {console.log('err', err)}
        console.log('GET COIN firing')
        }
 
-    
+       function onHome () {
+        setListOfCoins([])
+        setSpecificCoin([])
+        setToggle(false)
+        console.log('onHome - firing')
+       }
 
 
     return (
@@ -38,6 +43,7 @@ function ContextProvider (props) {
             specificCoin,
             toggle,
             setToggle,
+            onHome,
         }}>
             {props.children}
         </Context.Provider>

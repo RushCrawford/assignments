@@ -4,15 +4,15 @@ import { Context } from "../Context";
 import CoinInfo from "./coinInfo";
 
 function CoinList() {
-    const { getData, listOfCoins, getCoin, specificCoin, toggle, setToggle } = useContext(Context)
+    const { getData, listOfCoins, getCoin, onHome, toggle, setToggle } = useContext(Context)
 
     useEffect(() => {
         getData()
     }, [])
 
     const coinClicked = (e)=> {
-        console.log(e.target)
         const id = e.target.innerHTML
+        console.log(e.target)
         getCoin(id)
         console.log(id)
         setToggle(!toggle)
@@ -35,7 +35,7 @@ function CoinList() {
 
     return (
         <>
-        <Link to='/'>
+        <Link to='/' onClick={onHome}>
             home
           </Link>
         {toggle ? <CoinInfo /> : <>{allCoins}</>}            

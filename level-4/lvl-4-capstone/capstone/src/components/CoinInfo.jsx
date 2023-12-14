@@ -3,8 +3,8 @@ import { useContext } from "react"
 
 function CoinInfo(props) {
     const { specificCoin } = useContext(Context)
-    const coin = specificCoin.data
-    console.log(coin)
+    const coin = specificCoin
+    // console.log(specificCoin && specificCoin)
 
     return (
         <div>
@@ -37,8 +37,8 @@ function CoinInfo(props) {
                 </div>
                 <div className='coin-info--h3-div'>
                     <h3 className='coin-info-h3'>Volume Weighted Average Price Last 24hrs:</h3>
-                    <h3 className='coin-info-h3'>${coin.vwap24Hr}</h3>
-                </div>
+                    <h3 className='coin-info-h3'>${coin.vwap24Hr}</h3> 
+                 </div>
             </div>
         </div>
     )
