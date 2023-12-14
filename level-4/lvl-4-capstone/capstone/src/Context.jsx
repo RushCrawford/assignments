@@ -1,4 +1,4 @@
-import { createContext, useEffect, useState } from "react";
+import { createContext, useState } from "react";
 import axios from 'axios'
 
 const Context = createContext()
@@ -11,12 +11,9 @@ function ContextProvider (props) {
 
        async function getData () {
         try {
-            const res = await axios.get(`https://api.coincap.io/v2/assets`)
-            // console.log(res.data.data.map(coin => coin.id))
-            setListOfCoins(res.data.data)
-            // console.log(listOfCoins)
+            const res = await axios.get(`https://api.coincap.io/v2/assets`)      
+            setListOfCoins(res.data.data) 
        } catch(err) {console.log('err', err)}
-       console.log('GET DATA firing')
        }
 
        async function getCoin (e) {
@@ -24,16 +21,17 @@ function ContextProvider (props) {
             const res = await axios.get(`https://api.coincap.io/v2/assets/${e}`)
             setSpecificCoin(res.data.data)
        } catch(err) {console.log('err', err)}
-       console.log('GET COIN firing')
        }
 
        function onHome () {
         setListOfCoins([])
         setSpecificCoin([])
         setToggle(false)
-        console.log('onHome - firing')
        }
 
+       function back () {
+        setToggle(false)
+       }
 
     return (
         <Context.Provider value={{
@@ -44,6 +42,7 @@ function ContextProvider (props) {
             toggle,
             setToggle,
             onHome,
+            back,
         }}>
             {props.children}
         </Context.Provider>
