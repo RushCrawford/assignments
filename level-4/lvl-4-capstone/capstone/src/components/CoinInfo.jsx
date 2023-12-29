@@ -27,7 +27,7 @@ function CoinInfo() {
             back
           </Link>
             <div className='coin-info--h1-wrapper'>
-                <h1>{coin.rank}</h1>
+                <h1>{`#${coin.rank}`}</h1>
                 <h1>{coin.symbol}</h1>
             </div>
             <div className='coin-info--name-wrapper'>

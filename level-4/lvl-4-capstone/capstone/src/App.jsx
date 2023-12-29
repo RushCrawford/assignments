@@ -1,7 +1,7 @@
 import CoinList from './components/CoinList'
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
 import Home from './components/Home'
-import CoinInfo from './components/coinInfo'
+import CoinInfo from './components/CoinInfo'
 
 function App() {
 

@@ -1,7 +1,7 @@
 import { useContext, useEffect } from "react";
 import { Link } from 'react-router-dom'
 import { Context } from "../Context";
-import CoinInfo from "./coinInfo";
+import CoinInfo from "./CoinInfo";
 
 function CoinList() {
     const { getData, listOfCoins, getCoin, onHome, toggle, setToggle } = useContext(Context)
