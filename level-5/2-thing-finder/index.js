@@ -36,8 +36,18 @@ const inventoryItems = [
     }
 ]
 
+//GET ALL
 app.get('/things', (req,res)=> {
     res.send(inventoryItems)
+    console.log(req.query)
+})
+
+//GETONE
+app.get('/thing', (req,res)=> {
+    const type = req.query.type
+    const filteredThings = inventoryItems.filter(thing => thing.type === type)
+    res.send(filteredThings)
+
 })
 
 
