@@ -5,3 +5,5 @@ app.use((res,req,next)=> {
     req.body = { name: 'Tony' }
     next()
 })
+
+module.exports = middleware
