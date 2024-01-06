@@ -6,7 +6,6 @@ app.use(express.json())
 
 // ROUTES //
 app.use('/todo', require('./routes/todoRouter'))
-app.use('/todo/:todoId', require('./routes/idTodoRouter'))
 
 
 app.listen(port, (()=> {
