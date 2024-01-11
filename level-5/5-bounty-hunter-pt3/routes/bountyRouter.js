@@ -22,7 +22,7 @@ const bounties = [
     }
 ]
 
-// GET ALL //
+// TO ALL MOUNT PATH //
 bountyRouter.route('/')
     .get((req,res)=> {
         res.send(bounties)
@@ -34,17 +34,25 @@ bountyRouter.route('/')
         res.send(bounties)
     })
     
-    // BY ID //
-    bountyRouter.route('/:bountyId')
+// BY ID MOUNT PATH //
+bountyRouter.route('/:bountyId')
     .get((req,res)=> {
         const bountyId = req.params.bountyId
-        
+        const requrestedBounty = bounties.filter(bounty => bountyId === bounty._id)
+        res.send(requrestedBounty)
     })
     .put((req,res)=> {
-
+        const bountyId = req.params.bountyId
+        const newData = req.body
+        const bountyToUpdate = bounties.findIndex(bounty => bountyId === bounty._id)
+        const updatedBounty = Object.assign(bounties[bountyToUpdate], newData)
+        res.send(updatedBounty)
     })
     .delete((req,res)=> {
-
+        const bountyId = req.params.bountyId
+        const bountyToDelete = bounties.findIndex(bounty => bountyId === bounty._id)
+        bounties.splice(bountyToDelete, 1)
+        res.send(bounties)
     })
 
 module.exports = bountyRouter
