@@ -17,7 +17,6 @@ const bounties = [
         bounty: 10000,
         type: "jedi",
         _id: uuidv4()
-    }
-]
+    }]
 
 module.exports = fakeDatabase

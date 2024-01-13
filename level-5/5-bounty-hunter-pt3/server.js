@@ -5,7 +5,7 @@ const bountyRouter = require('./routes/bountyRouter')
 app.use(express.json())
 
 // ROUTES //
-app.use('/bounty', require('./routes/bountyRouter'))
+app.use('/api/bounty', require('./routes/bountyRouter'))
 
 app.listen(port, ()=> {
     console.log('The server is running on port 7200')

@@ -6,11 +6,12 @@ function App() {
   const [bounty, setBounty] = useState([])
 
   useEffect(()=> {
-    axios.get('/bounty')
-      .then(res => console.log(res))
+    axios.get('/api/bounty')
+      .then(res => setBounty(res.data))
       .catch(err => console.log(err))
   }, [])
 
+    console.log(bounty)
   return (
     <>
       <Bounty />
