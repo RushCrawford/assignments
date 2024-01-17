@@ -6,10 +6,10 @@ function Bounty(props) {
             <div className="bounty--name-wrapper">
                 <h1>{firstName}</h1>
                 <h1>{lastName}</h1>
+                <h4>{type}</h4>
             </div>
             <div className="bounty--type-amount-wrapper"> 
-                <h4>{type}</h4>
-                <h2>{bounty}</h2>
+                <h2>{bounty} Credits</h2>
             </div>
         </div>
     )

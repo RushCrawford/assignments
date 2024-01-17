@@ -1,7 +1,6 @@
 const express = require('express');
 const bountyRouter = express.Router();
 const { v4:uuidv4 } = require('uuid')
-// const FakeDatabase = require('./fakeDatabase');
 
 const bounties = [
     {
@@ -23,24 +22,16 @@ const bounties = [
 ]
 
 // TO ALL MOUNT PATH //
-bountyRouter.get('/', (req,res,next)=> {
-    FakeDatabase.find((err, bounties)=> {
-        if(err) {
-            res.status(500)
-        } 
-        return res.status(200).send(bounties)
+bountyRouter.route('/')
+    .get((req,res)=> {
+        res.send(bounties)
     })
-})
-// bountyRouter.route('/')
-//     .get((req,res)=> {
-//         res.send(bounties)
-//     })
-//     .post((req,res)=> {
-//         const newBounty = req.body
-//         newBounty._id = uuidv4()
-//         bounties.push(newBounty)
-//         res.send(bounties)
-//     })
+    .post((req,res)=> {
+        const newBounty = req.body
+        newBounty._id = uuidv4()
+        bounties.push(newBounty)
+        res.send(newBounty)
+    })
     
 // BY ID MOUNT PATH //
 bountyRouter.route('/:bountyId')

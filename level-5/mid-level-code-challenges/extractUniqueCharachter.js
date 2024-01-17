@@ -1,10 +1,14 @@
 function extractUniqueCharacters(strings) {
-  const splitChars = strings.flatMap(word => word.split(''))
+  // const splitChars = strings.flatMap(word => word.split(''))
+  const splitChars = strings.join('').split('').filter(letter => letter.includes(!letter))
+  console.log(splitChars)
+  // const letters = splitChars.filter(letter => letter.length === 1)
+  // return letters
 
   //AI assist //
-  return splitChars.filter((char,index, self)=> {
-    return self.indexOf(char)
-  })
+  // return splitChars.filter((char,index, self)=> {
+  //   return self.indexOf(char)
+  // })
   
 }
 
