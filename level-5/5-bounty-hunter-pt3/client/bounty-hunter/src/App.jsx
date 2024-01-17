@@ -15,8 +15,23 @@ function App() {
   const addBounty = (newBounty)=> {
     axios.post('/api/bounty', newBounty)
       .then(res => {
-        console.log(res)
         setBounty(prevBounties => [...prevBounties, res.data])
+      })
+      .catch(err => console.log(err))
+  }
+
+  const deleteBounty = (bountyId)=> {
+    axios.delete(`/api/bounty/${bountyId}`)
+      .then(res => {
+        setBounty(prevBounties => prevBounties.filter(bounty => bounty._id !== bountyId))
+      })
+      .catch(err => console.log(err))
+  }
+
+  const editBounty = (updates, bountyId)=> {
+    axios.put(`/api/bounty/${bountyId}`, updates)
+      .then(res => {
+        setBounty(prevBounties => prevBounties.map(bounty => bounty._id !== bountyId ? bounty : res.data))
       })
       .catch(err => console.log(err))
   }
@@ -25,12 +40,19 @@ function App() {
     getBounties()
   }, [])
 
-  const bountyCard = bounty.map(bounty => <Bounty {...bounty} key={bounty._id} />)
+  const bountyCard = bounty.map(bounty => 
+    <Bounty 
+      {...bounty} 
+      key={bounty._id} 
+      deleteBounty={deleteBounty} 
+      editBounty={editBounty}
+    />)
 
   return (
     <>
       <AddBountyForm 
-      addBounty={addBounty} 
+        submit={addBounty}
+        btnTxt='Add Bounty'
       />
       {bountyCard}
     </>

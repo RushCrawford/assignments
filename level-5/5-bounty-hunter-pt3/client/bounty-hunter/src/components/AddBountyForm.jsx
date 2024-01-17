@@ -2,14 +2,13 @@ import { useState } from "react"
 
 function AddBountyForm (props) {
     const initInputs = {
-    firstName: "",
-    lastName: "",
-    living: true,
-    bounty: 0,
-    type: "",
+    firstName: props.firstName || "",
+    lastName: props.lastName || "",
+    living: props.living || '',
+    bounty: props.bounty || '',
+    type: props.type || "",
     }
     const [inputs, setInputs] = useState(initInputs)
-    const { addBounty } = props
 
     const handleChange = (e)=> {
         const { name, value } = e.target
@@ -18,7 +17,7 @@ function AddBountyForm (props) {
 
     const handleSubmit = (e)=> {
         e.preventDefault();
-        addBounty(inputs)
+        props.submit(inputs, props._id)
         setInputs(initInputs)
     }
 
@@ -29,28 +28,28 @@ function AddBountyForm (props) {
                 name="firstName"
                 value={inputs.firstName}
                 onChange={handleChange}
-                placeholder="firstName"
+                placeholder="First Name"
             />
             <input 
                 type="text"
                 name="lastName"
                 value={inputs.lastName}
                 onChange={handleChange}
-                placeholder="lastName"
+                placeholder="Last Name"
             />
             <input 
-                type="boolean"
+                type="text"
                 name="living"
                 value={inputs.living}
                 onChange={handleChange}
-                placeholder="living"
+                placeholder="Living?"
             />
             <input 
                 type="number"
                 name="bounty"
                 value={inputs.bounty}
                 onChange={handleChange}
-                placeholder="bounty amount"
+                placeholder="Bounty Amount"
             />
             <input 
                 type="text"
@@ -59,7 +58,7 @@ function AddBountyForm (props) {
                 onChange={handleChange}
                 placeholder="sith or jedi"
             />
-            <button>Add Bounty</button>
+            <button>{props.btnTxt}</button>
         </form>
     )
 }
