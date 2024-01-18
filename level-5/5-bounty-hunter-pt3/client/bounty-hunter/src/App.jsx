@@ -28,12 +28,14 @@ function App() {
       .catch(err => console.log(err))
   }
 
-  const editBounty = (updates, bountyId)=> {
+  const editBounty = (updates, bountyId, toggleForm)=> {
     axios.put(`/api/bounty/${bountyId}`, updates)
       .then(res => {
-        setBounty(prevBounties => prevBounties.map(bounty => bounty._id !== bountyId ? bounty : res.data))
+        setBounty(prevBounties => prevBounties.map(bounty => 
+          bounty._id !== bountyId ? bounty : res.data))
       })
       .catch(err => console.log(err))
+      toggleForm()
   }
 
   useEffect(()=> {
@@ -50,11 +52,15 @@ function App() {
 
   return (
     <>
-      <AddBountyForm 
-        submit={addBounty}
-        btnTxt='Add Bounty'
-      />
-      {bountyCard}
+      <div className='bounty-form-wrapper'>
+        <AddBountyForm 
+          submit={addBounty}
+          btnTxt='Add Bounty'
+        />
+      </div>
+      <div className='bounty-card-wrapper'>
+        {bountyCard}
+      </div>
     </>
   )
 }

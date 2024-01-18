@@ -2,11 +2,11 @@ import { useState } from "react"
 import AddBountyForm from "./AddBountyForm"
 
 function Bounty(props) {
-    const { firstName, lastName, living, bounty, type, _id, deleteBounty,editBounty } = props
+    const { firstName, lastName, bounty, type, _id, deleteBounty,editBounty, isChecked } = props
     const [ editToggle, setEditToggle ] = useState(false)
 
     return(
-        <div style={{ backgroundColor: living ? 'green' : 'red' }} className="bounty-wrapper">
+        <div style={{ backgroundColor: isChecked ? 'green' : 'red' }} className="bounty-wrapper">
             { !editToggle ?
             <>
                 <div className="bounty--name-wrapper">
@@ -25,12 +25,13 @@ function Bounty(props) {
                 <AddBountyForm
                     firstName={firstName}
                     lastName={lastName}
-                    living={living}
+                    isChecked={isChecked}
                     bounty={bounty}
                     type={type}
                     _id={_id}
                     btnTxt='Submit Edit'
                     submit={editBounty}
+                    toggleForm={()=> setEditToggle(prev => !prev)}
                 />
                 <button onClick={()=> setEditToggle(prev => !prev)} >Cancel</button>
             </>

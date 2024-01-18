@@ -13,6 +13,17 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
+.bounty-form-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 50px;
+}
+.bounty-card-wrapper {
+  display: flex;
+  margin-top: 100px;
+}
+
 .bounty-wrapper {
   display: flex;
   flex-direction: column;
@@ -20,6 +31,7 @@
   padding: 10px;
   width: 400px;
   align-items: center;
+  border-radius: 10px;
 }
 .bounty--name-wrapper {
   display: flex;
@@ -30,4 +42,14 @@
   }
   h4 {
     margin: 5px;
+  }
+
+  input {
+    margin: 5px;
+  }
+  .sbmt-btn {
+    background-color: darkgoldenrod;
+    height: 30px;
+    width: 100px;
+    border-radius: 5px;
   }
