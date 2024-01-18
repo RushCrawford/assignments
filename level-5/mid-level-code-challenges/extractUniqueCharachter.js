@@ -1,15 +1,15 @@
 function extractUniqueCharacters(strings) {
-  // const splitChars = strings.flatMap(word => word.split(''))
-  const splitChars = strings.join('').split('').filter(letter => letter.includes(!letter))
-  console.log(splitChars)
-  // const letters = splitChars.filter(letter => letter.length === 1)
-  // return letters
+  const splitChars = strings.join('').split('') //SPLITS STRINGS INTO SINGLE CHARACTER STRINGS
+  const result = []
 
-  //AI assist //
-  // return splitChars.filter((char,index, self)=> {
-  //   return self.indexOf(char)
-  // })
-  
+  for (var i = 0; i < splitChars.length; i++) {
+    if (result.includes(splitChars[i])) { //LOOP OVER ARRAY AND CONTINUE IF CHARACTER IS 
+      continue                           //ALREADY THERE
+    } else {
+      result.push(splitChars[i]) //ADDS UNIQUE CHARACTERS TO THE ARRAY
+    }
+  }
+  return result
 }
 
 const words = ['apple', 'banana', 'cherry'];
