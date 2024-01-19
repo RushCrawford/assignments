@@ -3,11 +3,9 @@ function extractUniqueCharacters(strings) {
   const result = []
 
   for (var i = 0; i < splitChars.length; i++) {
-    if (result.includes(splitChars[i])) { //LOOP OVER ARRAY AND CONTINUE IF CHARACTER IS 
-      continue                           //ALREADY THERE
-    } else {
+    if (!result.includes(splitChars[i])) { //LOOP OVER ARRAY AND CONTINUE IF CHARACTER IS 
       result.push(splitChars[i]) //ADDS UNIQUE CHARACTERS TO THE ARRAY
-    }
+    } 
   }
   return result
 }
