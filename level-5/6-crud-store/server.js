@@ -23,10 +23,10 @@ mongoose.connect('mongodb+srv://acrawford0221:GBXB5BMNpklRyQsk@cluster0.m5clkiw.
 )
 
 //ROUTES
-app.use('/inventory', require("./routes/inventoryRouter"))
 // app.get('/inventory', (req,res)=> {
 //     res.send('works')
 // })
+app.use('/inventory', require('./routes/inventoryRouter'))
 
 //ERROR HANDLER
 app.use((err, req, res, next) => {
