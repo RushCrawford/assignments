@@ -14,7 +14,7 @@ const inventorySchema = new Schema ({
         type: Number,
         required: true
     },
-    amountInINventory: {
+    amountInInventory: {
         type: Number,
         required: true
     },

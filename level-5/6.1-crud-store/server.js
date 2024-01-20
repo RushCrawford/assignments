@@ -11,6 +11,12 @@ app.use(morgan('dev'))
 //ROUTES
 app.use('/inventory', require('./routes/inventoryRouter.js'))
 
+//ERROR HANDLER
+app.use((err,req,res,next)=> {
+    console.log(err)
+    return res.send({errMsg: err.message})
+})
+
 //DB CONNECTION
 mongoose.set('strictQuery', true);
 mongoose.connect('mongodb+srv://acrawford0221:GBXB5BMNpklRyQsk@cluster0.m5clkiw.mongodb.net/?retryWrites=true&w=majority',
