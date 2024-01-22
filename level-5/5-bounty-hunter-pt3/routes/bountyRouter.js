@@ -1,6 +1,6 @@
 const express = require('express');
 const bountyRouter = express.Router();
-const { v4:uuidv4 } = require('uuid')
+const Bounty = require('../models/bountyModel')
 
 const bounties = [
     {
@@ -9,7 +9,6 @@ const bounties = [
         living: false,
         bounty: 10000,
         type: "sith",
-        _id: uuidv4()
     },
     {
         firstName: "Mace",
@@ -17,18 +16,22 @@ const bounties = [
         living: true,
         bounty: 10000,
         type: "jedi",
-        _id: uuidv4()
     }
 ]
 
 // TO ALL MOUNT PATH //
 bountyRouter.route('/')
-    .get((req,res)=> {
-        res.send(bounties)
+    .get((req,res,next)=> {
+        Bounty.find((err, bounties)=> {
+            if (err) {
+                res.status(500)
+                return next(err)
+            }
+            return res.status(200).send(bounties)
+        })
     })
     .post((req,res)=> {
         const newBounty = req.body
-        newBounty._id = uuidv4()
         bounties.push(newBounty)
         res.send(newBounty)
     })
