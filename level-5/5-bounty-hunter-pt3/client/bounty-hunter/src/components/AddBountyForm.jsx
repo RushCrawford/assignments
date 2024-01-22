@@ -4,16 +4,18 @@ function AddBountyForm (props) {
     const initInputs = {
     firstName: props.firstName || "",
     lastName: props.lastName || "",
-    // living: props.living || '',
+    isLiving: props.isLiving || true,
     bounty: props.bounty || '',
     type: props.type || "",
     }
     const [inputs, setInputs] = useState(initInputs)
-    const [isChecked, setIsChecked] = useState(true)
 
     const handleChange = (e)=> {
-        const { name, value } = e.target
-        setInputs(prevInputs => ({...prevInputs, [name]:value}))
+        const { name, value, type, checked } = e.target
+        setInputs(prevInputs => ({
+            ...prevInputs, 
+            [name]: type === "checkbox" ? checked : value
+        }))
     }
 
     const handleSubmit = (e)=> {
@@ -56,8 +58,9 @@ function AddBountyForm (props) {
                 Check if Alive
                 <input 
                     type="checkbox"
-                    checked={isChecked}
-                    onChange={()=> {setIsChecked(prev => !prev)}}
+                    name="isLiving"
+                    checked={inputs.isLiving}
+                    onChange={handleChange}
                 />
             </label>
             <button className="sbmt-btn">{props.btnTxt}</button>

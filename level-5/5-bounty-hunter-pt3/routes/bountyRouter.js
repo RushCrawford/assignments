@@ -25,7 +25,7 @@ bountyRouter.route('/')
     })
     
 // BY ID ROUTES //
-bountyRouter.route('/:bountyId')
+bountyRouter.route('/:bountyId') // get one //
     .get((req,res,next)=> {
         Bounty.findOne(
             {_id: req.params.bountyId},
@@ -39,9 +39,20 @@ bountyRouter.route('/:bountyId')
         )
     })
     .put((req,res,next)=> {
-        
+        Bounty.findOneAndUpdate(
+            {_id: req.params.bountyId},
+            req.body,
+            {new: true},
+            (err, updatedBounty)=> {
+                if (err) {
+                    res.status(500)
+                    return next(err)
+                }
+                return res.status(201).send(updatedBounty)
+            }
+        )
     })
-    .delete((req,res,next)=> {
+    .delete((req,res,next)=> {  // delete one //
         Bounty.findOneAndDelete(
             {_id: req.params.bountyId},
             (err, deletedBounty)=> {

@@ -18,6 +18,7 @@ app.use((err,req,res,next)=> {
 })
 
 // DB CONNECTION //
+mongoose.set('strictQuery', true)
 mongoose.connect('mongodb+srv://acrawford0221:GBXB5BMNpklRyQsk@cluster0.m5clkiw.mongodb.net/?retryWrites=true&w=majority',
     ()=> { console.log('Connected to the DB')
 })

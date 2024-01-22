@@ -6,6 +6,8 @@ import axios from 'axios'
 function App() {
   const [bounty, setBounty] = useState([])
 
+  console.log(bounty)
+
   const getBounties = ()=> {
     axios.get('/api/bounty')
       .then(res => setBounty(res.data))
@@ -66,11 +68,3 @@ function App() {
 }
 
 export default App
-
-// const init = [{
-//   firstName: "",
-//   lastName: "",
-//   living: true,
-//   bounty: 0,
-//   type: "",
-// }]
