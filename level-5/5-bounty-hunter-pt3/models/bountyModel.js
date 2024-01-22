@@ -14,10 +14,7 @@ const bountySchema = new Schema ({
         type: Boolean,
         required: true
     },
-    bounty: {
-        type: Number,
-        required: true
-    },
+    bounty: Number,
     type: {
         type: String,
         required: true,
