@@ -1,0 +1,22 @@
+* {
+  background-color: #282c34;
+  margin: 0px
+}
+
+/* HOME COMPONENT */
+.home-component-wrapper {
+  display: flex;
+  flex-direction: column;
+}
+  .home-component--title-wrapper {
+    margin: 100px 0px 50px 150px;
+    width: 300px;
+    border: 2px solid black;
+    padding: 50px;
+  }
+  .home-component--online-module-wrapper {
+    margin: 100px 0px 0px 150px;
+    width: 300px;
+    border: 2px solid black;
+    padding: 50px;
+  }
