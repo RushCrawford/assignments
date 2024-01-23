@@ -37,9 +37,12 @@ productRouter.route('/:productId')
     })
     .put(async(req,res,next)=> {
         try {
-            const updatedProduct = await Products.findByIdAndUpdate(req.params.productId)
-            req.body
-            return res.status(201).send(updatedProduct)
+            const updatedProduct = await Products.findByIdAndUpdate(
+                req.params.productId,
+                req.body,
+                { new: true }
+                )
+            return res.status(200).send(updatedProduct)
         } catch (err) {
             res.status(500)
             return next(err)
