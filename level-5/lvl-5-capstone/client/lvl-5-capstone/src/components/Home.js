@@ -1,4 +1,8 @@
+import { useContext } from 'react'
+import { Context } from "../context"
+
 function Home() {
+    const {} = useContext(Context)
     return (
         <div className="home-component-wrapper">
 

@@ -10,6 +10,7 @@ app.use(morgan('dev'))
 
 // ROUTES //
 app.use('/products', require('./routes/productRouter'))
+app.use('/users', require('./routes/userRouter'))
 
 // DB CONNECTION //
 mongoose.set('strictQuery', false)
