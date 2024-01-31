@@ -76,8 +76,12 @@ const foodRouter = express.Router()
     foodRouter.delete('/async/:foodID', async(req, res, next) => {
         try{
             //insert your code
+            const foodToDelete = await Food.findByIdAndDelete(req.params.foodID)
+            res.status(200).send(foodToDelete)
         } catch(err){
             //insert your code
+            res.status(500)
+            return next(err)
         }
     })
 
