@@ -2,11 +2,11 @@ const mongoose = require('mongoose')
 const Schema = mongoose.Schema
 
 const commentSchema = new Schema({
-    comment: {
+    text: {
         type: String,
         required: true
     },
-    datePosted: {
+    dateOfComment: {
         type: Date,
         default: Date.now
     },
@@ -23,4 +23,4 @@ const commentSchema = new Schema({
     }
 })
 
-module.exports = mongoose.model('Comments', commentSchema)
+module.exports = mongoose.model('Comment', commentSchema)
