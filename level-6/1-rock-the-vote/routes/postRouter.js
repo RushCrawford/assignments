@@ -29,9 +29,39 @@ postRouter.route('/')
     })
 
 // GET ONE, UPDATE ONE, DELETE ONE ROUTES //
-postRouter.route('/:Itemid')
-    .get()
-    .put()
-    .delete()
+postRouter.route('/:postId')
+    .get(async (req,res,next)=> {
+        try {
+            const postId = req.params.postId
+            const requestedPost = await Post.findById(postId)
+            return res.status(200).send(requestedPost)
+        } catch (err) {
+            res.status(500)
+            return next(err)
+        }
+    })
+    .delete(async (req,res,next)=> {
+        try {
+            const postId = req.params.postId
+            const deletedPost = await Post.findByIdAndDelete(postId)
+            return res.status(200).send(`Post '${deletedPost.title}' deleted from db`)
+        } catch (err) {
+            res.status(500)
+            return next(err)
+        }
+    })
+    .put(async (req,res,next)=> {
+        try {
+            const updatedPost = await Post.findByIdAndUpdate(
+                req.params.postId,
+                req.body,
+                {new: true},
+            )
+            return res.status(200).send(updatedPost)
+        } catch (err) {
+            res.status(500)
+            return next(err)
+        }
+    })
 
 module.exports = postRouter
