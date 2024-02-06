@@ -33,11 +33,11 @@ authRouter.post('/login', (req,res,next)=> {
             res.status(500)
             return next(err)
         }
-        if (!user) {    // if user doesnt exist throw error
+        if (!user) {    // if username doesnt exist throw error
             res.status(403)
             return next(new Error('Username or password incorrect'))
         }
-        if (req.body.password !== user.password) {
+        if (req.body.password !== user.password) {  // check password
             res.status(403)
             return next(new Error('Username or password incorrect'))
         }

@@ -13,9 +13,8 @@ app.use(morgan('dev'));
 
 // ROUTES //
 app.use('/auth', require('./routes/authRouter'))
-// app.use('/api', expressjwt({ secret, algorithms: ['HS256'] }))  // any request to an endpoint with /api requires a token
-// app.use('/api/post', require('./routes/postRouter'))
-// app.use('/api/post/comment', require('./routes/commentRouter'))
+app.use('/api', expressjwt({ secret, algorithms: ['HS256'] }))  // any request to an endpoint with /api requires a token
+app.use('/api/todo', require('./routes/todoRouter'))
 
 // DB CONNECTION //
 mongoose.set('strictQuery', true)
