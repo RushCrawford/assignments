@@ -1,7 +1,9 @@
 // Write a function called extractInitials that takes an array of full names and returns a new array containing only the initials of each name.
 
 function extractInitials(names) {
-  
+  const splitNames = names.map(name => name.split(/\s+/).map(word => word[0])) // use .split to chop after space, map again to pull out first letter
+  const initials = splitNames.map(letter => letter.join('')) // initials together
+  return initials
 };
 
 
@@ -13,8 +15,7 @@ console.log(initialsArray); // Output: ['JD', 'AJ', 'BS']
 // Write a function called filterByProperty that takes an array of objects and a property name as input. The function should return a new array containing only the objects that have a specific value for the given property.
 
 function filterByProperty(objects, propertyName, propertyValue) {
-  // loop over array and check to see if the objects propertyName is === to propertyValue
-  objects.filter(object => object.propertyName ? object.propertyName === propertyValue )
+  return objects.filter(object => object[propertyName] === propertyValue) // filter thru array of objects and only return the object if its property name is equal to the given property value
 }
 
 const people = [
