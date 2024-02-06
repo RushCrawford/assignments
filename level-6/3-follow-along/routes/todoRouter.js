@@ -37,6 +37,29 @@ todoRouter.route('/:todoId')
             return next(err)
         }
     })
+    .get(async (req,res,next)=> {
+        try {
+            const todoId = req.params.todoId
+            const requestedTodo = await Todo.findById(todoId)
+            return res.status(200).send(requestedTodo)
+        } catch (err) {
+            res.status(500)
+            return next(err)
+        }
+    })
+    .put(async (req,res,next)=> {
+        try {
+            const updatedTodo = await Todo.findByIdAndUpdate(
+                req.params.todoId,
+                req.body,
+                {new:true}
+            )
+            return res.status(200).send(updatedTodo)
+        } catch (err) {
+            res.status(500)
+            return next(err)
+        }
+    })
 
 
 module.exports = todoRouter
