@@ -4,7 +4,10 @@ import axios from 'axios'
 export const UserContext = createContext()
 
     const initState = { 
-        user: {}, 
+        user: {
+            username: '',
+            password: ''
+        }, 
         token: '', 
         todos: [] 
     }
@@ -12,37 +15,40 @@ export const UserContext = createContext()
 function userReducer (userState, action) {
     switch (action.type) {
         case 'user-data': {
-            return {
-                user: user,
-                token: token
+            return { 
+                user: action.newUser,
+                token: action.newToken
             }
         }
+        default:
+            return userState
     }
 }
 
 export default function UserProvider (props) {
     const [ userState, dispatch ] = useReducer(userReducer, initState)
-
-    const signup = (credentials)=> {
-        axios.post('/auth/signup', credentials)
-            .then(res => {
+        
+        const signup = async (credentials)=> {
+            try {
+                const res = await axios.post('/auth/signup', credentials)
                 const { user, token } = res.data
-                dispatch({
-                    type: 'user-data',
-                    user,
-                    token
-                })
-            })
-            .catch(err => console.log(err.response.data.errMsg))
-            console.log(userState)
+                dispatch({ type: 'user-data', newToken: token, newUser: user })
+            } catch (err) {
+                console.log(err.response.data.errMsg)
+            }
+    }
+        const login = async (credentials)=> {
+            try {
+                const res = await axios.post('/auth/login', credentials)
+                const { user, token } = res.data
+                dispatch({ type: 'user-data', newToken: token, newUser: user })
+            } catch (err) {
+                console.log(err.response.data.errMsg)
+            }
     }
 
-    const login = (credentials)=> {
-        axios.post('/auth/login', credentials)
-            .then(res => console.log(res))
-            .catch(err => console.log(err.response.data.errMsg))
-    }
 
+    console.log(userState)
     return (
         <UserContext.Provider 
             value={{

@@ -29,7 +29,7 @@ export default function Auth(){
   }
 
   return (
-    <div class="notification is-primary">
+    <div className="notification is-primary">
       <h1>Todo App</h1>
       { !toggle ?
         <>
