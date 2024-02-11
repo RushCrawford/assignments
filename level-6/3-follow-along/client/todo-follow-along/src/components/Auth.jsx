@@ -29,8 +29,10 @@ export default function Auth(){
   }
 
   return (
-    <div className="notification is-primary">
-      <h1>Todo App</h1>
+    <div className="hero is-primary is-halfheight">
+      <div className='center'>
+        <h1 className='title is-1 is-spaced'>Todo App</h1>
+      </div>
       { !toggle ?
         <>
           <AuthForm 
@@ -39,7 +41,7 @@ export default function Auth(){
             inputs={inputs}
             btnText="Sign up"
           />
-          <p onClick={() => setToggle(prev => !prev)}>Already a member?</p>
+          <p className='subtitle is-4 is-aligned' onClick={() => setToggle(prev => !prev)}>Already a member?</p>
         </>
       :
         <>
@@ -49,7 +51,7 @@ export default function Auth(){
             inputs={inputs}
             btnText="Login"
           />
-          <p onClick={() => setToggle(prev => !prev)}>Not a member?</p>
+          <p className='subtitle is-4 is-aligned' onClick={() => setToggle(prev => !prev)}>Not a member?</p>
         </>
       }
     </div>
