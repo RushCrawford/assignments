@@ -18,6 +18,13 @@ function userReducer (userState, action) {
                 token: action.newToken
             }
         }
+        case 'logout': {
+            return {
+                user: '',
+                token: '',
+                todos: []
+            }
+        }
         default:
             return userState
     }
@@ -26,28 +33,37 @@ function userReducer (userState, action) {
 export default function UserProvider (props) {
     const [ userState, dispatch ] = useReducer(userReducer, initState)
         
-        const signup = async (credentials)=> {
-            try {
-                const res = await axios.post('/auth/signup', credentials)
-                const { user, token } = res.data
-                localStorage.setItem('token', token)
-                localStorage.setItem('user', JSON.stringify(user))
-                dispatch({ type: 'user-data', newToken: token, newUser: user })
-            } catch (err) {
-                console.log(err.response.data.errMsg)
-            }
+    const signup = async (credentials)=> {
+        try {
+            const res = await axios.post('/auth/signup', credentials)
+            const { user, token } = res.data
+            localStorage.setItem('token', token)
+            localStorage.setItem('user', JSON.stringify(user))
+            dispatch({ type: 'user-data', newToken: token, newUser: user })
+        } catch (err) {
+            console.log(err.response.data.errMsg)
+        }
     }
-        const login = async (credentials)=> {
-            try {
-                const res = await axios.post('/auth/login', credentials)
-                const { user, token } = res.data
-                localStorage.setItem('token', token)
-                localStorage.setItem('user', JSON.stringify(user))
-                dispatch({ type: 'user-data', newToken: token, newUser: user })
-            } catch (err) {
-                console.log(err.response.data.errMsg)
-            }
+
+    const login = async (credentials)=> {
+        try {
+            const res = await axios.post('/auth/login', credentials)
+            const { user, token } = res.data
+            localStorage.setItem('token', token)
+            localStorage.setItem('user', JSON.stringify(user))
+            dispatch({ type: 'user-data', newToken: token, newUser: user })
+        } catch (err) {
+            console.log(err.response.data.errMsg)
+        }
     }
+
+    const logout = async ()=> {
+        localStorage.removeItem('token')
+        localStorage.removeItem('user')
+        dispatch({type: 'logout'})
+    }
+
+
 
 
     console.log(userState)
@@ -56,7 +72,8 @@ export default function UserProvider (props) {
             value={{
                 ...userState,
                 signup,
-                login
+                login,
+                logout
             }}
         >
             { props.children }
