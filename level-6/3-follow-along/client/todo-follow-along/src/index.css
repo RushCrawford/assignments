@@ -4,6 +4,13 @@
     align-items: center;
     margin-top: 30px;
 }
+.centered {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 30px;
+}
 
 .is-aligned {
     margin: 30px;
@@ -13,4 +20,17 @@
     height: 300px;
     padding-top: 90px;
     padding-bottom: 90px;
+}
+
+.input {
+    margin: 5px;
+}
+
+.is-shrunk {
+    height: 30%vh;
+    width: 60vw;
+}
+
+.todo {
+    margin: 10px;
 }

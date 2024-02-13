@@ -6,6 +6,7 @@ export default function Navbar(){
   const { logout } = useContext(UserContext)
 
   return (
+    
     <div className="tabs is-left is-medium">
       <ul>
         <li><a className='is-active'>

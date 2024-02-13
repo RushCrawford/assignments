@@ -6,8 +6,9 @@ const initInputs = {
   imgUrl: ""
 }
 
-export default function TodoForm(){
+export default function TodoForm(props){
   const [inputs, setInputs] = useState(initInputs)
+  const { addTodo } = props
 
   function handleChange(e){
     const {name, value} = e.target
@@ -16,34 +17,35 @@ export default function TodoForm(){
       [name]: value
     }))
   }
+  const { title, description,  } = inputs
 
   function handleSubmit(e){
     e.preventDefault()
-    // add todo
+    addTodo(inputs)
+    setInputs(initInputs)
   }
 
-  const { title, description, imgUrl } = inputs
   return (
-    <form onSubmit={handleSubmit}>
-      <input 
-        type="text" 
-        name="title" 
-        value={title} 
-        onChange={handleChange} 
-        placeholder="Title"/>
-      <input 
-        type="text" 
-        name="description" 
-        value={description} 
-        onChange={handleChange} 
-        placeholder="Description"/>
-      <input 
-        type="text" 
-        name="imgUrl" 
-        value={imgUrl} 
-        onChange={handleChange} 
-        placeholder="Image Url"/>
-      <button>Add Todo</button>
-    </form>
+    <div className='box '>
+      <form onSubmit={handleSubmit} className='centered'>
+        <input 
+          type="text" 
+          className="input is-primary"
+          name="title" 
+          value={title} 
+          onChange={handleChange} 
+          placeholder="Title"/>
+        <input 
+          type="text" 
+          className="input is-primary"
+          name="description" 
+          value={description} 
+          onChange={handleChange} 
+          placeholder="Description"/>
+        <div className='buttons'>
+          <button className='button is-success is-light'>Add Todo</button>
+        </div>
+      </form>
+    </div>
   )
 }

@@ -3,6 +3,14 @@ import axios from 'axios'
 
 export const UserContext = createContext()
 
+const userAxios = axios.create()    // creating our own version of axios
+
+userAxios.interceptors.request.use(config => {  // configuring it how we want
+    const token = localStorage.getItem('token') // grab token 
+    config.headers.Authorization = `Bearer ${token}` // add authorization bearer token header
+    return config   // return the configuration object
+})
+
     const initState = { 
         user: JSON.parse(localStorage.getItem('user')) || {}, 
         token: localStorage.getItem('token') || '', 
@@ -11,7 +19,7 @@ export const UserContext = createContext()
 
 function userReducer (userState, action) {
     switch (action.type) {
-        case 'user-data': {
+        case 'received-user-data': {
             return { 
                 ...userState,
                 user: action.newUser,
@@ -23,6 +31,18 @@ function userReducer (userState, action) {
                 user: '',
                 token: '',
                 todos: []
+            }
+        }
+        case 'add-todo': {
+            return {
+                ...userState,
+                todos: action.payload
+            }
+        }
+        case 'get-user-todo': {
+            return {
+                ...userState,
+                todos: action.payload
             }
         }
         default:
@@ -39,7 +59,7 @@ export default function UserProvider (props) {
             const { user, token } = res.data
             localStorage.setItem('token', token)
             localStorage.setItem('user', JSON.stringify(user))
-            dispatch({ type: 'user-data', newToken: token, newUser: user })
+            dispatch({ type: 'received-user-data', newToken: token, newUser: user })
         } catch (err) {
             console.log(err.response.data.errMsg)
         }
@@ -51,7 +71,8 @@ export default function UserProvider (props) {
             const { user, token } = res.data
             localStorage.setItem('token', token)
             localStorage.setItem('user', JSON.stringify(user))
-            dispatch({ type: 'user-data', newToken: token, newUser: user })
+            getUserTodo()
+            dispatch({ type: 'received-user-data', newToken: token, newUser: user })
         } catch (err) {
             console.log(err.response.data.errMsg)
         }
@@ -63,17 +84,32 @@ export default function UserProvider (props) {
         dispatch({type: 'logout'})
     }
 
+    const addTodo = async (newTodo)=> {
+        try {
+            const res = await userAxios.post('/api/todo', newTodo)
+            dispatch({ type: 'add-todo', payload: res.data})
+        } catch (err) {
+            console.log(err.response.data.errMsg)
+        }
+    }
 
+    const getUserTodo = async ()=> {
+        try {
+            const res = await userAxios.get('api/todo/user')
+            dispatch({ type: 'get-user-todo', payload: res.data})
+        } catch (err) {
+            console.log(err.rsponse.data.errMsg)
+        }
+    }
 
-
-    console.log(userState)
     return (
         <UserContext.Provider 
             value={{
-                ...userState,
+                userState,
                 signup,
                 login,
-                logout
+                logout,
+                addTodo,
             }}
         >
             { props.children }

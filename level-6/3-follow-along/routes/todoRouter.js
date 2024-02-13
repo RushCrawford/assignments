@@ -3,10 +3,10 @@ const todoRouter = express.Router()
 const Todo = require('../models/todo')
 
 // GET ALL, POST TO ALL //
-todoRouter.route('/')
+todoRouter.route('/user')
     .get(async (req, res, next) => {
         try {
-            const allTodos = await Todo.find()
+            const allTodos = await Todo.find({ user: req.auth._id })
             return res.status(200).send(allTodos)
         } catch (err) {
             res.status(500)
