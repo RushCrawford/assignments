@@ -86,8 +86,9 @@ export default function UserProvider (props) {
 
     const addTodo = async (newTodo)=> {
         try {
-            const res = await userAxios.post('/api/todo', newTodo)
+            const res = await userAxios.post('/api/todo/user', newTodo)
             dispatch({ type: 'add-todo', payload: res.data})
+            console.log(userState.todos)
         } catch (err) {
             console.log(err.response.data.errMsg)
         }
@@ -101,7 +102,7 @@ export default function UserProvider (props) {
             console.log(err.rsponse.data.errMsg)
         }
     }
-
+console.log(userState)
     return (
         <UserContext.Provider 
             value={{

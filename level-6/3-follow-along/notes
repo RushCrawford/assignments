@@ -1,1 +1,1 @@
-* finish by id routes
+* upon adding todo it breaks because it maps over the empty array too quickly i think

@@ -18,9 +18,12 @@ app.use('/api/todo', require('./routes/todoRouter'))
 
 // DB CONNECTION //
 mongoose.set('strictQuery', true)
-mongoose.connect('mongodb+srv://acrawford0221:hFw0XIYfia1TrYJd@rtvcluster.7on5rv6.mongodb.net/',()=> {
+mongoose.connect('mongodb+srv://acrawford0221:GBXB5BMNpklRyQsk@cluster0.m5clkiw.mongodb.net/?retryWrites=true&w=majority',()=> {
     console.log('Connected to the DB')
 })
+// mongoose.connect('mongodb+srv://acrawford0221:hFw0XIYfia1TrYJd@rtvcluster.7on5rv6.mongodb.net/',()=> {
+//     console.log('Connected to the DB')
+// })
 
 // ERROR HANDLER //
 app.use((err,req,res,next)=> {

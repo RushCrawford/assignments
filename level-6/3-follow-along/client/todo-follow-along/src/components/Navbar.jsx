@@ -9,15 +9,15 @@ export default function Navbar(){
     
     <div className="tabs is-left is-medium">
       <ul>
-        <li><a className='is-active'>
+        <li className='is-active'>
           <Link to="/profile">Profile</Link>
-        </a></li>
-        <li><a className='is-active'>
+        </li>
+        <li className='is-active'>
           <Link to="/public">Public</Link>
-        </a></li>
+        </li>
       </ul>
-      <div class="buttons" onClick={logout}>
-          <a class="button is-light">
+      <div className="buttons" onClick={logout}>
+          <a className="button is-light">
             Log Out
           </a>
         </div>

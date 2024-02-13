@@ -34,3 +34,7 @@
 .todo {
     margin: 10px;
 }
+
+.rounded {
+    border-radius: 7px;
+}
