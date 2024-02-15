@@ -5,11 +5,17 @@ export default function AuthForm(props) {
     handleChange,
     handleSubmit,
     btnText,
+    errMsg,
     inputs: {
       username,
       password
     }
   } = props
+
+  const style = {
+    color: 'red',
+    margin: 5
+  }
 
   return (
     <form className='box is-aligned is-taller ' onSubmit={handleSubmit}>
@@ -53,6 +59,7 @@ export default function AuthForm(props) {
             {btnText}
           </button>
         </p>
+        <p className='auth-err-msg'>{errMsg}</p>
       </div>
     </form>
   )

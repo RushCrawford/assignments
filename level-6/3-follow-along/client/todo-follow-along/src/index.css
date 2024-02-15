@@ -38,3 +38,8 @@
 .rounded {
     border-radius: 7px;
 }
+
+.auth-err-msg {
+    color: red;
+    margin: 5px
+}

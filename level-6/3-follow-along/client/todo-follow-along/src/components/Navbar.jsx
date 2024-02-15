@@ -17,9 +17,9 @@ export default function Navbar(){
         </li>
       </ul>
       <div className="buttons" onClick={logout}>
-          <a className="button is-light">
+          <button className="button is-primary">
             Log Out
-          </a>
+          </button>
         </div>
     </div>
   )

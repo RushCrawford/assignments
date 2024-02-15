@@ -14,7 +14,8 @@ userAxios.interceptors.request.use(config => {  // configuring it how we want
     const initState = { 
         user: JSON.parse(localStorage.getItem('user')) || {}, 
         token: localStorage.getItem('token') || '', 
-        todos: [] 
+        todos: [],
+        errMsg: ''
     }
 
 function userReducer (userState, action) {
@@ -45,6 +46,12 @@ function userReducer (userState, action) {
                 todos: action.payload
             }
         }
+        case 'show-err-msg': {
+            return {
+                ...userState,
+                errMsg: action.payload
+            }
+        }
         default:
             return userState
     }
@@ -61,7 +68,7 @@ export default function UserProvider (props) {
             localStorage.setItem('user', JSON.stringify(user))
             dispatch({ type: 'received-user-data', newToken: token, newUser: user })
         } catch (err) {
-            console.log(err.response.data.errMsg)
+            handleAuthErr(err.response.data.errMsg)
         }
     }
 
@@ -74,7 +81,7 @@ export default function UserProvider (props) {
             getUserTodo()
             dispatch({ type: 'received-user-data', newToken: token, newUser: user })
         } catch (err) {
-            console.log(err.response.data.errMsg)
+            handleAuthErr(err.response.data.errMsg)
         }
     }
 
@@ -102,6 +109,11 @@ export default function UserProvider (props) {
             console.log(err.rsponse.data.errMsg)
         }
     }
+
+    const handleAuthErr = (errMsg)=> {
+        dispatch({ type: 'show-err-msg', payload: errMsg})
+
+    }
 console.log(userState)
     return (
         <UserContext.Provider 
@@ -111,6 +123,7 @@ console.log(userState)
                 login,
                 logout,
                 addTodo,
+                
             }}
         >
             { props.children }

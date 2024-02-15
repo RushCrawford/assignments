@@ -8,7 +8,7 @@ export default function Auth(){
   const [inputs, setInputs] = useState(initInputs)
   const [toggle, setToggle] = useState(false)
 
-  const { signup, login } = useContext(UserContext)
+  const { signup, login, userState: {errMsg} } = useContext(UserContext)
 
   function handleChange(e){
     const {name, value} = e.target
@@ -29,7 +29,7 @@ export default function Auth(){
   }
 
   return (
-    <div className="hero is-primary is-fullheight center">
+    <div className="hero is-primary is-halfheight center">
       <div >
         <h1 className='title is-1 is-spaced'>Todo App</h1>
       </div>
@@ -40,6 +40,7 @@ export default function Auth(){
             handleSubmit={handleSignup}
             inputs={inputs}
             btnText="Sign up"
+            errMsg={errMsg}
           />
           <p className='subtitle is-4 is-aligned' onClick={() => setToggle(prev => !prev)}>Already a member?</p>
         </div>
@@ -50,6 +51,7 @@ export default function Auth(){
             handleSubmit={handleLogin}
             inputs={inputs}
             btnText="Login"
+            errMsg={errMsg}
           />
           <p className='subtitle is-4 is-aligned' onClick={() => setToggle(prev => !prev)}>Not a member?</p>
         </>

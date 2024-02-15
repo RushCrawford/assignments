@@ -4,13 +4,14 @@ import Navbar from './components/Navbar.jsx'
 import Auth from './components/Auth.jsx'
 import Profile from './components/Profile.jsx'
 import Public from './components/Public.jsx'
+import ProtectedRoute from './components/ProtectedRoute.jsx'
 import { UserContext } from './context/UserProvider.jsx'
 
 export default function App(){
   const { userState: {token} } = useContext(UserContext)
   return (
-    <div className="app">
-      <Navbar />
+    <div className="hero is-primary">
+      { token && <Navbar /> }
       <Routes>
         <Route 
           path="/" 
@@ -18,7 +19,9 @@ export default function App(){
         />
         <Route 
           path="/profile"
-          element={<Profile />}
+          element={<ProtectedRoute token={token}>
+            <Profile />
+          </ProtectedRoute>}
         />
         <Route 
           path="/public"
