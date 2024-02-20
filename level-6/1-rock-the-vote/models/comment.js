@@ -10,7 +10,6 @@ const commentSchema = new Schema({
         type: Date,
         default: Date.now
     },
-    vote: Boolean,
     user: {
         type: Schema.Types.ObjectId,
         ref: "User",
