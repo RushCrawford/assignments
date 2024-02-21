@@ -1,4 +1,2 @@
-* auth and post routers complete
-* working on comment router and getting this error 
-        * "errMsg": "Comment validation failed: user: Path `user` is required."
-        * tried changing the route to api/post/comment/postId, getting same error
+* working on signup from frondend 
+        * getting error 404, signup route not hitting backend

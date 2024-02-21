@@ -1,19 +1,18 @@
-import React from 'react'
+function AuthForm (props) {
+    const {
+        handleChange,
+        handleSubmit,
+        btnText,
+        errMsg,
+        inputs: {
+          username,
+          password
+        }
+      } = props
 
-export default function AuthForm(props) {
-  const {
-    handleChange,
-    handleSubmit,
-    btnText,
-    errMsg,
-    inputs: {
-      username,
-      password
-    }
-  } = props
 
-  return (
-    <form className='box is-aligned is-taller ' onSubmit={handleSubmit}>
+    return (
+        <form className='box is-aligned is-taller ' onSubmit={handleSubmit}>
       <div className="field">
         <p className="control has-icons-left has-icons-right">
           <input
@@ -57,5 +56,7 @@ export default function AuthForm(props) {
         <p className='auth-err-msg'>{errMsg}</p>
       </div>
     </form>
-  )
+    )
 }
+
+export default AuthForm
