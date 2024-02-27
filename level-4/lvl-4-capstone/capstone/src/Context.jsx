@@ -13,12 +13,13 @@ function ContextProvider (props) {
         try {
             const res = await axios.get(`https://api.coincap.io/v2/assets`)      
             setListOfCoins(res.data.data) 
-       } catch(err) {console.log('err', err)}
-       }
-
-       async function getCoin (e) {
+        } catch(err) {console.log('err', err)}
+    }
+    
+    async function getCoin (e) {
         try {
             const res = await axios.get(`https://api.coincap.io/v2/assets/${e}`)
+            console.log(res.data.data)
             setSpecificCoin(res.data.data)
        } catch(err) {console.log('err', err)}
        }
