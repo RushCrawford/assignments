@@ -13,16 +13,16 @@ app.use(express.json());
 app.use(morgan('dev'));
 
 // ROUTES //
-// app.use('/auth', require('./routes/authRouter'))
+app.use('/auth', require('./routes/authRouter'))
 // app.use('/api', expressjwt({ secret: SECRET, algorithms: ['HS256'] }))
 // app.use('/api/issue', require('./routes/issueRouter'))
 // app.use('/api/comment', require('./routes/commentRouter'))
 
 // DB CONNECTION //
-// mongoose.set('strictQuery', true);
-// mongoose.connect(`mongodb+srv://acrawford0221:${PASSWORD}@cluster1.daj8kql.mongodb.net/`, ()=> {
-//     console.log('Connected to the DB')
-// })
+mongoose.set('strictQuery', true);
+mongoose.connect(URI, ()=> {
+    console.log('Connected to the DB')
+})
 
 // ERROR HANDLER //
 app.use((err,req,res,next)=> {
