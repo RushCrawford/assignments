@@ -3,7 +3,7 @@ const Schema = mongoose.Schema
 
 const watchlistSchema = new Schema({
     coin: {
-        type: Object,
+        type: String,
         required: true
     },
     datePosted: {

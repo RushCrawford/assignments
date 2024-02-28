@@ -14,7 +14,7 @@ function Home() {
                 </p>
             </div>
             <button className='home--button'><Link to='/coin-list' className='link'>
-                View Coins
+                Enter
             </Link></button>
         </div>
     )

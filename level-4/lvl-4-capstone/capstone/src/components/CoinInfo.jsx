@@ -3,7 +3,7 @@ import { useContext } from "react"
 import { Link } from 'react-router-dom'
 
 function CoinInfo() {
-    const { specificCoin, back } = useContext(Context)
+    const { userState: {errMsg},specificCoin, back, addToWatchlist } = useContext(Context)
     const coin = specificCoin
 
     const priceUsd = Number.parseFloat(coin.priceUsd);
@@ -21,6 +21,8 @@ function CoinInfo() {
     const volumeUsd24Hr = Number.parseFloat(coin.volumeUsd24Hr);
     const volume = volumeUsd24Hr.toFixed(2)
 
+    
+
     return (
         <div className='coin-info-wrapper'>
             <Link to='/coin-list' onClick={back}>
@@ -29,7 +31,9 @@ function CoinInfo() {
             <div className='coin-info--h1-wrapper'>
                 <h1>{`#${coin.rank}`}</h1>
                 <h1>{coin.symbol}</h1>
+                <button onClick={()=>{addToWatchlist(coin.id)}} >Watch</button>
             </div>
+                <p>{errMsg}</p>
             <div className='coin-info--name-wrapper'>
                 <h1>{coin.name}</h1>
                 <h2>Price USD: ${price}</h2>
@@ -45,7 +49,7 @@ function CoinInfo() {
                 </div>
                 <div className='coin-info--h3-div'>
                     <h5 className='coin-info-h3'>Market Cap in USD:</h5>
-                    <h3 className='coin-info-h3'>{marketCap}</h3>
+                    <h3 className='coin-info-h3'>${marketCap}</h3>
                 </div>
                 <div className='coin-info--h3-div'>
                     <h5 className='coin-info-h3'>Trading Volume Last 24hrs:</h5>
@@ -53,7 +57,7 @@ function CoinInfo() {
                 </div>
                 <div className='coin-info--h3-div'>
                     <h5 className='coin-info-h3'>Change Percent Last 24hrs</h5>
-                    <h3 className='coin-info-h3'>{changePercent}</h3>
+                    <h3 className='coin-info-h3'>{changePercent}%</h3>
                 </div>
                 <div className='coin-info--h3-div'>
                     <h5 className='coin-info-h3'>Volume Weighted Average Price Last 24hrs:</h5>

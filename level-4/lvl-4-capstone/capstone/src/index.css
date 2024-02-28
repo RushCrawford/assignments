@@ -13,6 +13,80 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
+/* MY STYLE  */
+/* Styles for the navbar itself */
+.navbar {
+  display: flex; /* Allow horizontal layout of elements */
+  justify-content: space-between; /* Space elements evenly between */
+  align-items: center; /* Align elements vertically */
+  padding: 1rem 2rem; /* Add some padding around content */
+  background-color: #242424; /* Set background color */
+  /* Add box shadow for optional depth effect */
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+/* Styles for the logo */
+.logo {
+  font-size: 1.5rem; /* Adjust font size as desired */
+  font-weight: bold; /* Make logo text bold */
+  color: #333; /* Set logo text color */
+}
+
+/* Styles for the navigation links */
+.nav-links {
+  /* display: flex;
+  flex-direction: column; */
+  list-style: none; /* Remove default bullet points */
+  padding: 0; /* Remove default padding */
+  margin: 0; /* Remove default margin */
+  display: flex; /* Arrange links horizontally */
+}
+
+.nav-links li {
+  margin-right: 1rem; /* Add space between links */
+}
+
+.nav-links a {
+  color: #333; /* Set link text color */
+  text-decoration: none; /* Remove underline decoration */
+  font-size: 1rem; /* Adjust link font size as needed */
+  transition: color 0.3s ease-in-out; /* Add optional hover effect */
+}
+
+.nav-links a:hover {
+  color: #007bff; /* Change link color on hover */
+}
+.hamburger {
+  display: block; /* Ensure visibility regardless of parent element */
+  width: 30px; /* Adjust width as needed */
+  height: 30px; /* Adjust height as needed */
+  position: relative; /* Allow relative positioning for bars */
+  cursor: pointer; /* Indicate interactive element */
+  background-color: cadetblue;
+}
+
+.bar {
+  display: block; /* Ensure bars are visible */
+  width: 100%; /* Span full width of the button */
+  height: 2px; /* Adjust bar thickness as needed */
+  background-color: cadetblue; /* Change color as desired */
+  margin-bottom: 5px; /* Add spacing between bars */
+  transition: all 0.3s ease-in-out; /* Add optional transition effect */
+}
+
+.hamburger.open .bar:nth-child(1) { /* Style first bar on open */
+  transform: translate(0, 10px) rotate(-45deg);
+}
+
+.hamburger.open .bar:nth-child(2) { /* Style second bar on open */
+  opacity: 0; /* Hide second bar */
+}
+
+.hamburger.open .bar:nth-child(3) { /* Style third bar on open */
+  transform: translate(0, -10px) rotate(45deg);
+}
+
+
 a {
   font-weight: 500;
   color: #646cff;
