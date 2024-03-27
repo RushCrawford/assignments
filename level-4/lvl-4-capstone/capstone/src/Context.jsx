@@ -10,27 +10,27 @@ userAxios.interceptors.request.use(config => { // configuring userAxios for our 
     return config // returns the new object including the Authorization and token
 })
 
-const initState = { // creating initial state object
+const initUserState = { // creating initial state object
     user: JSON.parse(localStorage.getItem('user')) || {}, // set user to whats in localStorage or an empty object
     token: localStorage.getItem('token') || '', // set token to whats in localStorage or an empty string
-    watching: [],
+    watching: JSON.parse(localStorage.getItem('watching')) || [],
     errMsg: ''
 }
 
 function ContextProvider (props) {
-    const [userState, setUserState] = useState(initState)
+    const [userState, setUserState] = useState(initUserState)
     const [listOfCoins, setListOfCoins] = useState([])
     const [specificCoin, setSpecificCoin] = useState([])
     const [toggle, setToggle] = useState(false)
 
+    const { watching } = userState
+
 
 // USER AUTH FUNCTIONS //
     const register = async (credentials) => { // pass in user data as credentials
-        console.log(credentials)
         try {
             const res = await axios.post('/api/auth/register', credentials)
             const { user, token } = res.data // pull user and token out of res.data
-            console.log(user, token)
             localStorage.setItem('token', token) // store token in localStorage
             localStorage.setItem('user', JSON.stringify(user)) // store user data in localStorage
             setUserState(prevState => ({
@@ -39,7 +39,7 @@ function ContextProvider (props) {
                 token
             })) // Update state with user data
         } catch (err) {
-            handleAuthErr(err.response.data.errMsg) // shows error message 'username already taken'
+            errHandler(err.response.data.errMsg) // shows error message 'username already taken'
         }
     }
 
@@ -56,13 +56,15 @@ function ContextProvider (props) {
             })) // Update state with user data
             getWatched()
         } catch (err) {
-            handleAuthErr(err.response.data.errMsg)
+            errHandler(err.response.data.errMsg)
         }
     }
 
     const logout = () => {
         localStorage.removeItem('token')
         localStorage.removeItem('user')
+        localStorage.removeItem('watching')
+        localStorage.removeItem('list-of-coins')
         setUserState({user: '', token: '', watching: [], errMsg: ''})
     }
 
@@ -71,10 +73,12 @@ function ContextProvider (props) {
         try {
             const res = await axios.get(`https://api.coincap.io/v2/assets`)      
             setListOfCoins(res.data.data) 
+            localStorage.setItem('list-of-coins', JSON.stringify(res.data.data))
         } catch(err) {console.log('err', err)}
     }
     
     const getCoin = async (e)=> {
+        console.log(e)
         try {
             const res = await axios.get(`https://api.coincap.io/v2/assets/${e}`)
             setSpecificCoin(res.data.data)
@@ -83,6 +87,7 @@ function ContextProvider (props) {
 
 // REQUESTS TO WATCHLIST ENDPOINT //
     const addToWatchlist = async (coin)=> {
+        console.log(coin)
         try {
             const res = await userAxios.post('api/api/watchlist', {coin})
             // add star or something to coin tile to indicate being watched
@@ -96,9 +101,22 @@ function ContextProvider (props) {
                 ...prevState,
                 watching: [...res.data]
             }))
-            console.log(res.data)
+            localStorage.setItem('watching', JSON.stringify(res.data))
         } catch (err) {
             console.log('getWatched function', err)
+        }
+    }
+
+    const removeFromWatchlist = async (coinId)=> {
+        console.log(coinId)
+        try {
+            const res = await userAxios.delete(`api/api/watchlist/${coinId}`)
+            setUserState(prevState => ({
+                ...prevState,
+                watching: prevState.watching.filter(watch => watch.coin !== coinId)
+            }))
+        } catch (err) {
+            errHandler(err.response.data.message)
         }
     }
 
@@ -111,6 +129,10 @@ function ContextProvider (props) {
 
     const back = ()=> {
         setToggle(false)
+        setUserState(prevState => ({
+            ...prevState,
+            errMsg: ''
+        }))
     }
 
 // ERROR HANDLER //
@@ -138,7 +160,8 @@ function ContextProvider (props) {
             login,
             logout,
             addToWatchlist,
-            getWatched
+            getWatched,
+            removeFromWatchlist
         }}>
             {props.children}
         </Context.Provider>

@@ -55,6 +55,7 @@ watchlistRouter.route('/:coinId')
     .delete(async (req,res,next)=> {
         try {
             const coinId = req.params.coinId // pull id out of req
+            console.log(coinId)
             const deletedCoin = await Watchlist.findByIdAndDelete(coinId) // queries db for coin with matching id and deletes it
             return res.status(200).send(`Successfully deleted "${deletedCoin.coin.name}"`)
         } catch (err) {

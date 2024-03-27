@@ -1,6 +1,6 @@
 import { useContext } from 'react';
 import { useState } from 'react';
-import { Link, useNavigate } from 'react-router-dom'; // Import Link for navigation
+import { useNavigate } from 'react-router-dom'; // Import Link for navigation
 import { Context } from '../Context';
 
 const Navbar = () => {
@@ -18,12 +18,19 @@ const Navbar = () => {
   const handleWatching = ()=> {
     getWatched()
     navigate('/watching')
+    setIsOpen(prev => !prev)
+}
+
+const handleCoinList = ()=> {
+    navigate('/coin-list')
+    setIsOpen(prev => !prev)
   }
 
   return (
     <nav className='navbar'>
         <button onClick={toggleMenu}>Menu</button>
       {isOpen && <ul className="nav-links">
+        <li><button onClick={handleCoinList}>All Coins</button></li>
         <li><button onClick={handleWatching}>Watching</button></li>
         <li><button onClick={handleLogout}>Logout</button></li>
       </ul>}

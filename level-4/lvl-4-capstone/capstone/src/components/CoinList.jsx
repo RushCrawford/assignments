@@ -1,5 +1,4 @@
 import { useContext, useEffect } from "react";
-import { Link } from 'react-router-dom'
 import { Context } from "../Context";
 import CoinInfo from "./CoinInfo";
 
@@ -38,9 +37,7 @@ function CoinList() {
         {toggle ? <CoinInfo /> : 
         
         <div className="coin-list-page">
-            <Link to='/' onClick={onHome}>
-                home
-            </Link>{allCoins}
+            {allCoins}
           </div>}            
         </>
     )
