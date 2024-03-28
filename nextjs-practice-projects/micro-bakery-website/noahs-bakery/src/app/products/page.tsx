@@ -10,11 +10,7 @@ import pretzels from '/public/pretzels.jpeg'
 import rolls from '/public/rolls.jpeg'
 
 export default function Products() {
-  // const breadImg: StaticImageData = {
-  //   src: '/public/bread.jpeg',
-  //   height: '100px',
-  //   // ... other StaticImageData properties if needed
-  // };
+ 
   const list = [
     {
       title: "Artisan Loaf",
@@ -58,9 +54,8 @@ export default function Products() {
     },
   ];
 
-
   const productCard = list.map((item, index) => (
-    <div key={index} className="gap-2 grid grid-cols-2 sm:grid-cols-4">
+    <div key={index} >
       <Card shadow="sm" >
           <CardBody className="overflow-visible p-1">
             <Image
@@ -80,11 +75,13 @@ export default function Products() {
     </div>
   ))
     return (
-      <div className="container flex flex-col ">
-        <h1 className='font-bold text-3xl'>
+      <div >
+        <h1 className='font-bold text-3xl p-4'>
           Products
         </h1>
-         {productCard}
+        <div className="gap-2 grid grid-cols-2 sm:grid-cols-4">
+          {productCard}
+        </div>
       </div>
     );
   }
